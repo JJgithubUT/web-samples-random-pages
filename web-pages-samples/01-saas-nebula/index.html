@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nebula — Analítica de producto en tiempo real</title>
+<meta name="description" content="Nebula convierte los eventos de tu producto en decisiones. Embudos, cohortes y sesiones sin escribir SQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="glow glow--a" aria-hidden="true"></div>
+<div class="glow glow--b" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#" class="brand">
+      <span class="brand__mark" aria-hidden="true"></span>
+      Nebula
+    </a>
+
+    <nav class="nav__links" id="menu">
+      <a href="#producto">Producto</a>
+      <a href="#metricas">Métricas</a>
+      <a href="#precios">Precios</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a href="#" class="btn btn--ghost">Entrar</a>
+      <a href="#precios" class="btn btn--primary">Probar gratis</a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="pill reveal">
+        <span class="pill__dot"></span> Nuevo · Replays de sesión con resumen automático
+      </p>
+
+      <h1 class="hero__title reveal" data-delay="1">
+        Deja de adivinar<br>
+        por qué se van <em>tus usuarios</em>
+      </h1>
+
+      <p class="hero__sub reveal" data-delay="2">
+        Nebula conecta cada evento de tu producto con ingresos reales.
+        Embudos, cohortes y retención en segundos — sin tocar una línea de SQL.
+      </p>
+
+      <div class="hero__actions reveal" data-delay="3">
+        <a href="#precios" class="btn btn--primary btn--lg">Empezar gratis</a>
+        <a href="#producto" class="btn btn--ghost btn--lg">Ver demo <span aria-hidden="true">→</span></a>
+      </div>
+
+      <p class="hero__note reveal" data-delay="4">Sin tarjeta · 14 días de plan Pro · Cancelas cuando quieras</p>
+
+      <div class="dash reveal" data-delay="5">
+        <div class="dash__bar">
+          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+          <span class="dash__url">app.nebula.io / overview</span>
+        </div>
+
+        <div class="dash__body">
+          <aside class="dash__side">
+            <span class="side__item is-on">Overview</span>
+            <span class="side__item">Embudos</span>
+            <span class="side__item">Cohortes</span>
+            <span class="side__item">Sesiones</span>
+            <span class="side__item">Alertas</span>
+          </aside>
+
+          <div class="dash__main">
+            <div class="kpis">
+              <div class="kpi">
+                <span class="kpi__label">Usuarios activos</span>
+                <strong class="kpi__value" data-count="48291">0</strong>
+                <span class="kpi__delta up">▲ 12,4%</span>
+              </div>
+              <div class="kpi">
+                <span class="kpi__label">Retención D30</span>
+                <strong class="kpi__value" data-count="61" data-suffix="%">0</strong>
+                <span class="kpi__delta up">▲ 3,1%</span>
+              </div>
+              <div class="kpi">
+                <span class="kpi__label">Churn mensual</span>
+                <strong class="kpi__value" data-count="2" data-decimals="1" data-suffix="%">0</strong>
+                <span class="kpi__delta down">▼ 0,6%</span>
+              </div>
+            </div>
+
+            <div class="chart">
+              <div class="chart__head">
+                <span>Eventos por día</span>
+                <span class="chart__legend"><i></i> Activación <i class="alt"></i> Conversión</span>
+              </div>
+              <div class="chart__bars" id="chartBars"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <section class="logos">
+    <div class="wrap">
+      <p class="logos__label">Equipos de producto que ya lo usan</p>
+      <div class="logos__row">
+        <span>Cartograph</span><span>Vela</span><span>Northwind</span>
+        <span>Pilar</span><span>Órbita</span><span>Ferrum</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="producto">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">Producto</span>
+        <h2>Todo el contexto en una sola pantalla</h2>
+        <p>Deja de saltar entre cinco herramientas para responder una pregunta simple.</p>
+      </header>
+
+      <div class="grid grid--3">
+        <article class="card reveal">
+          <div class="card__icon">◈</div>
+          <h3>Embudos vivos</h3>
+          <p>Define un embudo una vez y míralo actualizarse en tiempo real. Detecta el paso exacto donde se cae la gente.</p>
+        </article>
+
+        <article class="card reveal" data-delay="1">
+          <div class="card__icon">◑</div>
+          <h3>Cohortes automáticas</h3>
+          <p>Nebula agrupa usuarios por comportamiento sin que definas reglas. Descubre segmentos que no sabías que existían.</p>
+        </article>
+
+        <article class="card reveal" data-delay="2">
+          <div class="card__icon">⬡</div>
+          <h3>Replays con resumen</h3>
+          <p>Cada sesión grabada trae un resumen en texto. Lee 40 sesiones en 3 minutos en vez de 3 horas.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">◐</div>
+          <h3>Alertas por anomalía</h3>
+          <p>Te avisamos en Slack cuando una métrica se sale de su rango normal — antes de que lo note tu jefe.</p>
+        </article>
+
+        <article class="card reveal" data-delay="1">
+          <div class="card__icon">⬢</div>
+          <h3>SDK de 4 KB</h3>
+          <p>Una etiqueta de script y listo. Sin bloquear el render, sin romper tu Lighthouse.</p>
+        </article>
+
+        <article class="card reveal" data-delay="2">
+          <div class="card__icon">◆</div>
+          <h3>Datos que son tuyos</h3>
+          <p>Exporta a S3 o BigQuery cuando quieras. Sin lock-in, sin peajes por sacar tu propia información.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section stats" id="metricas">
+    <div class="wrap">
+      <div class="stats__grid">
+        <div class="stat reveal">
+          <strong data-count="2400" data-suffix="M+">0</strong>
+          <span>eventos procesados al mes</span>
+        </div>
+        <div class="stat reveal" data-delay="1">
+          <strong data-count="180" data-suffix="ms">0</strong>
+          <span>latencia media de consulta</span>
+        </div>
+        <div class="stat reveal" data-delay="2">
+          <strong data-count="99" data-decimals="2" data-suffix="%">0</strong>
+          <span>uptime en los últimos 12 meses</span>
+        </div>
+        <div class="stat reveal" data-delay="3">
+          <strong data-count="1200" data-suffix="+">0</strong>
+          <span>equipos de producto activos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section">
+    <div class="wrap">
+      <figure class="quote reveal">
+        <blockquote>
+          Migramos desde una suite que costaba seis veces más. En la primera semana
+          encontramos un paso roto en el onboarding que llevaba ocho meses ahí.
+          Recuperamos la inversión del año antes del segundo sprint.
+        </blockquote>
+        <figcaption>
+          <span class="avatar" aria-hidden="true">MR</span>
+          <span>
+            <strong>Marina Ruiz</strong>
+            <small>VP de Producto · Cartograph</small>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="precios">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">Precios</span>
+        <h2>Precio simple, sin sorpresas</h2>
+        <p>Cambia de plan o cancela cuando quieras. Sin contratos anuales forzados.</p>
+      </header>
+
+      <div class="toggle reveal" role="group" aria-label="Periodicidad de pago">
+        <button class="toggle__btn is-on" data-period="mes" aria-pressed="true">Mensual</button>
+        <button class="toggle__btn" data-period="anual" aria-pressed="false">Anual <span class="save">−20%</span></button>
+      </div>
+
+      <div class="grid grid--3 plans">
+        <article class="plan reveal">
+          <h3>Starter</h3>
+          <p class="plan__desc">Para validar una idea sin gastar de más.</p>
+          <p class="plan__price"><span class="cur">€</span><span class="num" data-mes="0" data-anual="0">0</span><small>/mes</small></p>
+          <a href="#" class="btn btn--ghost btn--full">Crear cuenta</a>
+          <ul class="plan__list">
+            <li>50.000 eventos / mes</li>
+            <li>3 asientos de equipo</li>
+            <li>Embudos y retención</li>
+            <li>Retención de datos: 30 días</li>
+          </ul>
+        </article>
+
+        <article class="plan plan--hot reveal" data-delay="1">
+          <span class="plan__tag">Más elegido</span>
+          <h3>Pro</h3>
+          <p class="plan__desc">Para equipos que ya envían de verdad.</p>
+          <p class="plan__price"><span class="cur">€</span><span class="num" data-mes="49" data-anual="39">49</span><small>/mes</small></p>
+          <a href="#" class="btn btn--primary btn--full">Probar 14 días</a>
+          <ul class="plan__list">
+            <li>2M eventos / mes</li>
+            <li>Asientos ilimitados</li>
+            <li>Replays de sesión con resumen</li>
+            <li>Alertas por anomalía en Slack</li>
+            <li>Retención de datos: 24 meses</li>
+          </ul>
+        </article>
+
+        <article class="plan reveal" data-delay="2">
+          <h3>Escala</h3>
+          <p class="plan__desc">Volumen alto y requisitos de cumplimiento.</p>
+          <p class="plan__price"><span class="cur">€</span><span class="num" data-mes="199" data-anual="159">199</span><small>/mes</small></p>
+          <a href="#" class="btn btn--ghost btn--full">Hablar con ventas</a>
+          <ul class="plan__list">
+            <li>Eventos ilimitados</li>
+            <li>SSO / SAML y auditoría</li>
+            <li>Export a S3 y BigQuery</li>
+            <li>Residencia de datos en la UE</li>
+            <li>Soporte con SLA de 4 h</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap wrap--narrow">
+      <header class="sec-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Preguntas frecuentes</h2>
+      </header>
+
+      <div class="faq">
+        <div class="faq__item reveal">
+          <button class="faq__q" aria-expanded="false">
+            ¿Cuánto tarda la instalación?
+            <span class="faq__ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a"><p>Entre 5 y 10 minutos. Pegas un script en tu <code>&lt;head&gt;</code> y empiezas a ver eventos al momento. Si usas React, Vue o Svelte hay paquete oficial en npm.</p></div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__q" aria-expanded="false">
+            ¿Qué pasa si me paso de eventos?
+            <span class="faq__ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a"><p>Nada se corta. Te avisamos al 80% y al 100% de tu cuota, y el exceso se factura a 0,20 € por cada 10.000 eventos. Nunca perdemos datos por un pico de tráfico.</p></div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__q" aria-expanded="false">
+            ¿Cumple con el RGPD?
+            <span class="faq__ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a"><p>Sí. Los datos se procesan en Fráncfort, firmamos DPA sin coste extra y puedes activar anonimización de IP y borrado por usuario desde el panel.</p></div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__q" aria-expanded="false">
+            ¿Puedo migrar mi histórico?
+            <span class="faq__ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a"><p>Sí. Importamos desde CSV, S3 o directamente vía API. En planes Pro y Escala lo hacemos nosotros sin coste durante el onboarding.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap cta__inner reveal">
+      <h2>Tus datos ya te están hablando</h2>
+      <p>Conecta Nebula hoy y ten tu primer embudo funcionando antes de comer.</p>
+      <form class="cta__form" id="ctaForm" novalidate>
+        <label class="sr-only" for="email">Tu correo de trabajo</label>
+        <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
+        <button type="submit" class="btn btn--primary">Empezar gratis</button>
+      </form>
+      <p class="cta__msg" id="ctaMsg" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="foot__brand">
+      <a href="#" class="brand"><span class="brand__mark" aria-hidden="true"></span> Nebula</a>
+      <p>Analítica de producto para equipos que envían rápido.</p>
+    </div>
+    <nav class="foot__cols">
+      <div><h4>Producto</h4><a href="#">Embudos</a><a href="#">Cohortes</a><a href="#">Replays</a><a href="#">Alertas</a></div>
+      <div><h4>Recursos</h4><a href="#">Docs</a><a href="#">Changelog</a><a href="#">Estado</a><a href="#">Blog</a></div>
+      <div><h4>Empresa</h4><a href="#">Sobre nosotros</a><a href="#">Empleo</a><a href="#">Privacidad</a><a href="#">Contacto</a></div>
+    </nav>
+  </div>
+  <div class="wrap foot__bottom">
+    <small>© 2026 Nebula Analytics S.L. — Ejemplo de demostración.</small>
+    <small>Hecho con HTML, CSS y JS. Nada más.</small>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
