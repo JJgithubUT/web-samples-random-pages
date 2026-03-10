@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rueda Norte — Tostaduría de café de especialidad</title>
+<meta name="description" content="Tostamos en pequeños lotes cada martes. Café de origen, molido al momento y enviado a tu casa en menos de 48 horas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Barra de aviso -->
+<div class="ticker">
+  <div class="ticker__track">
+    <span>Tostado cada martes · Envío gratis desde 30 € · Suscripción con 15% de descuento · Grano de temporada de Huila</span>
+    <span aria-hidden="true">Tostado cada martes · Envío gratis desde 30 € · Suscripción con 15% de descuento · Grano de temporada de Huila</span>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#" class="brand">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M20 4 C 10 14, 10 26, 20 36 C 30 26, 30 14, 20 4 Z" fill="currentColor" opacity=".18"/>
+        <path d="M20 5 C 20 15, 20 25, 20 35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Rueda&nbsp;Norte</span>
+    </a>
+
+    <nav class="nav__links" id="menu">
+      <a href="#metodo">Método</a>
+      <a href="#cafes">Cafés</a>
+      <a href="#carta">Carta</a>
+      <a href="#local">Visítanos</a>
+    </nav>
+
+    <a href="#suscripcion" class="btn btn--solid nav__btn">Suscribirme</a>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="kicker reveal">Tostaduría · Barrio de Gracia, Barcelona · desde 2016</p>
+
+        <h1 class="reveal" data-delay="1">
+          Café que sabe<br>
+          a <span class="ink">algún sitio</span>
+        </h1>
+
+        <p class="lead reveal" data-delay="2">
+          Compramos directo a doce fincas, tostamos en lotes de 12 kg cada martes
+          y lo mandamos el mismo día. Nunca vas a beber un grano nuestro con más
+          de tres semanas encima.
+        </p>
+
+        <div class="hero__cta reveal" data-delay="3">
+          <a href="#cafes" class="btn btn--solid btn--lg">Ver los cafés</a>
+          <a href="#metodo" class="btn btn--line btn--lg">Cómo lo hacemos</a>
+        </div>
+
+        <dl class="hero__facts reveal" data-delay="4">
+          <div><dt>12</dt><dd>fincas socias</dd></div>
+          <div><dt>48 h</dt><dd>del tueste a tu puerta</dd></div>
+          <div><dt>86+</dt><dd>puntuación SCA mínima</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero__art reveal" data-delay="2">
+        <div class="cup" aria-hidden="true">
+          <div class="cup__steam"><i></i><i></i><i></i></div>
+          <div class="cup__body">
+            <div class="cup__brew"></div>
+          </div>
+          <div class="cup__handle"></div>
+          <div class="cup__saucer"></div>
+        </div>
+        <p class="hero__art-label">Filtrado V60 · 1:16 · 93&nbsp;°C</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="section band" id="metodo">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">El método</span>
+        <h2>Cuatro pasos, sin atajos</h2>
+      </header>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__num">01</span>
+          <h3>Compra directa</h3>
+          <p>Viajamos dos veces al año. Pagamos entre un 40% y un 70% por encima del precio de bolsa, y lo publicamos finca por finca.</p>
+        </li>
+        <li class="step reveal" data-delay="1">
+          <span class="step__num">02</span>
+          <h3>Cata a ciegas</h3>
+          <p>Cada lote pasa por mesa de cata con cinco personas del equipo. Si no llega a 86 puntos, no entra al catálogo.</p>
+        </li>
+        <li class="step reveal" data-delay="2">
+          <span class="step__num">03</span>
+          <h3>Tueste del martes</h3>
+          <p>Perfil propio por origen en un tostador de tambor de 12 kg. Registramos cada curva y la enviamos con el paquete.</p>
+        </li>
+        <li class="step reveal" data-delay="3">
+          <span class="step__num">04</span>
+          <h3>Envío el mismo día</h3>
+          <p>Empaquetamos por la tarde con válvula desgasificadora. El miércoles ya está de camino a tu cocina.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CAFÉS -->
+  <section class="section" id="cafes">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">Catálogo</span>
+        <h2>Los cafés de esta temporada</h2>
+        <p>Rotamos el catálogo cada cosecha. Estos son los cuatro que hay ahora mismo en la estantería.</p>
+      </header>
+
+      <div class="beans">
+        <article class="bean reveal">
+          <div class="bean__top" data-tone="a">
+            <span class="bean__origin">Colombia</span>
+            <span class="bean__roast">Tueste claro</span>
+          </div>
+          <div class="bean__body">
+            <h3>Finca La Cabaña</h3>
+            <p class="bean__notes">Mandarina · panela · jazmín</p>
+            <p class="bean__desc">Variedad Castillo lavada, 1.750 m. El más floral del catálogo y el favorito de quien empieza en filtro.</p>
+            <div class="bean__foot">
+              <span class="bean__price">14,50 €<small> / 250 g</small></span>
+              <button class="btn btn--line btn--sm add" data-name="Finca La Cabaña">Añadir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="bean reveal" data-delay="1">
+          <div class="bean__top" data-tone="b">
+            <span class="bean__origin">Etiopía</span>
+            <span class="bean__roast">Tueste claro</span>
+          </div>
+          <div class="bean__body">
+            <h3>Guji Uraga</h3>
+            <p class="bean__notes">Arándano · bergamota · miel</p>
+            <p class="bean__desc">Natural anaeróbico de 72 horas. Intenso, afrutado y sin una pizca de amargor. Se agota siempre.</p>
+            <div class="bean__foot">
+              <span class="bean__price">17,90 €<small> / 250 g</small></span>
+              <button class="btn btn--line btn--sm add" data-name="Guji Uraga">Añadir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="bean reveal" data-delay="2">
+          <div class="bean__top" data-tone="c">
+            <span class="bean__origin">Brasil</span>
+            <span class="bean__roast">Tueste medio</span>
+          </div>
+          <div class="bean__body">
+            <h3>Fazenda Rio Verde</h3>
+            <p class="bean__notes">Cacao · avellana · caramelo</p>
+            <p class="bean__desc">Nuestra base de espresso. Cuerpo denso, crema estable y aguanta la leche sin desaparecer.</p>
+            <div class="bean__foot">
+              <span class="bean__price">12,00 €<small> / 250 g</small></span>
+              <button class="btn btn--line btn--sm add" data-name="Fazenda Rio Verde">Añadir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="bean reveal" data-delay="3">
+          <div class="bean__top" data-tone="d">
+            <span class="bean__origin">Kenia</span>
+            <span class="bean__roast">Tueste medio-claro</span>
+          </div>
+          <div class="bean__body">
+            <h3>Nyeri AA</h3>
+            <p class="bean__notes">Grosella negra · tomate seco · azúcar moreno</p>
+            <p class="bean__desc">SL28 lavado con la acidez más brillante que tenemos. Para quien ya sabe lo que busca.</p>
+            <div class="bean__foot">
+              <span class="bean__price">16,50 €<small> / 250 g</small></span>
+              <button class="btn btn--line btn--sm add" data-name="Nyeri AA">Añadir</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section class="section band" id="carta">
+    <div class="wrap wrap--narrow">
+      <header class="sec-head reveal">
+        <span class="eyebrow">En la barra</span>
+        <h2>Carta del local</h2>
+      </header>
+
+      <div class="tabs reveal" role="tablist" aria-label="Secciones de la carta">
+        <button class="tab is-on" role="tab" aria-selected="true" data-tab="cafe">Café</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="frio">Fríos</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="comer">Para comer</button>
+      </div>
+
+      <div class="panels">
+        <div class="panel is-on" data-panel="cafe">
+          <div class="menu-row"><span class="menu-row__name">Espresso</span><span class="menu-row__dots"></span><span class="menu-row__price">1,80 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Cortado</span><span class="menu-row__dots"></span><span class="menu-row__price">2,10 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Flat white</span><span class="menu-row__dots"></span><span class="menu-row__price">2,90 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">V60 de origen <em>(pregunta por el de hoy)</em></span><span class="menu-row__dots"></span><span class="menu-row__price">3,40 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Aeropress para dos</span><span class="menu-row__dots"></span><span class="menu-row__price">5,50 €</span></div>
+        </div>
+
+        <div class="panel" data-panel="frio">
+          <div class="menu-row"><span class="menu-row__name">Cold brew de 18 horas</span><span class="menu-row__dots"></span><span class="menu-row__price">3,20 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Espresso tónic</span><span class="menu-row__dots"></span><span class="menu-row__price">4,00 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Iced latte de avena</span><span class="menu-row__dots"></span><span class="menu-row__price">3,60 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Cascara con limón</span><span class="menu-row__dots"></span><span class="menu-row__price">3,00 €</span></div>
+        </div>
+
+        <div class="panel" data-panel="comer">
+          <div class="menu-row"><span class="menu-row__name">Tostada de masa madre y tomate</span><span class="menu-row__dots"></span><span class="menu-row__price">3,80 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Croissant de mantequilla</span><span class="menu-row__dots"></span><span class="menu-row__price">2,40 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Banana bread con nueces</span><span class="menu-row__dots"></span><span class="menu-row__price">3,50 €</span></div>
+          <div class="menu-row"><span class="menu-row__name">Bocata de tortilla del día</span><span class="menu-row__dots"></span><span class="menu-row__price">5,20 €</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="slider reveal">
+        <div class="slider__viewport">
+          <div class="slider__track" id="track">
+            <figure class="slide">
+              <blockquote>Llevo dos años suscrito y todavía no he repetido origen sin quererlo. La ficha de tueste que meten en la bolsa es una clase de café gratis cada mes.</blockquote>
+              <figcaption><strong>Álvaro T.</strong><span>Suscriptor desde 2024</span></figcaption>
+            </figure>
+            <figure class="slide">
+              <blockquote>Pedí el jueves por la mañana y el viernes lo tenía en casa, tostado el martes anterior. En mi ciudad no encuentro nada ni parecido de fresco.</blockquote>
+              <figcaption><strong>Nuria B.</strong><span>Valencia</span></figcaption>
+            </figure>
+            <figure class="slide">
+              <blockquote>Montamos la cafetera de la oficina con su Rio Verde. Se acabaron las quejas del café malo, que era prácticamente nuestro deporte de equipo.</blockquote>
+              <figcaption><strong>Equipo de Talleres Miró</strong><span>Cliente de hostelería</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="slider__ctrl">
+          <button class="arrow" id="prev" aria-label="Testimonio anterior">←</button>
+          <div class="dots" id="dots"></div>
+          <button class="arrow" id="next" aria-label="Testimonio siguiente">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUSCRIPCIÓN -->
+  <section class="sub" id="suscripcion">
+    <div class="wrap sub__inner">
+      <div class="sub__text reveal">
+        <span class="eyebrow eyebrow--light">Suscripción</span>
+        <h2>Que no se te acabe nunca</h2>
+        <p>
+          Elige cada cuánto lo quieres y nosotros nos encargamos del resto.
+          Cambias de café, pausas o cancelas desde tu cuenta, sin llamar a nadie.
+        </p>
+        <ul class="sub__perks">
+          <li>15% de descuento en cada envío</li>
+          <li>Envío siempre gratis</li>
+          <li>Acceso primero a los microlotes</li>
+        </ul>
+      </div>
+
+      <form class="sub__form reveal" data-delay="1" id="subForm" novalidate>
+        <h3>Arma tu plan</h3>
+
+        <label class="field">
+          <span>Cantidad</span>
+          <select id="qty">
+            <option value="250">250 g — para una o dos tazas al día</option>
+            <option value="500" selected>500 g — para dos o tres tazas al día</option>
+            <option value="1000">1 kg — oficina o casa cafetera</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Cada cuánto</span>
+          <select id="freq">
+            <option value="1">Cada semana</option>
+            <option value="2" selected>Cada dos semanas</option>
+            <option value="4">Cada mes</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Molienda</span>
+          <select id="grind">
+            <option>En grano (recomendado)</option>
+            <option>Filtro / V60</option>
+            <option>Espresso</option>
+            <option>Prensa francesa</option>
+          </select>
+        </label>
+
+        <div class="sub__total">
+          <span>Estimado por envío</span>
+          <strong id="total">24,65 €</strong>
+        </div>
+
+        <label class="field">
+          <span>Tu correo</span>
+          <input type="email" id="subEmail" placeholder="hola@correo.com" required>
+        </label>
+
+        <button type="submit" class="btn btn--solid btn--full">Empezar suscripción</button>
+        <p class="sub__msg" id="subMsg" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- LOCAL -->
+  <section class="section" id="local">
+    <div class="wrap local">
+      <div class="local__info reveal">
+        <span class="eyebrow">El local</span>
+        <h2>Pásate a probarlo</h2>
+        <p class="local__addr">
+          Carrer de Verdi, 88<br>
+          08012 Barcelona
+        </p>
+
+        <table class="hours">
+          <caption class="sr-only">Horario de apertura</caption>
+          <tbody>
+            <tr><th scope="row">Lunes</th><td>Cerrado</td></tr>
+            <tr><th scope="row">Martes a viernes</th><td>08:00 – 18:00</td></tr>
+            <tr><th scope="row">Sábado</th><td>09:00 – 19:00</td></tr>
+            <tr><th scope="row">Domingo</th><td>09:00 – 15:00</td></tr>
+          </tbody>
+        </table>
+
+        <p class="local__note">Los martes huele a tueste desde la esquina. Es el mejor día para venir.</p>
+      </div>
+
+      <div class="local__map reveal" data-delay="1" aria-hidden="true">
+        <div class="map">
+          <span class="map__road map__road--1"></span>
+          <span class="map__road map__road--2"></span>
+          <span class="map__road map__road--3"></span>
+          <span class="map__block map__block--1"></span>
+          <span class="map__block map__block--2"></span>
+          <span class="map__block map__block--3"></span>
+          <span class="map__pin"><i></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div>
+      <a href="#" class="brand brand--foot">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M20 5 C 20 15, 20 25, 20 35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Rueda Norte</span>
+      </a>
+      <p>Tostaduría de especialidad en Gracia desde 2016.</p>
+    </div>
+
+    <div class="foot__cols">
+      <div><h4>Tienda</h4><a href="#cafes">Cafés</a><a href="#suscripcion">Suscripción</a><a href="#">Equipamiento</a><a href="#">Tarjeta regalo</a></div>
+      <div><h4>Nosotros</h4><a href="#metodo">Método</a><a href="#">Fincas</a><a href="#">Cursos de cata</a><a href="#">Hostelería</a></div>
+      <div><h4>Ayuda</h4><a href="#">Envíos</a><a href="#">Devoluciones</a><a href="#local">Contacto</a><a href="#">Privacidad</a></div>
+    </div>
+  </div>
+
+  <div class="wrap foot__bottom">
+    <small>© 2026 Rueda Norte — Ejemplo de demostración.</small>
+    <small>HTML, CSS y JS. Sin librerías.</small>
+  </div>
+</footer>
+
+<!-- Aviso flotante del carrito -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
