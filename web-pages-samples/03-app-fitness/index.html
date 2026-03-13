@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PULSO — La app que no te deja parar</title>
+<meta name="description" content="Entrenamientos que se adaptan a ti cada semana. Sigue tu progreso, gana rachas y entrena donde quieras.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#" class="brand">
+      <span class="brand__pulse" aria-hidden="true"></span>
+      PULSO
+    </a>
+
+    <nav class="nav__links" id="menu">
+      <a href="#como">Cómo funciona</a>
+      <a href="#planes">Entrenos</a>
+      <a href="#calc">Calculadora</a>
+      <a href="#precio">Precio</a>
+    </nav>
+
+    <a href="#precio" class="btn btn--acc nav__btn">Descargar</a>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="grid-lines"></span>
+    </div>
+
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="badge reveal">4,9 ★ · 210.000 descargas este año</p>
+
+        <h1 class="reveal" data-delay="1">
+          NO ES<br>
+          MOTIVACIÓN.<br>
+          <span class="hl">ES SISTEMA.</span>
+        </h1>
+
+        <p class="lead reveal" data-delay="2">
+          PULSO recalcula tu plan cada domingo con lo que de verdad hiciste esa
+          semana. Si fallaste tres días, no te castiga: reordena. Por eso la gente
+          sigue aquí en el mes catorce.
+        </p>
+
+        <div class="hero__cta reveal" data-delay="3">
+          <a href="#precio" class="btn btn--acc btn--lg">Empezar 7 días gratis</a>
+          <a href="#como" class="btn btn--outline btn--lg">Ver cómo funciona</a>
+        </div>
+
+        <div class="hero__proof reveal" data-delay="4">
+          <div class="faces" aria-hidden="true">
+            <span>AL</span><span>MC</span><span>JR</span><span>TD</span>
+          </div>
+          <p><strong>+42.000 personas</strong> entrenaron esta semana con PULSO</p>
+        </div>
+      </div>
+
+      <!-- Móvil -->
+      <div class="hero__phone reveal" data-delay="2">
+        <div class="phone">
+          <div class="phone__notch" aria-hidden="true"></div>
+          <div class="phone__screen">
+
+            <div class="scr is-on" data-screen="hoy">
+              <div class="scr__top">
+                <span class="scr__hi">Buenos días, Ana</span>
+                <span class="scr__streak">🔥 23</span>
+              </div>
+              <div class="ring-wrap">
+                <div class="ring" style="--pct:72">
+                  <div class="ring__hole">
+                    <strong>72%</strong>
+                    <small>del objetivo</small>
+                  </div>
+                </div>
+              </div>
+              <div class="scr__card">
+                <span class="tag tag--acc">Hoy · 38 min</span>
+                <h4>Tren superior — Fuerza B</h4>
+                <p>6 ejercicios · carga ajustada +2,5 kg</p>
+                <span class="scr__btn">Empezar sesión</span>
+              </div>
+              <div class="scr__row">
+                <div><strong>4</strong><small>sesiones</small></div>
+                <div><strong>2.140</strong><small>kcal</small></div>
+                <div><strong>5,2 h</strong><small>activas</small></div>
+              </div>
+            </div>
+
+            <div class="scr" data-screen="plan">
+              <div class="scr__top"><span class="scr__hi">Tu semana</span><span class="scr__streak">Sem. 12</span></div>
+              <ul class="week">
+                <li class="done"><span>L</span> Empuje · 42 min <em>✓</em></li>
+                <li class="done"><span>M</span> Cardio Z2 · 30 min <em>✓</em></li>
+                <li class="done"><span>X</span> Tracción · 45 min <em>✓</em></li>
+                <li class="now"><span>J</span> Fuerza B · 38 min <em>hoy</em></li>
+                <li><span>V</span> Movilidad · 20 min</li>
+                <li><span>S</span> Pierna · 50 min</li>
+                <li class="rest"><span>D</span> Descanso</li>
+              </ul>
+              <div class="scr__note">Movimos el día de pierna al sábado porque el jueves te saltaste dos veces este mes.</div>
+            </div>
+
+            <div class="scr" data-screen="progreso">
+              <div class="scr__top"><span class="scr__hi">Progreso</span><span class="scr__streak">12 sem.</span></div>
+              <div class="scr__card scr__card--flat">
+                <span class="tag">Press banca · 1RM estimado</span>
+                <div class="spark" id="spark"></div>
+                <div class="scr__delta">62 kg → <strong>78 kg</strong> <span>+25,8%</span></div>
+              </div>
+              <div class="badges">
+                <div><span>🏅</span> 50 sesiones</div>
+                <div><span>⚡</span> Racha de 23</div>
+                <div><span>🎯</span> 3 récords</div>
+              </div>
+            </div>
+
+            <div class="scr" data-screen="social">
+              <div class="scr__top"><span class="scr__hi">Tu grupo</span><span class="scr__streak">6 amigos</span></div>
+              <ul class="feed">
+                <li><span class="ava">MC</span><div><strong>Marc</strong> terminó <em>Pierna pesada</em><small>hace 12 min · 51 min</small></div></li>
+                <li><span class="ava">JR</span><div><strong>Julia</strong> batió su récord de dominadas<small>hace 1 h · 14 reps</small></div></li>
+                <li><span class="ava">TD</span><div><strong>Toni</strong> lleva 40 días de racha<small>hace 3 h</small></div></li>
+              </ul>
+              <div class="scr__note">El reto del mes acaba en 6 días. Vas segunda del grupo.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="phone__tabs" role="tablist" aria-label="Pantallas de la app">
+          <button class="ptab is-on" role="tab" aria-selected="true" data-screen="hoy">Hoy</button>
+          <button class="ptab" role="tab" aria-selected="false" data-screen="plan">Plan</button>
+          <button class="ptab" role="tab" aria-selected="false" data-screen="progreso">Progreso</button>
+          <button class="ptab" role="tab" aria-selected="false" data-screen="social">Grupo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>FUERZA</span><i>◆</i><span>HIPERTROFIA</span><i>◆</i><span>MOVILIDAD</span><i>◆</i>
+      <span>CARDIO</span><i>◆</i><span>HÍBRIDO</span><i>◆</i><span>EN CASA</span><i>◆</i>
+      <span>FUERZA</span><i>◆</i><span>HIPERTROFIA</span><i>◆</i><span>MOVILIDAD</span><i>◆</i>
+      <span>CARDIO</span><i>◆</i><span>HÍBRIDO</span><i>◆</i><span>EN CASA</span><i>◆</i>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section" id="como">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2>Tres cosas, bien hechas</h2>
+        <p>Nada de 90 funciones que no usas. Esto es lo que hace la app y lo hace todos los días.</p>
+      </header>
+
+      <div class="hows">
+        <article class="how reveal">
+          <span class="how__n">1</span>
+          <h3>Te mide de verdad</h3>
+          <p>
+            Registras series, peso y esfuerzo percibido en dos toques. La app estima
+            tu 1RM y tu fatiga acumulada sin que tengas que entender nada de eso.
+          </p>
+          <ul class="ticks">
+            <li>Autocompletado de la última sesión</li>
+            <li>Temporizador de descanso automático</li>
+            <li>Sincroniza con Health y Google Fit</li>
+          </ul>
+        </article>
+
+        <article class="how reveal" data-delay="1">
+          <span class="how__n">2</span>
+          <h3>Reordena tu semana</h3>
+          <p>
+            Cada domingo el plan se recalcula. Si hubo una semana mala baja el
+            volumen; si fuiste sobrada, sube la carga. Tú solo abres y entrenas.
+          </p>
+          <ul class="ticks">
+            <li>Progresión de carga automática</li>
+            <li>Deload cuando toca, no cuando te rompes</li>
+            <li>Cambia un ejercicio y recalcula al momento</li>
+          </ul>
+        </article>
+
+        <article class="how reveal" data-delay="2">
+          <span class="how__n">3</span>
+          <h3>Te hace volver</h3>
+          <p>
+            Rachas, grupos de seis personas y retos mensuales. Suena tonto hasta que
+            llevas 40 días seguidos y no quieres ser tú quien rompa la cadena.
+          </p>
+          <ul class="ticks">
+            <li>Grupos privados con tus amigos</li>
+            <li>Recordatorio a la hora que tú entrenas</li>
+            <li>Historial completo exportable</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES DE ENTRENO -->
+  <section class="section section--alt" id="planes">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">Catálogo</span>
+        <h2>Elige por dónde empiezas</h2>
+      </header>
+
+      <div class="filters reveal">
+        <button class="chip is-on" data-filter="todos">Todos</button>
+        <button class="chip" data-filter="gym">Gimnasio</button>
+        <button class="chip" data-filter="casa">En casa</button>
+        <button class="chip" data-filter="cardio">Cardio</button>
+      </div>
+
+      <div class="programs" id="programs">
+        <article class="prog reveal" data-cat="gym">
+          <div class="prog__head"><span class="prog__lvl">Principiante</span><span class="prog__wk">8 semanas</span></div>
+          <h3>Base de fuerza</h3>
+          <p>Tres días a la semana con los seis patrones básicos. Si nunca tocaste una barra, empieza aquí.</p>
+          <div class="prog__meta"><span>🏋️ Gimnasio</span><span>⏱️ 45 min</span></div>
+        </article>
+
+        <article class="prog reveal" data-cat="gym" data-delay="1">
+          <div class="prog__head"><span class="prog__lvl">Intermedio</span><span class="prog__wk">12 semanas</span></div>
+          <h3>Hipertrofia 5 días</h3>
+          <p>Volumen alto por grupo muscular con progresión doble. Para quien ya lleva un año entrenando.</p>
+          <div class="prog__meta"><span>🏋️ Gimnasio</span><span>⏱️ 60 min</span></div>
+        </article>
+
+        <article class="prog reveal" data-cat="casa" data-delay="2">
+          <div class="prog__head"><span class="prog__lvl">Todos</span><span class="prog__wk">6 semanas</span></div>
+          <h3>Solo peso corporal</h3>
+          <p>Cero material. Progresiones de flexión, sentadilla y core hasta la versión difícil de cada una.</p>
+          <div class="prog__meta"><span>🏠 En casa</span><span>⏱️ 30 min</span></div>
+        </article>
+
+        <article class="prog reveal" data-cat="cardio">
+          <div class="prog__head"><span class="prog__lvl">Intermedio</span><span class="prog__wk">10 semanas</span></div>
+          <h3>De 0 a 10 km</h3>
+          <p>Plan de carrera por zonas con series y tirada larga. Termina corriendo 10 km sin parar.</p>
+          <div class="prog__meta"><span>🏃 Cardio</span><span>⏱️ 40 min</span></div>
+        </article>
+
+        <article class="prog reveal" data-cat="casa" data-delay="1">
+          <div class="prog__head"><span class="prog__lvl">Principiante</span><span class="prog__wk">4 semanas</span></div>
+          <h3>Movilidad diaria</h3>
+          <p>Quince minutos de cadera, torácica y tobillo. El que menos suena y el que más se nota.</p>
+          <div class="prog__meta"><span>🏠 En casa</span><span>⏱️ 15 min</span></div>
+        </article>
+
+        <article class="prog reveal" data-cat="cardio" data-delay="2">
+          <div class="prog__head"><span class="prog__lvl">Avanzado</span><span class="prog__wk">8 semanas</span></div>
+          <h3>Híbrido fuerza + Z2</h3>
+          <p>Cuatro días de fuerza y dos de aeróbico sin que uno se coma al otro. El más pedido del catálogo.</p>
+          <div class="prog__meta"><span>🏋️ Mixto</span><span>⏱️ 55 min</span></div>
+        </article>
+      </div>
+
+      <p class="programs__empty" id="empty" hidden>No hay programas en esa categoría todavía.</p>
+    </div>
+  </section>
+
+  <!-- CALCULADORA -->
+  <section class="section" id="calc">
+    <div class="wrap calc">
+      <div class="calc__copy reveal">
+        <span class="eyebrow">Herramienta gratis</span>
+        <h2>¿Cuántas calorías necesitas?</h2>
+        <p>
+          Estimación con la fórmula de Mifflin-St Jeor, la misma que usa la app
+          para calcular tu punto de partida. Sin registro, sin correo.
+        </p>
+        <p class="calc__disclaimer">
+          Es una estimación orientativa, no un consejo médico. Si tienes una
+          condición de salud, habla con un profesional antes de cambiar tu dieta.
+        </p>
+      </div>
+
+      <form class="calc__box reveal" data-delay="1" id="calcForm">
+        <div class="calc__sex" role="group" aria-label="Sexo biológico">
+          <button type="button" class="sex is-on" data-sex="f">Mujer</button>
+          <button type="button" class="sex" data-sex="m">Hombre</button>
+        </div>
+
+        <div class="calc__fields">
+          <label class="f"><span>Edad</span><input type="number" id="age" value="30" min="14" max="90"></label>
+          <label class="f"><span>Altura (cm)</span><input type="number" id="height" value="168" min="120" max="220"></label>
+          <label class="f"><span>Peso (kg)</span><input type="number" id="weight" value="65" min="35" max="220"></label>
+        </div>
+
+        <label class="f">
+          <span>Nivel de actividad</span>
+          <select id="activity">
+            <option value="1.2">Sedentario — trabajo de oficina</option>
+            <option value="1.375" selected>Ligero — 1-3 entrenos por semana</option>
+            <option value="1.55">Moderado — 3-5 entrenos por semana</option>
+            <option value="1.725">Alto — 6-7 entrenos por semana</option>
+            <option value="1.9">Muy alto — trabajo físico + entrenos</option>
+          </select>
+        </label>
+
+        <div class="calc__out">
+          <div class="out out--main">
+            <small>Mantenimiento</small>
+            <strong id="tdee">0</strong>
+            <span>kcal / día</span>
+          </div>
+          <div class="out">
+            <small>Déficit</small>
+            <strong id="cut">0</strong>
+            <span>kcal</span>
+          </div>
+          <div class="out">
+            <small>Superávit</small>
+            <strong id="bulk">0</strong>
+            <span>kcal</span>
+          </div>
+        </div>
+
+        <p class="calc__macros" id="macros"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">Gente real</span>
+        <h2>Lo que dicen quienes siguen aquí</h2>
+      </header>
+
+      <div class="revs">
+        <figure class="rev reveal">
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>Probé cuatro apps antes. Esta es la primera que no me hace sentir mal por saltarme un día — simplemente ajusta la semana y sigue.</blockquote>
+          <figcaption><span class="ava">AL</span><div><strong>Alba L.</strong><small>14 meses usándola</small></div></figcaption>
+        </figure>
+
+        <figure class="rev reveal" data-delay="1">
+          <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+          <blockquote>Pasé de 62 a 78 kg en press banca en tres meses siguiendo el plan tal cual. No tuve que pensar ni un día qué tocaba.</blockquote>
+          <figcaption><span class="ava">DM</span><div><strong>Diego M.</strong><small>Plan de hipertrofia</small></div></figcaption>
+        </figure>
+
+        <figure class="rev reveal" data-delay="2">
+          <div class="stars" aria-label="4 de 5 estrellas">★★★★☆</div>
+          <blockquote>El grupo con mis amigos es lo que me mantiene. Suena a tontería, pero no quiero ser el que rompe la racha del grupo.</blockquote>
+          <figcaption><span class="ava">RP</span><div><strong>Rocío P.</strong><small>Desde el lanzamiento</small></div></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIO -->
+  <section class="section" id="precio">
+    <div class="wrap wrap--narrow">
+      <header class="sec-head reveal">
+        <span class="eyebrow">Precio</span>
+        <h2>Una suscripción, todo dentro</h2>
+      </header>
+
+      <div class="price reveal">
+        <div class="price__left">
+          <span class="price__tag">7 días gratis</span>
+          <p class="price__amount"><span>9,99 €</span><small>/mes</small></p>
+          <p class="price__alt">o 69,99 € al año — te ahorras 50 €</p>
+          <a href="#" class="btn btn--acc btn--full btn--lg">Descargar PULSO</a>
+          <p class="price__note">Cancelas desde la tienda cuando quieras. Sin permanencia.</p>
+        </div>
+
+        <ul class="price__list">
+          <li>Todos los programas del catálogo</li>
+          <li>Plan que se recalcula cada semana</li>
+          <li>Grupos privados y retos mensuales</li>
+          <li>Historial y estadísticas sin límite</li>
+          <li>Sincronía con Apple Health y Google Fit</li>
+          <li>Modo sin conexión para el gimnasio del sótano</li>
+        </ul>
+      </div>
+
+      <div class="stores reveal" data-delay="1">
+        <a href="#" class="store"><span class="store__ico"></span><span><small>Descárgala en</small><strong>App Store</strong></span></a>
+        <a href="#" class="store"><span class="store__ico store__ico--g"></span><span><small>Disponible en</small><strong>Google Play</strong></span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <a href="#" class="brand"><span class="brand__pulse" aria-hidden="true"></span> PULSO</a>
+    <nav class="foot__links">
+      <a href="#como">Cómo funciona</a>
+      <a href="#planes">Entrenos</a>
+      <a href="#precio">Precio</a>
+      <a href="#">Soporte</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+    </nav>
+    <small>© 2026 PULSO — Ejemplo de demostración. HTML, CSS y JS.</small>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
