@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TALLER OESTE — Estudio de diseño e identidad</title>
+<meta name="description" content="Estudio independiente de identidad, dirección de arte y diseño digital. Trabajamos con pocos clientes al año, muy en serio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="brand">TALLER&nbsp;OESTE<span class="brand__dot">.</span></a>
+
+    <nav class="nav__links" id="menu">
+      <a href="#trabajo">Trabajo</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <span class="nav__meta">
+      <span class="nav__status"><i></i> 2 huecos para Q4</span>
+      <span class="nav__clock" id="clock">--:--:--</span>
+    </span>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero__meta line">
+      <span>Estudio independiente</span>
+      <span>Madrid · trabajamos remoto</span>
+      <span>Desde 2019</span>
+    </p>
+
+    <h1 class="hero__title">
+      <span class="ln"><span>Marcas</span></span>
+      <span class="ln"><span>que no piden</span></span>
+      <span class="ln"><span><em>permiso</em></span></span>
+    </h1>
+
+    <div class="hero__bottom">
+      <p class="hero__lead line">
+        Diseñamos identidad, dirección de arte y producto digital para empresas
+        que ya tienen algo que decir y están cansadas de sonar como el resto.
+        Aceptamos ocho proyectos al año. Ni uno más.
+      </p>
+      <a href="#contacto" class="circle-btn line" data-cursor="grow">
+        <span>Cuéntanos<br>tu proyecto</span>
+        <i aria-hidden="true">↓</i>
+      </a>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip__track">
+      <span>IDENTIDAD</span><i>/</i><span>DIRECCIÓN DE ARTE</span><i>/</i><span>WEB</span><i>/</i>
+      <span>PACKAGING</span><i>/</i><span>EDITORIAL</span><i>/</i><span>MOTION</span><i>/</i>
+      <span>IDENTIDAD</span><i>/</i><span>DIRECCIÓN DE ARTE</span><i>/</i><span>WEB</span><i>/</i>
+      <span>PACKAGING</span><i>/</i><span>EDITORIAL</span><i>/</i><span>MOTION</span><i>/</i>
+    </div>
+  </div>
+
+  <!-- TRABAJO -->
+  <section class="section" id="trabajo">
+    <div class="sec-head line">
+      <span class="idx">01</span>
+      <h2>Trabajo seleccionado</h2>
+      <span class="sec-head__note">Seis de los últimos veinte</span>
+    </div>
+
+    <ul class="works" id="works">
+      <li class="work line" data-tone="1">
+        <span class="work__n">001</span>
+        <div class="work__main">
+          <h3>Bruma</h3>
+          <p>Identidad y packaging para una destilería de ginebra atlántica</p>
+        </div>
+        <span class="work__tags">Identidad · Packaging</span>
+        <span class="work__yr">2026</span>
+        <span class="work__arrow" aria-hidden="true">↗</span>
+      </li>
+
+      <li class="work line" data-tone="2">
+        <span class="work__n">002</span>
+        <div class="work__main">
+          <h3>Cámara Lenta</h3>
+          <p>Web y sistema editorial para una revista de cine independiente</p>
+        </div>
+        <span class="work__tags">Web · Editorial</span>
+        <span class="work__yr">2025</span>
+        <span class="work__arrow" aria-hidden="true">↗</span>
+      </li>
+
+      <li class="work line" data-tone="3">
+        <span class="work__n">003</span>
+        <div class="work__main">
+          <h3>Ferrovial Norte</h3>
+          <p>Rediseño de marca y manual para una constructora de 40 años</p>
+        </div>
+        <span class="work__tags">Identidad · Manual</span>
+        <span class="work__yr">2025</span>
+        <span class="work__arrow" aria-hidden="true">↗</span>
+      </li>
+
+      <li class="work line" data-tone="4">
+        <span class="work__n">004</span>
+        <div class="work__main">
+          <h3>Hoja</h3>
+          <p>Producto digital y design system para una app de finanzas personales</p>
+        </div>
+        <span class="work__tags">Producto · Sistema</span>
+        <span class="work__yr">2024</span>
+        <span class="work__arrow" aria-hidden="true">↗</span>
+      </li>
+
+      <li class="work line" data-tone="5">
+        <span class="work__n">005</span>
+        <div class="work__main">
+          <h3>Museo del Agua</h3>
+          <p>Señalética, campaña y dirección de arte para la reapertura</p>
+        </div>
+        <span class="work__tags">Señalética · Campaña</span>
+        <span class="work__yr">2024</span>
+        <span class="work__arrow" aria-hidden="true">↗</span>
+      </li>
+
+      <li class="work line" data-tone="6">
+        <span class="work__n">006</span>
+        <div class="work__main">
+          <h3>Tierra Alta</h3>
+          <p>Marca y etiquetas para una bodega familiar en la Ribera</p>
+        </div>
+        <span class="work__tags">Identidad · Etiquetas</span>
+        <span class="work__yr">2023</span>
+        <span class="work__arrow" aria-hidden="true">↗</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section section--dark" id="servicios">
+    <div class="sec-head line">
+      <span class="idx">02</span>
+      <h2>Qué hacemos</h2>
+      <span class="sec-head__note">Tres cosas, sin subcontratar</span>
+    </div>
+
+    <div class="services">
+      <article class="serv line">
+        <h3>Identidad</h3>
+        <p>
+          Naming, logotipo, sistema tipográfico, color y un manual que tu equipo
+          puede usar sin llamarnos. Salimos con la marca funcionando, no con un PDF bonito.
+        </p>
+        <ul>
+          <li>Investigación y posicionamiento</li>
+          <li>Sistema visual completo</li>
+          <li>Manual y plantillas editables</li>
+        </ul>
+        <span class="serv__price">desde 12.000 €</span>
+      </article>
+
+      <article class="serv line">
+        <h3>Digital</h3>
+        <p>
+          Sitios y productos diseñados y construidos aquí dentro. Diseñamos pensando
+          en cómo se va a maquetar, así que lo que ves en Figma es lo que se publica.
+        </p>
+        <ul>
+          <li>Diseño de interfaz y prototipo</li>
+          <li>Desarrollo front-end a medida</li>
+          <li>Design system documentado</li>
+        </ul>
+        <span class="serv__price">desde 18.000 €</span>
+      </article>
+
+      <article class="serv line">
+        <h3>Dirección de arte</h3>
+        <p>
+          Campañas, fotografía, packaging y piezas impresas. Dirigimos el rodaje o
+          la sesión y nos quedamos hasta el retoque final.
+        </p>
+        <ul>
+          <li>Concepto y guion visual</li>
+          <li>Producción y dirección en set</li>
+          <li>Adaptaciones a todos los formatos</li>
+        </ul>
+        <span class="serv__price">por proyecto</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="section" id="proceso">
+    <div class="sec-head line">
+      <span class="idx">03</span>
+      <h2>Cómo trabajamos</h2>
+      <span class="sec-head__note">Ocho a doce semanas</span>
+    </div>
+
+    <ol class="process">
+      <li class="proc line">
+        <span class="proc__wk">Semana 1–2</span>
+        <h3>Entender</h3>
+        <p>Entrevistas con tu equipo, con tus clientes y con quien te odia. Salimos con un documento de una página que define el problema. Si no estamos de acuerdo aquí, no seguimos.</p>
+      </li>
+      <li class="proc line">
+        <span class="proc__wk">Semana 3–5</span>
+        <h3>Proponer</h3>
+        <p>Dos rutas, no diez. Cada una defendida con su lógica y llevada hasta piezas reales — una web, un envase, una campaña — para que decidas viendo, no imaginando.</p>
+      </li>
+      <li class="proc line">
+        <span class="proc__wk">Semana 6–9</span>
+        <h3>Construir</h3>
+        <p>Desarrollamos la ruta elegida en todos los formatos que necesitas. Revisiones semanales en abierto: ves el archivo mientras se hace, sin sorpresas al final.</p>
+      </li>
+      <li class="proc line">
+        <span class="proc__wk">Semana 10–12</span>
+        <h3>Entregar y soltar</h3>
+        <p>Manual, archivos fuente, plantillas y una sesión de formación con tu equipo. Después seguimos disponibles tres meses sin coste para lo que surja.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CITA -->
+  <section class="pull">
+    <blockquote class="line">
+      Nos dijeron que en doce semanas tendríamos una marca. En la semana seis
+      ya habíamos cambiado cómo hablábamos de nosotros en las reuniones internas.
+      <cite>— Elena Sáez, directora general de Bruma</cite>
+    </blockquote>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section contact" id="contacto">
+    <div class="sec-head line">
+      <span class="idx">04</span>
+      <h2>Hablemos</h2>
+      <span class="sec-head__note">Respondemos en 48 h</span>
+    </div>
+
+    <div class="contact__grid">
+      <div class="contact__side line">
+        <p class="contact__big">
+          Escríbenos qué quieres hacer, para cuándo y con qué presupuesto.
+          Cuanto más concreto, más útil será nuestra respuesta.
+        </p>
+
+        <dl class="contact__data">
+          <div><dt>Correo</dt><dd><a href="#" data-cursor="grow">hola@talleroeste.es</a></dd></div>
+          <div><dt>Teléfono</dt><dd>+34 910 00 00 00</dd></div>
+          <div><dt>Estudio</dt><dd>Calle del Oeste 14, 2.º<br>28015 Madrid</dd></div>
+          <div><dt>Social</dt><dd><a href="#" data-cursor="grow">Instagram</a> · <a href="#" data-cursor="grow">Behance</a> · <a href="#" data-cursor="grow">LinkedIn</a></dd></div>
+        </dl>
+      </div>
+
+      <form class="form line" id="form" novalidate>
+        <div class="form__row">
+          <label class="fld">
+            <span>Nombre <i>*</i></span>
+            <input type="text" name="nombre" id="nombre" placeholder="Cómo te llamas" required>
+          </label>
+          <label class="fld">
+            <span>Correo <i>*</i></span>
+            <input type="email" name="email" id="mail" placeholder="tu@empresa.com" required>
+          </label>
+        </div>
+
+        <label class="fld">
+          <span>Empresa</span>
+          <input type="text" name="empresa" placeholder="Opcional">
+        </label>
+
+        <fieldset class="fld fld--set">
+          <legend>Qué necesitas</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="serv" value="Identidad"><span>Identidad</span></label>
+            <label class="opt"><input type="checkbox" name="serv" value="Web"><span>Web / producto</span></label>
+            <label class="opt"><input type="checkbox" name="serv" value="Dirección de arte"><span>Dirección de arte</span></label>
+            <label class="opt"><input type="checkbox" name="serv" value="Otra cosa"><span>Otra cosa</span></label>
+          </div>
+        </fieldset>
+
+        <label class="fld">
+          <span>Presupuesto aproximado</span>
+          <select name="budget">
+            <option>Menos de 10.000 €</option>
+            <option selected>10.000 € – 25.000 €</option>
+            <option>25.000 € – 50.000 €</option>
+            <option>Más de 50.000 €</option>
+            <option>Todavía no lo sé</option>
+          </select>
+        </label>
+
+        <label class="fld">
+          <span>Cuéntanos <i>*</i></span>
+          <textarea name="msg" id="msg" rows="4" placeholder="Qué quieres hacer y para cuándo" required></textarea>
+        </label>
+
+        <button type="submit" class="submit" data-cursor="grow">
+          <span>Enviar mensaje</span>
+          <i aria-hidden="true">→</i>
+        </button>
+
+        <p class="form__msg" id="formMsg" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__big" aria-hidden="true">TALLER OESTE</div>
+  <div class="foot__row">
+    <small>© 2026 Taller Oeste S.L. — Ejemplo de demostración.</small>
+    <small>Hecho a mano con HTML, CSS y JS.</small>
+    <button class="top" id="top" data-cursor="grow">Volver arriba ↑</button>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
