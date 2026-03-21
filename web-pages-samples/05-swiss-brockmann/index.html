@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciclo Sinfónico 26 — Auditorio Municipal</title>
+<meta name="description" content="Doce conciertos entre octubre y junio. Abono de temporada y entradas sueltas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grid-overlay" id="gridOverlay" aria-hidden="true"></div>
+
+<header class="head">
+  <div class="col col--1-3">
+    <a href="#" class="logo">Auditorio<br>Municipal</a>
+  </div>
+  <div class="col col--3-8">
+    <nav class="menu" id="menu">
+      <a href="#programa">Programa</a>
+      <a href="#abonos">Abonos</a>
+      <a href="#sala">La sala</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+  <div class="col col--8-13 head__right">
+    <button class="grid-btn" id="gridBtn" aria-pressed="false">Retícula</button>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="col col--1-6 hero__type">
+      <p class="over">Temporada 2026 / 27</p>
+      <h1>Ciclo<br>Sinfónico<br><span class="red">26</span></h1>
+      <p class="hero__sub">
+        Doce conciertos entre el 4 de octubre y el 21 de junio.
+        Orquesta residente, cuatro directores invitados y tres estrenos absolutos.
+      </p>
+      <a href="#abonos" class="link-arrow">Abono de temporada desde 96 €</a>
+    </div>
+
+    <div class="col col--7-13 hero__art">
+      <div class="rings" id="rings" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATOS -->
+  <section class="strip">
+    <div class="col col--1-4"><span class="num">12</span><span class="lbl">conciertos</span></div>
+    <div class="col col--4-7"><span class="num">04.10</span><span class="lbl">apertura</span></div>
+    <div class="col col--7-10"><span class="num">21.06</span><span class="lbl">clausura</span></div>
+    <div class="col col--10-13"><span class="num">890</span><span class="lbl">butacas</span></div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section class="section" id="programa">
+    <div class="col col--1-3">
+      <h2 class="sec-t">Programa</h2>
+    </div>
+    <div class="col col--3-13">
+      <div class="filters" id="filters">
+        <button class="filt is-on" data-m="todos">Todos</button>
+        <button class="filt" data-m="otonio">Otoño</button>
+        <button class="filt" data-m="invierno">Invierno</button>
+        <button class="filt" data-m="primavera">Primavera</button>
+      </div>
+
+      <ol class="prog" id="prog">
+        <li class="ev" data-m="otonio">
+          <span class="ev__n">01</span>
+          <span class="ev__date">Sáb 04.10<br><i>20:00</i></span>
+          <div class="ev__body">
+            <h3>Beethoven — Sinfonía n.º 5</h3>
+            <p>Orquesta residente · Dir. Clara Vidal · Con obertura de Fanny Mendelssohn</p>
+          </div>
+          <span class="ev__price">22 – 48 €</span>
+        </li>
+        <li class="ev" data-m="otonio">
+          <span class="ev__n">02</span>
+          <span class="ev__date">Vie 24.10<br><i>20:00</i></span>
+          <div class="ev__body">
+            <h3>Ravel / Debussy — Impresiones</h3>
+            <p>Orquesta residente · Dir. Tomás Ferrer · Piano: Idoia Lasa</p>
+          </div>
+          <span class="ev__price">22 – 48 €</span>
+        </li>
+        <li class="ev" data-m="otonio">
+          <span class="ev__n">03</span>
+          <span class="ev__date">Sáb 15.11<br><i>19:30</i></span>
+          <div class="ev__body">
+            <h3>Estreno absoluto — «Umbral», de Nerea Oliván</h3>
+            <p>Encargo del Auditorio · Dir. la compositora · Con coloquio posterior</p>
+          </div>
+          <span class="ev__price">18 – 36 €</span>
+        </li>
+        <li class="ev" data-m="invierno">
+          <span class="ev__n">04</span>
+          <span class="ev__date">Dom 14.12<br><i>18:00</i></span>
+          <div class="ev__body">
+            <h3>Bach — Oratorio de Navidad</h3>
+            <p>Coro de cámara y orquesta barroca · Dir. Henrik Sørensen</p>
+          </div>
+          <span class="ev__price">26 – 54 €</span>
+        </li>
+        <li class="ev" data-m="invierno">
+          <span class="ev__n">05</span>
+          <span class="ev__date">Sáb 17.01<br><i>20:00</i></span>
+          <div class="ev__body">
+            <h3>Shostakóvich — Sinfonía n.º 10</h3>
+            <p>Orquesta residente · Dir. Clara Vidal</p>
+          </div>
+          <span class="ev__price">22 – 48 €</span>
+        </li>
+        <li class="ev" data-m="invierno">
+          <span class="ev__n">06</span>
+          <span class="ev__date">Vie 06.02<br><i>20:00</i></span>
+          <div class="ev__body">
+            <h3>Noche de cuerda — Cuarteto Aldaia</h3>
+            <p>Programa Bartók, Ligeti y Caroline Shaw · Sala pequeña</p>
+          </div>
+          <span class="ev__price">15 €</span>
+        </li>
+        <li class="ev" data-m="primavera">
+          <span class="ev__n">07</span>
+          <span class="ev__date">Sáb 14.03<br><i>20:00</i></span>
+          <div class="ev__body">
+            <h3>Mahler — Sinfonía n.º 4</h3>
+            <p>Orquesta residente ampliada · Dir. Yuki Tanabe · Soprano: Marta Cea</p>
+          </div>
+          <span class="ev__price">28 – 60 €</span>
+        </li>
+        <li class="ev" data-m="primavera">
+          <span class="ev__n">08</span>
+          <span class="ev__date">Dom 21.06<br><i>19:00</i></span>
+          <div class="ev__body">
+            <h3>Clausura — Stravinski, «La consagración de la primavera»</h3>
+            <p>Orquesta residente · Dir. Clara Vidal · Precedido de Debussy</p>
+          </div>
+          <span class="ev__price">28 – 60 €</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ABONOS -->
+  <section class="section section--rule" id="abonos">
+    <div class="col col--1-3">
+      <h2 class="sec-t">Abonos</h2>
+    </div>
+
+    <div class="col col--3-6 plan">
+      <h3>Completo</h3>
+      <p class="plan__p">248 €</p>
+      <p class="plan__d">Los doce conciertos. Butaca fija toda la temporada y cambio de fecha sin coste.</p>
+      <ul><li>Ahorro del 35%</li><li>Butaca nominativa</li><li>Programa impreso incluido</li></ul>
+    </div>
+
+    <div class="col col--6-9 plan plan--mark">
+      <h3>Seis conciertos</h3>
+      <p class="plan__p">138 €</p>
+      <p class="plan__d">Eliges seis fechas del programa cuando compras. Sin butaca fija.</p>
+      <ul><li>Ahorro del 22%</li><li>Elección libre de fechas</li><li>Descuento en barra</li></ul>
+    </div>
+
+    <div class="col col--9-13 plan">
+      <h3>Menores de 30</h3>
+      <p class="plan__p">96 €</p>
+      <p class="plan__d">Ocho conciertos a elegir. Se acredita la edad al recoger las entradas.</p>
+      <ul><li>Ahorro del 55%</li><li>Última fila de anfiteatro</li><li>Acceso a ensayos generales</li></ul>
+    </div>
+  </section>
+
+  <!-- SALA -->
+  <section class="section" id="sala">
+    <div class="col col--1-3">
+      <h2 class="sec-t">La sala</h2>
+    </div>
+    <div class="col col--3-8">
+      <p class="body-t">
+        Sala de 890 butacas inaugurada en 1974 y reformada en 2019. Caja de
+        hormigón visto con revestimiento interior de madera de haya, tiempo de
+        reverberación de 1,9 segundos en sala llena.
+      </p>
+      <p class="body-t">
+        Sin amplificación en ninguno de los conciertos del ciclo. La sala pequeña,
+        de 180 plazas, acoge el programa de música de cámara.
+      </p>
+    </div>
+    <div class="col col--9-13">
+      <dl class="facts">
+        <div><dt>Butacas</dt><dd>890</dd></div>
+        <div><dt>Reverberación</dt><dd>1,9 s</dd></div>
+        <div><dt>Inauguración</dt><dd>1974</dd></div>
+        <div><dt>Reforma</dt><dd>2019</dd></div>
+        <div><dt>Sala pequeña</dt><dd>180</dd></div>
+        <div><dt>Accesible</dt><dd>Sí</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section section--rule" id="contacto">
+    <div class="col col--1-3">
+      <h2 class="sec-t">Entradas</h2>
+    </div>
+    <div class="col col--3-8">
+      <form class="form" id="form" novalidate>
+        <label class="fld">
+          <span>Correo electrónico</span>
+          <input type="email" id="mail" placeholder="tu@correo.com" required>
+        </label>
+        <label class="fld">
+          <span>Abono de interés</span>
+          <select id="tipo">
+            <option>Completo — 248 €</option>
+            <option>Seis conciertos — 138 €</option>
+            <option>Menores de 30 — 96 €</option>
+            <option>Solo entradas sueltas</option>
+          </select>
+        </label>
+        <button type="submit" class="btn">Solicitar información</button>
+        <p class="msg" id="msg" role="status"></p>
+      </form>
+    </div>
+    <div class="col col--9-13">
+      <p class="body-t small">
+        Taquilla: martes a sábado de 17:00 a 20:00<br>
+        Teléfono: 900 00 00 00<br>
+        entradas@auditorio.example
+      </p>
+      <p class="body-t small">
+        Plaza de la Música 1<br>
+        28000 · Metro L4 Auditorio
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="col col--1-5"><span class="red">●</span> Auditorio Municipal</div>
+  <div class="col col--5-9">© 2026 — Ejemplo de demostración</div>
+  <div class="col col--9-13">
+    Ejercicio de estilo sobre la escuela suiza de Josef Müller-Brockmann.
+    Institución y programa ficticios.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
