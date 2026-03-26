@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LÍNEA — Metro de la ciudad</title>
+<meta name="description" content="Seis líneas, 94 estaciones, un solo billete. Horarios, mapa y abonos del metro de la ciudad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <a href="#" class="mark">
+      <span class="mark__disc">L</span>
+      <span class="mark__txt">LÍNEA</span>
+    </a>
+    <nav class="nav" id="menu">
+      <a href="#red">Red</a>
+      <a href="#horarios">Horarios</a>
+      <a href="#billetes">Billetes</a>
+      <a href="#avisos">Avisos</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<hr class="rule rule--thick">
+
+<main>
+
+  <!-- HERO -->
+  <section class="wrap hero">
+    <h1>Seis líneas.<br>Noventa y cuatro<br>estaciones.<br>Un solo billete.</h1>
+    <div class="hero__side">
+      <p>
+        La red completa funciona de 05:30 a 01:30, y toda la noche del viernes
+        y del sábado. Frecuencia máxima de 4 minutos en hora punta.
+      </p>
+      <a href="#billetes" class="btn">Ver billetes y abonos</a>
+    </div>
+  </section>
+
+  <hr class="rule rule--thick">
+
+  <!-- MAPA -->
+  <section class="wrap sec" id="red">
+    <div class="sec__head">
+      <h2>La red</h2>
+      <p class="sec__note">Toca una línea para aislarla</p>
+    </div>
+
+    <div class="map-block">
+      <div class="lines" id="lines">
+        <button class="line line--1 is-on" data-line="1"><i></i> 1 <em>Puerto — Universidad</em></button>
+        <button class="line line--2 is-on" data-line="2"><i></i> 2 <em>Norte — Feria</em></button>
+        <button class="line line--3 is-on" data-line="3"><i></i> 3 <em>Circular</em></button>
+        <button class="line line--4 is-on" data-line="4"><i></i> 4 <em>Aeropuerto — Centro</em></button>
+        <button class="line line--5 is-on" data-line="5"><i></i> 5 <em>Hospital — Estadio</em></button>
+        <button class="line line--6 is-on" data-line="6"><i></i> 6 <em>Parque — Astilleros</em></button>
+      </div>
+
+      <!-- Diagrama a 45°, como manda el canon -->
+      <svg class="map" id="map" viewBox="0 0 640 460" role="img" aria-label="Diagrama esquemático de la red de metro">
+        <g class="rt" data-line="1">
+          <polyline points="60,120 200,120 280,200 480,200 560,280"/>
+        </g>
+        <g class="rt" data-line="2">
+          <polyline points="120,40 120,180 240,300 240,420"/>
+        </g>
+        <g class="rt" data-line="3">
+          <polyline points="180,260 300,140 420,140 500,220 500,320 380,440 240,440 180,380 180,260"/>
+        </g>
+        <g class="rt" data-line="4">
+          <polyline points="580,60 460,60 380,140 380,300 300,380"/>
+        </g>
+        <g class="rt" data-line="5">
+          <polyline points="40,340 160,340 260,240 420,240 540,360"/>
+        </g>
+        <g class="rt" data-line="6">
+          <polyline points="60,420 160,420 300,280 300,100 360,40"/>
+        </g>
+
+        <g class="stops">
+          <circle cx="200" cy="120" r="7"/><circle cx="280" cy="200" r="7"/>
+          <circle cx="120" cy="180" r="7"/><circle cx="240" cy="300" r="7"/>
+          <circle cx="300" cy="140" r="7"/><circle cx="420" cy="140" r="7"/>
+          <circle cx="500" cy="220" r="7"/><circle cx="380" cy="140" r="7"/>
+          <circle cx="380" cy="300" r="7"/><circle cx="260" cy="240" r="7"/>
+          <circle cx="420" cy="240" r="7"/><circle cx="160" cy="340" r="7"/>
+          <circle cx="300" cy="280" r="7"/><circle cx="160" cy="420" r="7"/>
+          <circle cx="480" cy="200" r="7"/><circle cx="180" cy="260" r="7"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="stats">
+      <div><b>94</b><span>estaciones</span></div>
+      <div><b>112</b><span>kilómetros</span></div>
+      <div><b>4 min</b><span>frecuencia punta</span></div>
+      <div><b>1,4 M</b><span>viajes al día</span></div>
+    </div>
+  </section>
+
+  <hr class="rule rule--thick">
+
+  <!-- HORARIOS -->
+  <section class="wrap sec" id="horarios">
+    <div class="sec__head">
+      <h2>Horarios</h2>
+      <p class="sec__note">Servicio nocturno viernes y sábado</p>
+    </div>
+
+    <table class="tbl">
+      <caption class="sr-only">Horario de servicio por tipo de día</caption>
+      <thead>
+        <tr><th scope="col">Día</th><th scope="col">Primer tren</th><th scope="col">Último tren</th><th scope="col">Frecuencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Lunes a jueves</th><td>05:30</td><td>01:30</td><td>4 – 9 min</td></tr>
+        <tr><th scope="row">Viernes</th><td>05:30</td><td>Servicio continuo</td><td>4 – 12 min</td></tr>
+        <tr><th scope="row">Sábado</th><td>Servicio continuo</td><td>Servicio continuo</td><td>6 – 12 min</td></tr>
+        <tr><th scope="row">Domingo</th><td>06:00</td><td>01:30</td><td>7 – 12 min</td></tr>
+        <tr><th scope="row">Festivos</th><td>06:30</td><td>01:00</td><td>9 – 15 min</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="rule rule--thick">
+
+  <!-- BILLETES -->
+  <section class="wrap sec" id="billetes">
+    <div class="sec__head">
+      <h2>Billetes</h2>
+      <p class="sec__note">Mismo precio en toda la red</p>
+    </div>
+
+    <div class="tickets">
+      <article class="tk">
+        <span class="tk__kind">Sencillo</span>
+        <p class="tk__price">1,80 €</p>
+        <p class="tk__desc">Un viaje con transbordos ilimitados durante 90 minutos.</p>
+      </article>
+      <article class="tk">
+        <span class="tk__kind">Diez viajes</span>
+        <p class="tk__price">12,00 €</p>
+        <p class="tk__desc">Recargable y compartible entre varias personas.</p>
+      </article>
+      <article class="tk tk--hot">
+        <span class="tk__kind">Mensual</span>
+        <p class="tk__price">42,00 €</p>
+        <p class="tk__desc">Viajes ilimitados durante 30 días desde la primera validación.</p>
+      </article>
+      <article class="tk">
+        <span class="tk__kind">Turista 72 h</span>
+        <p class="tk__price">15,00 €</p>
+        <p class="tk__desc">Incluye el trayecto al aeropuerto por la línea 4.</p>
+      </article>
+    </div>
+
+    <!-- Calculadora -->
+    <div class="calc">
+      <div class="calc__q">
+        <label class="fld">
+          <span>Viajes al mes</span>
+          <input type="number" id="trips" value="44" min="0" max="400">
+        </label>
+        <label class="fld">
+          <span>Billete actual</span>
+          <select id="cur">
+            <option value="1.8">Sencillo — 1,80 €</option>
+            <option value="1.2" selected>Diez viajes — 1,20 €/viaje</option>
+          </select>
+        </label>
+      </div>
+      <div class="calc__a" id="calcOut">
+        <p class="calc__line">Ahora pagarías <b id="now">52,80 €</b> al mes.</p>
+        <p class="calc__verdict" id="verdict">El abono mensual te ahorra 10,80 €.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule rule--thick">
+
+  <!-- AVISOS -->
+  <section class="wrap sec" id="avisos">
+    <div class="sec__head">
+      <h2>Avisos</h2>
+      <p class="sec__note">Actualizado hoy</p>
+    </div>
+
+    <ul class="notices">
+      <li class="nt nt--work">
+        <span class="nt__badge">Obras</span>
+        <div>
+          <h3>Línea 2 — tramo Norte / Mercado</h3>
+          <p>Cerrado del 12 al 26 de octubre. Autobús lanzadera cada 6 minutos, gratuito con cualquier billete válido.</p>
+        </div>
+        <span class="nt__when">12 – 26 oct</span>
+      </li>
+      <li class="nt nt--new">
+        <span class="nt__badge">Nuevo</span>
+        <div>
+          <h3>Estación Astilleros</h3>
+          <p>Apertura el 3 de noviembre. La línea 6 amplía su recorrido en 2,1 km hacia el este.</p>
+        </div>
+        <span class="nt__when">3 nov</span>
+      </li>
+      <li class="nt nt--info">
+        <span class="nt__badge">Servicio</span>
+        <div>
+          <h3>Ascensores en Universidad</h3>
+          <p>Los dos ascensores del vestíbulo sur vuelven a funcionar. El acceso accesible por la calle Mayor queda restablecido.</p>
+        </div>
+        <span class="nt__when">Hoy</span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<hr class="rule rule--thick">
+
+<footer class="wrap foot">
+  <div>
+    <a href="#" class="mark">
+      <span class="mark__disc">L</span>
+      <span class="mark__txt">LÍNEA</span>
+    </a>
+  </div>
+  <nav class="foot__nav">
+    <a href="#red">Red</a><a href="#horarios">Horarios</a><a href="#billetes">Billetes</a>
+    <a href="#">Accesibilidad</a><a href="#">Objetos perdidos</a><a href="#">Atención al viajero</a>
+  </nav>
+  <p class="foot__legal">
+    © 2026 — Ejemplo de demostración. Ejercicio de estilo sobre el trabajo de
+    Massimo Vignelli y Unimark. Red y servicio ficticios.
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
