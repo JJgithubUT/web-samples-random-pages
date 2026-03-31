@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T-7 — Altavoz de sobremesa</title>
+<meta name="description" content="Altavoz de sobremesa de dos vías. Sin app, sin cuenta, sin actualizaciones. Un interruptor y un dial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a href="#" class="wordmark">funktion</a>
+    <nav class="nav" id="menu">
+      <a href="#producto">Producto</a>
+      <a href="#principios">Principios</a>
+      <a href="#datos">Datos técnicos</a>
+      <a href="#comprar">Comprar</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="wrap hero" id="producto">
+    <div class="hero__txt">
+      <p class="ref">T-7 / 2026</p>
+      <h1>Un altavoz que<br>solo suena.</h1>
+      <p class="hero__lead">
+        Dos vías, 40 W, madera contrachapada y aluminio anodizado.
+        Sin aplicación, sin cuenta de usuario, sin actualizaciones que
+        lo empeoren dentro de tres años. Un interruptor y un dial.
+      </p>
+
+      <div class="hero__meta">
+        <div><span>Precio</span><b>349 €</b></div>
+        <div><span>Garantía</span><b>10 años</b></div>
+        <div><span>Recambios</span><b>hasta 2046</b></div>
+      </div>
+
+      <a href="#comprar" class="btn">Comprar — 349 €</a>
+    </div>
+
+    <!-- Producto dibujado en CSS -->
+    <div class="hero__obj">
+      <div class="unit" id="unit">
+        <div class="unit__grille"></div>
+        <div class="unit__panel">
+          <div class="knob" id="knob" role="slider"
+               aria-label="Volumen"
+               aria-valuemin="0" aria-valuemax="10" aria-valuenow="4"
+               tabindex="0">
+            <span class="knob__mark"></span>
+          </div>
+          <div class="unit__readout">
+            <span class="led" id="led"></span>
+            <span class="unit__val" id="vol">4</span>
+          </div>
+        </div>
+        <div class="unit__foot">
+          <span class="unit__id">T-7</span>
+          <span class="unit__sw" id="sw" role="switch" aria-checked="true" tabindex="0">
+            <i></i>
+          </span>
+        </div>
+      </div>
+      <p class="caption">Gira el dial o usa las flechas del teclado</p>
+    </div>
+  </section>
+
+  <!-- ACABADOS -->
+  <section class="wrap sec">
+    <h2 class="sec__t">Tres acabados</h2>
+    <div class="finishes" id="finishes">
+      <button class="fin is-on" data-fin="claro" style="--sw:#dcd8d0">
+        <span class="fin__chip"></span>
+        <span class="fin__name">Arce claro</span>
+        <span class="fin__sub">Contrachapado natural</span>
+      </button>
+      <button class="fin" data-fin="grafito" style="--sw:#3a3a38">
+        <span class="fin__chip"></span>
+        <span class="fin__name">Grafito</span>
+        <span class="fin__sub">Fresno teñido</span>
+      </button>
+      <button class="fin" data-fin="blanco" style="--sw:#f2f1ee">
+        <span class="fin__chip"></span>
+        <span class="fin__name">Blanco señal</span>
+        <span class="fin__sub">Lacado mate</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PRINCIPIOS -->
+  <section class="band" id="principios">
+    <div class="wrap">
+      <h2 class="sec__t">Cómo lo hemos decidido</h2>
+      <p class="band__intro">
+        Cada decisión de este aparato responde a una pregunta incómoda:
+        ¿esto ayuda a escuchar música o solo ayuda a venderlo?
+      </p>
+
+      <ol class="princ">
+        <li>
+          <span class="princ__n">01</span>
+          <h3>Es útil antes que llamativo</h3>
+          <p>No tiene pantalla porque una pantalla no mejora el sonido. La única información que da es el volumen, y la da con un número.</p>
+        </li>
+        <li>
+          <span class="princ__n">02</span>
+          <h3>Se entiende sin manual</h3>
+          <p>Un dial que gira y un interruptor que hace clic. Nadie ha necesitado nunca que le expliquen un dial.</p>
+        </li>
+        <li>
+          <span class="princ__n">03</span>
+          <h3>No llama la atención</h3>
+          <p>Está pensado para pasar veinte años en una estantería sin cansar. Por eso no hay logotipo en la parte frontal.</p>
+        </li>
+        <li>
+          <span class="princ__n">04</span>
+          <h3>Se puede reparar</h3>
+          <p>Ocho tornillos y está abierto. Vendemos el amplificador, los altavoces y el dial por separado, y el despiece está publicado.</p>
+        </li>
+        <li>
+          <span class="princ__n">05</span>
+          <h3>Dura más que la moda</h3>
+          <p>Entrada analógica y Bluetooth. Cuando el Bluetooth pase de moda, el cable seguirá funcionando.</p>
+        </li>
+        <li>
+          <span class="princ__n">06</span>
+          <h3>Tiene el mínimo posible</h3>
+          <p>Quitamos el mando a distancia, la luz ambiente y el asistente de voz. El aparato mejoró con cada cosa que le quitamos.</p>
+        </li>
+      </ol>
+
+      <p class="band__note">
+        Los seis puntos son nuestra lectura de los diez principios del buen
+        diseño que formuló Dieter Rams en los años setenta.
+      </p>
+    </div>
+  </section>
+
+  <!-- DATOS TÉCNICOS -->
+  <section class="wrap sec" id="datos">
+    <h2 class="sec__t">Datos técnicos</h2>
+
+    <div class="tabs" role="tablist" aria-label="Fichas técnicas">
+      <button class="tab is-on" role="tab" aria-selected="true" data-tab="audio">Audio</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="fisico">Físico</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="conex">Conexiones</button>
+    </div>
+
+    <div class="panel is-on" data-panel="audio">
+      <dl class="spec">
+        <div><dt>Configuración</dt><dd>Dos vías, bass reflex frontal</dd></div>
+        <div><dt>Potencia</dt><dd>2 × 20 W RMS (clase D)</dd></div>
+        <div><dt>Woofer</dt><dd>110 mm, fibra de papel prensado</dd></div>
+        <div><dt>Tweeter</dt><dd>25 mm, cúpula de seda</dd></div>
+        <div><dt>Respuesta</dt><dd>52 Hz – 20 kHz (± 3 dB)</dd></div>
+        <div><dt>Distorsión</dt><dd>&lt; 0,4 % a 1 kHz</dd></div>
+      </dl>
+    </div>
+
+    <div class="panel" data-panel="fisico">
+      <dl class="spec">
+        <div><dt>Dimensiones</dt><dd>240 × 148 × 165 mm</dd></div>
+        <div><dt>Peso</dt><dd>3,4 kg</dd></div>
+        <div><dt>Caja</dt><dd>Contrachapado de abedul de 15 mm</dd></div>
+        <div><dt>Frontal</dt><dd>Aluminio anodizado 2 mm</dd></div>
+        <div><dt>Rejilla</dt><dd>Acero perforado, desmontable</dd></div>
+        <div><dt>Tornillería</dt><dd>Torx T10, ocho unidades</dd></div>
+      </dl>
+    </div>
+
+    <div class="panel" data-panel="conex">
+      <dl class="spec">
+        <div><dt>Analógica</dt><dd>RCA estéreo y minijack 3,5 mm</dd></div>
+        <div><dt>Digital</dt><dd>Óptica TOSLINK</dd></div>
+        <div><dt>Inalámbrica</dt><dd>Bluetooth 5.3, aptX y AAC</dd></div>
+        <div><dt>Salida</dt><dd>Pre-out para subwoofer</dd></div>
+        <div><dt>Alimentación</dt><dd>Cable extraíble IEC C7</dd></div>
+        <div><dt>Consumo en reposo</dt><dd>0,4 W</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- COMPRAR -->
+  <section class="wrap sec sec--buy" id="comprar">
+    <div class="buy">
+      <div class="buy__left">
+        <h2>T-7</h2>
+        <p class="buy__fin">Acabado: <b id="finName">Arce claro</b></p>
+        <p class="buy__desc">
+          Incluye cable de alimentación, cable RCA de 1,5 m y llave Torx.
+          Envío en 3 días laborables. Devolución sin motivo durante 60 días.
+        </p>
+      </div>
+      <div class="buy__right">
+        <p class="buy__price">349 €</p>
+        <p class="buy__vat">IVA incluido · envío gratuito</p>
+        <button class="btn btn--full" id="buyBtn">Añadir al carrito</button>
+        <p class="buy__msg" id="buyMsg" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <a href="#" class="wordmark">funktion</a>
+    <nav class="foot__nav">
+      <a href="#datos">Datos técnicos</a>
+      <a href="#">Despiece y recambios</a>
+      <a href="#">Garantía</a>
+      <a href="#">Reparación</a>
+      <a href="#">Contacto</a>
+    </nav>
+    <p class="foot__legal">
+      © 2026 — Ejemplo de demostración. Ejercicio de estilo sobre el
+      funcionalismo de Dieter Rams y el diseño de producto de Braun.
+      Marca y aparato ficticios.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
