@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEATRO PÚBLICO — Temporada 26</title>
+<meta name="description" content="Nueve montajes, una sala, ninguna concesión. Temporada 2026 del Teatro Público.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <a href="#" class="bar__logo">TEATRO&nbsp;PÚBLICO</a>
+  <nav class="bar__nav" id="menu">
+    <a href="#temporada">Temporada</a>
+    <a href="#abono">Abono</a>
+    <a href="#sala">Sala</a>
+  </nav>
+  <button class="shuffle" id="shuffle">Cambiar color</button>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- HERO: la tipografía ES la imagen -->
+  <section class="wall">
+    <span class="w w--a">TEMPO</span>
+    <span class="w w--b">RADA</span>
+    <span class="w w--c">VEINTI</span>
+    <span class="w w--d">SÉIS</span>
+    <div class="wall__strip">
+      <span>9 MONTAJES</span><span>1 SALA</span><span>0 CONCESIONES</span>
+    </div>
+  </section>
+
+  <section class="claim">
+    <p>
+      Nueve montajes entre octubre y julio. Cinco textos vivos, dos clásicos
+      revueltos, una ópera de bolsillo y un espectáculo que todavía no sabemos
+      cómo llamar. Entradas desde 9 €, siempre.
+    </p>
+    <a href="#abono" class="big-link">QUIERO EL ABONO →</a>
+  </section>
+
+  <!-- TEMPORADA -->
+  <section class="section" id="temporada">
+    <h2 class="stack">
+      <span>LA</span><span>TEMPO</span><span>RADA</span>
+    </h2>
+
+    <ul class="shows" id="shows">
+      <li class="show" data-c="1">
+        <span class="show__n">01</span>
+        <h3>MADRE CORAJE Y SUS HIJOS</h3>
+        <p class="show__meta">Brecht · dir. Iria Bello · 2 h 20 min</p>
+        <p class="show__when">02 – 26 OCT</p>
+      </li>
+      <li class="show" data-c="2">
+        <span class="show__n">02</span>
+        <h3>EL AÑO DEL PENSAMIENTO MÁGICO</h3>
+        <p class="show__meta">Didion · dir. Paula Nogués · monólogo · 90 min</p>
+        <p class="show__when">06 – 23 NOV</p>
+      </li>
+      <li class="show" data-c="3">
+        <span class="show__n">03</span>
+        <h3>UNA CASA DE MUÑECAS, SEGUNDA PARTE</h3>
+        <p class="show__meta">Hnath · dir. Marcos Ferrán · 1 h 40 min</p>
+        <p class="show__when">04 – 21 DIC</p>
+      </li>
+      <li class="show" data-c="4">
+        <span class="show__n">04</span>
+        <h3>ÓPERA DE BOLSILLO: DIDO</h3>
+        <p class="show__meta">Purcell · seis músicos en escena · 70 min</p>
+        <p class="show__when">15 – 25 ENE</p>
+      </li>
+      <li class="show" data-c="5">
+        <span class="show__n">05</span>
+        <h3>TODO LO QUE NO DIJIMOS EN LA COCINA</h3>
+        <p class="show__meta">Estreno absoluto · texto y dir. Nerea Ostiz · 1 h 50 min</p>
+        <p class="show__when">05 – 22 FEB</p>
+      </li>
+      <li class="show" data-c="6">
+        <span class="show__n">06</span>
+        <h3>EL JARDÍN DE LOS CEREZOS</h3>
+        <p class="show__meta">Chéjov · dir. Iria Bello · 2 h 40 min con pausa</p>
+        <p class="show__when">05 – 29 MAR</p>
+      </li>
+      <li class="show" data-c="7">
+        <span class="show__n">07</span>
+        <h3>PROYECTO BARRIO: LA CALLE LARGA</h3>
+        <p class="show__meta">Creación colectiva con vecinas del distrito · 80 min</p>
+        <p class="show__when">16 – 26 ABR</p>
+      </li>
+      <li class="show" data-c="8">
+        <span class="show__n">08</span>
+        <h3>PERSONA</h3>
+        <p class="show__meta">Sobre Bergman · dir. Tomás Ruano · 1 h 30 min</p>
+        <p class="show__when">07 – 24 MAY</p>
+      </li>
+      <li class="show" data-c="9">
+        <span class="show__n">09</span>
+        <h3>NO SABEMOS CÓMO LLAMAR A ESTO</h3>
+        <p class="show__meta">Circo, danza y una grúa · para todos los públicos · 65 min</p>
+        <p class="show__when">18 JUN – 12 JUL</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ABONO -->
+  <section class="section section--flip" id="abono">
+    <h2 class="stack stack--right">
+      <span>EL</span><span>ABONO</span>
+    </h2>
+
+    <div class="deals">
+      <article class="deal">
+        <p class="deal__price">135<small>€</small></p>
+        <h3>LOS NUEVE</h3>
+        <p>Toda la temporada, butaca fija, cambio de fecha gratis. Sale a 15 € el montaje.</p>
+      </article>
+      <article class="deal deal--hot">
+        <p class="deal__price">72<small>€</small></p>
+        <h3>ELIGE CUATRO</h3>
+        <p>Cuatro montajes a tu gusto. El más vendido, con diferencia.</p>
+      </article>
+      <article class="deal">
+        <p class="deal__price">45<small>€</small></p>
+        <h3>MENOS DE 30</h3>
+        <p>Cinco montajes si tienes menos de treinta años. Sí, cinco.</p>
+      </article>
+      <article class="deal">
+        <p class="deal__price">9<small>€</small></p>
+        <h3>ÚLTIMA HORA</h3>
+        <p>Butacas sobrantes, media hora antes, en taquilla. Sin reserva posible.</p>
+      </article>
+    </div>
+
+    <form class="signup" id="form" novalidate>
+      <label class="sr-only" for="mail">Tu correo</label>
+      <input type="email" id="mail" placeholder="TU CORREO" required>
+      <button type="submit">AVÍSAME</button>
+      <p class="signup__msg" id="msg" role="status"></p>
+    </form>
+  </section>
+
+  <!-- SALA -->
+  <section class="section" id="sala">
+    <h2 class="stack">
+      <span>LA</span><span>SALA</span>
+    </h2>
+
+    <div class="sala">
+      <div class="sala__txt">
+        <p>
+          Un antiguo mercado de abastos de 1911 reconvertido en 1998. Cuatrocientas
+          butacas en grada retráctil, suelo de tarima y ni un solo palco, porque
+          aquí nadie ve la función mejor que su vecino.
+        </p>
+        <p>
+          Está en el barrio, se entra por la plaza y la barra abre dos horas antes
+          de cada pase. Si vienes en metro, línea 3, parada Mercado.
+        </p>
+      </div>
+      <dl class="sala__data">
+        <div><dt>BUTACAS</dt><dd>400</dd></div>
+        <div><dt>ESCENARIO</dt><dd>14 × 11 m</dd></div>
+        <div><dt>EDIFICIO</dt><dd>1911</dd></div>
+        <div><dt>REFORMA</dt><dd>1998</dd></div>
+        <div><dt>ACCESIBLE</dt><dd>SÍ</dd></div>
+        <div><dt>BARRA</dt><dd>2 h ANTES</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__wall">
+    <span>TEATRO</span><span>PÚBLICO</span>
+  </div>
+  <div class="foot__row">
+    <p>Plaza del Mercado 3 · Metro L3 Mercado · 900 00 00 00</p>
+    <p>© 2026 — Ejemplo de demostración</p>
+  </div>
+  <p class="foot__note">
+    Ejercicio de estilo sobre el trabajo tipográfico de Paula Scher para
+    instituciones culturales. Teatro y programación ficticios.
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
