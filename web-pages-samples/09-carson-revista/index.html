@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RUIDO — revista de sonido y desorden</title>
+<meta name="description" content="Revista impresa trimestral sobre música, ruido y las cosas que pasan en los sótanos. Número 14 ya a la venta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="hd">
+  <span class="hd__iss">N.º 14 / OTOÑO / 9 €</span>
+  <nav class="hd__nav" id="menu">
+    <a href="#numero">el número</a>
+    <a href="#sumario">sumario</a>
+    <a href="#suscribe">suscribirse</a>
+  </nav>
+  <button class="reset" id="reset">reordenar</button>
+</header>
+
+<main>
+
+  <!-- PORTADA -->
+  <section class="cover">
+    <span class="drag t1" data-drag>RUI</span>
+    <span class="drag t2" data-drag>DO</span>
+    <span class="drag t3" data-drag>RUIDO</span>
+
+    <p class="drag sub1" data-drag>revista de sonido<br>y desorden</p>
+    <p class="drag sub2" data-drag>trimestral<br>desde 2019</p>
+
+    <span class="drag stamp" data-drag>N.º14</span>
+
+    <div class="drag blk" data-drag></div>
+    <div class="drag rule-v" data-drag></div>
+
+    <p class="cover__hint">arrastra cualquier cosa · pulsa «reordenar» para volver</p>
+  </section>
+
+  <!-- ENTRADILLA -->
+  <section class="lead" id="numero">
+    <p class="lead__drop">
+      Ochenta y ocho páginas impresas en offset sobre papel barato, grapadas a
+      mano un jueves por la tarde. Nadie nos paga por esto y se nota, que es
+      exactamente lo que queríamos.
+    </p>
+    <p class="lead__body">
+      Este número va de sótanos: locales de ensayo que fueron garajes, salas de
+      cien personas que aguantan otro invierno, y de por qué el sonido que sale
+      mal a veces sale mejor. Hay una entrevista de catorce páginas hecha en un
+      trastero sin ventana y una discografía comentada que no cabía y hemos
+      metido igual.
+    </p>
+  </section>
+
+  <!-- SUMARIO -->
+  <section class="sum" id="sumario">
+    <h2 class="sum__t"><span>SU</span><span>MA</span><span>RIO</span></h2>
+
+    <ol class="pieces">
+      <li class="pc pc--a">
+        <span class="pc__p">p. 06</span>
+        <h3>El garaje de la calle Ancha</h3>
+        <p>Once bandas comparten 34 metros cuadrados y un enchufe. Estuvimos tres meses yendo los martes.</p>
+        <span class="pc__by">Texto: N. Ostiz</span>
+      </li>
+      <li class="pc pc--b">
+        <span class="pc__p">p. 22</span>
+        <h3>ENTREVISTA / Marta Lin</h3>
+        <p>Catorce páginas en un trastero sin ventana hablando de feedback, de dejarlo y de volver.</p>
+        <span class="pc__by">Texto: A. Cerdán · Fotos: R. Puig</span>
+      </li>
+      <li class="pc pc--c">
+        <span class="pc__p">p. 41</span>
+        <h3>Cómo suena una sala que se cae</h3>
+        <p>Medimos la acústica de cuatro locales antes de que los cierren. Los números dan pena y razón.</p>
+        <span class="pc__by">Texto: J. Bravo</span>
+      </li>
+      <li class="pc pc--d">
+        <span class="pc__p">p. 58</span>
+        <h3>Discografía comentada: el ruido español 1994–2004</h3>
+        <p>Sesenta y dos discos, casi todos descatalogados. La lista no cabía y la hemos metido igual.</p>
+        <span class="pc__by">Texto: la redacción</span>
+      </li>
+      <li class="pc pc--e">
+        <span class="pc__p">p. 74</span>
+        <h3>Diario de gira en una furgoneta de 1998</h3>
+        <p>Nueve días, siete conciertos, una avería en Albacete y un cuaderno lleno de servilletas.</p>
+        <span class="pc__by">Texto y fotos: T. Ruano</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CITA -->
+  <section class="pull">
+    <blockquote>
+      «la primera vez que lo grabamos<br>
+      sonaba <em>perfecto</em><br>
+      y por eso lo tiramos»
+    </blockquote>
+    <cite>— Marta Lin, p. 29</cite>
+  </section>
+
+  <!-- SUSCRIPCIÓN -->
+  <section class="subs" id="suscribe">
+    <div class="subs__l">
+      <h2>SUS<br>CRÍ<br>BETE</h2>
+      <p>Cuatro números al año en tu buzón. Sin renovación automática, porque odiamos eso tanto como tú.</p>
+    </div>
+
+    <div class="subs__r">
+      <div class="opts">
+        <label class="opt">
+          <input type="radio" name="plan" value="32" checked>
+          <span class="opt__box">
+            <b>32 €</b>
+            <em>4 números / un año</em>
+          </span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="plan" value="58">
+          <span class="opt__box">
+            <b>58 €</b>
+            <em>8 números / dos años</em>
+          </span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="plan" value="9">
+          <span class="opt__box">
+            <b>9 €</b>
+            <em>solo el n.º 14</em>
+          </span>
+        </label>
+      </div>
+
+      <form class="sform" id="form" novalidate>
+        <input type="email" id="mail" placeholder="tu correo" required>
+        <button type="submit">ENVIAR</button>
+      </form>
+      <p class="sform__msg" id="msg" role="status"></p>
+
+      <p class="subs__fine">
+        Envío a península incluido. Islas y extranjero, escríbenos y lo miramos.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <span class="ft__big">RUIDO</span>
+  <div class="ft__cols">
+    <p>hola@ruido.example<br>c/ del Sótano 4, bajo</p>
+    <p>© 2026 — Ejemplo de demostración<br>revista y contenidos ficticios</p>
+    <p>Ejercicio de estilo sobre la tipografía deconstruida de David Carson y la etapa de <i>Ray Gun</i>.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
