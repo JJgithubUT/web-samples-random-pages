@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festival de Cine de Otoño — 12.ª edición</title>
+<meta name="description" content="Ocho días, cuatro salas, cuarenta películas. Del 9 al 16 de octubre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 34 34" class="logo__ico" aria-hidden="true">
+        <circle cx="17" cy="17" r="16" fill="currentColor"/>
+        <path d="M17 3 C 9 11, 9 23, 17 31 C 21 25, 21 9, 17 3 Z" fill="#f0ead6"/>
+      </svg>
+      <span>Festival de Cine<br><i>de Otoño</i></span>
+    </a>
+    <nav class="nav" id="menu">
+      <a href="#secciones">Secciones</a>
+      <a href="#programa">Programa</a>
+      <a href="#sedes">Sedes</a>
+      <a href="#entradas">Entradas</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div class="hero__txt">
+        <p class="ed">12.ª edición</p>
+        <h1>Ocho días<br>a oscuras</h1>
+        <p class="hero__d">
+          Del 9 al 16 de octubre. Cuarenta películas, cuatro salas y
+          una carpa en la plaza para las sesiones de medianoche.
+        </p>
+        <div class="hero__btns">
+          <a href="#entradas" class="btn">Abonos desde 45 €</a>
+          <a href="#programa" class="btn btn--o">Ver el programa</a>
+        </div>
+      </div>
+
+      <!-- Composición de recortes -->
+      <div class="cut" aria-hidden="true">
+        <span class="sh sh--eye"></span>
+        <span class="sh sh--iris"></span>
+        <span class="sh sh--bar1"></span>
+        <span class="sh sh--bar2"></span>
+        <span class="sh sh--bar3"></span>
+        <span class="sh sh--tri"></span>
+        <span class="sh sh--dot"></span>
+        <span class="sh sh--arc"></span>
+      </div>
+    </div>
+
+    <div class="reel" aria-hidden="true">
+      <div class="reel__t">
+        <span>40 PELÍCULAS</span><b>✳</b><span>4 SALAS</span><b>✳</b><span>9–16 OCT</span><b>✳</b>
+        <span>18 ESTRENOS</span><b>✳</b><span>3 RETROSPECTIVAS</span><b>✳</b>
+        <span>40 PELÍCULAS</span><b>✳</b><span>4 SALAS</span><b>✳</b><span>9–16 OCT</span><b>✳</b>
+        <span>18 ESTRENOS</span><b>✳</b><span>3 RETROSPECTIVAS</span><b>✳</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIONES -->
+  <section class="wrap sec" id="secciones">
+    <h2 class="h2">Secciones</h2>
+    <div class="cards">
+      <article class="card card--1">
+        <span class="card__ico" aria-hidden="true"></span>
+        <h3>Competición</h3>
+        <p>Doce largometrajes a concurso. Jurado de cinco personas y un premio del público que se vota a la salida, en papel.</p>
+        <span class="card__n">12 títulos</span>
+      </article>
+      <article class="card card--2">
+        <span class="card__ico" aria-hidden="true"></span>
+        <h3>Retrospectiva</h3>
+        <p>Este año, el cine negro español de los cincuenta. Nueve copias restauradas, seis de ellas en 35 mm.</p>
+        <span class="card__n">9 títulos</span>
+      </article>
+      <article class="card card--3">
+        <span class="card__ico" aria-hidden="true"></span>
+        <h3>Medianoche</h3>
+        <p>Terror, serie B y lo que no encaja en ningún sitio. En la carpa de la plaza, a la una de la mañana.</p>
+        <span class="card__n">8 títulos</span>
+      </article>
+      <article class="card card--4">
+        <span class="card__ico" aria-hidden="true"></span>
+        <h3>Corto y claro</h3>
+        <p>Once cortometrajes en dos sesiones. Entrada libre hasta completar aforo, como debe ser.</p>
+        <span class="card__n">11 títulos</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section class="band" id="programa">
+    <div class="wrap">
+      <h2 class="h2 h2--light">Programa</h2>
+
+      <div class="days" id="days" role="tablist" aria-label="Días del festival">
+        <button class="day is-on" role="tab" aria-selected="true" data-day="j9"><b>JUE</b><i>9</i></button>
+        <button class="day" role="tab" aria-selected="false" data-day="v10"><b>VIE</b><i>10</i></button>
+        <button class="day" role="tab" aria-selected="false" data-day="s11"><b>SÁB</b><i>11</i></button>
+        <button class="day" role="tab" aria-selected="false" data-day="d12"><b>DOM</b><i>12</i></button>
+      </div>
+
+      <div class="sched is-on" data-day="j9">
+        <div class="slot"><span class="slot__h">18:00</span><div><h4>Apertura — «La casa del faro»</h4><p>Sala Principal · 108 min · presentación del equipo</p></div><span class="slot__tag t-comp">Competición</span></div>
+        <div class="slot"><span class="slot__h">20:30</span><div><h4>«Brigada Nocturna» (1954)</h4><p>Sala 2 · 92 min · copia restaurada en 35 mm</p></div><span class="slot__tag t-retro">Retrospectiva</span></div>
+        <div class="slot"><span class="slot__h">22:45</span><div><h4>«Nadie duerme en agosto»</h4><p>Sala Principal · 121 min · V.O. subtitulada</p></div><span class="slot__tag t-comp">Competición</span></div>
+        <div class="slot"><span class="slot__h">01:00</span><div><h4>Sesión golfa: «El sótano»</h4><p>Carpa de la plaza · 78 min · no apto para gente sensata</p></div><span class="slot__tag t-noche">Medianoche</span></div>
+      </div>
+
+      <div class="sched" data-day="v10">
+        <div class="slot"><span class="slot__h">17:00</span><div><h4>Corto y claro — Sesión 1</h4><p>Sala 3 · 96 min · entrada libre</p></div><span class="slot__tag t-corto">Cortos</span></div>
+        <div class="slot"><span class="slot__h">19:00</span><div><h4>«El invierno de Amelia»</h4><p>Sala Principal · 134 min · con coloquio</p></div><span class="slot__tag t-comp">Competición</span></div>
+        <div class="slot"><span class="slot__h">21:30</span><div><h4>«Muerte en la calle Mayor» (1957)</h4><p>Sala 2 · 88 min · presentación de la filmoteca</p></div><span class="slot__tag t-retro">Retrospectiva</span></div>
+        <div class="slot"><span class="slot__h">01:00</span><div><h4>Sesión golfa: «Marea roja»</h4><p>Carpa de la plaza · 84 min</p></div><span class="slot__tag t-noche">Medianoche</span></div>
+      </div>
+
+      <div class="sched" data-day="s11">
+        <div class="slot"><span class="slot__h">12:00</span><div><h4>Encuentro con Iria Bello</h4><p>Sala 3 · 60 min · entrada libre</p></div><span class="slot__tag t-corto">Actividad</span></div>
+        <div class="slot"><span class="slot__h">16:30</span><div><h4>«Tres cartas sin abrir»</h4><p>Sala Principal · 99 min</p></div><span class="slot__tag t-comp">Competición</span></div>
+        <div class="slot"><span class="slot__h">19:00</span><div><h4>«La sombra del muelle» (1951)</h4><p>Sala 2 · 81 min · 35 mm</p></div><span class="slot__tag t-retro">Retrospectiva</span></div>
+        <div class="slot"><span class="slot__h">22:00</span><div><h4>«Los días contados»</h4><p>Sala Principal · 117 min · V.O. subtitulada</p></div><span class="slot__tag t-comp">Competición</span></div>
+        <div class="slot"><span class="slot__h">01:00</span><div><h4>Sesión golfa: doble programa</h4><p>Carpa de la plaza · 156 min · con descanso y bocadillo</p></div><span class="slot__tag t-noche">Medianoche</span></div>
+      </div>
+
+      <div class="sched" data-day="d12">
+        <div class="slot"><span class="slot__h">11:30</span><div><h4>Corto y claro — Sesión 2</h4><p>Sala 3 · 88 min · entrada libre</p></div><span class="slot__tag t-corto">Cortos</span></div>
+        <div class="slot"><span class="slot__h">17:00</span><div><h4>«Todo lo que arde»</h4><p>Sala Principal · 105 min</p></div><span class="slot__tag t-comp">Competición</span></div>
+        <div class="slot"><span class="slot__h">20:00</span><div><h4>Cine y memoria: mesa redonda</h4><p>Sala 2 · 75 min · entrada libre</p></div><span class="slot__tag t-retro">Actividad</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEDES -->
+  <section class="wrap sec" id="sedes">
+    <h2 class="h2">Sedes</h2>
+    <div class="venues">
+      <div class="venue"><b>Sala Principal</b><span>Teatro Municipal · 420 butacas · proyección digital 4K y 35 mm</span></div>
+      <div class="venue"><b>Sala 2</b><span>Filmoteca · 180 butacas · proyector de 35 mm de 1968, revisado este verano</span></div>
+      <div class="venue"><b>Sala 3</b><span>Centro cívico · 90 butacas · accesible y con bucle magnético</span></div>
+      <div class="venue"><b>La carpa</b><span>Plaza del Olmo · 200 plazas de pie o manta · llévate algo de abrigo</span></div>
+    </div>
+  </section>
+
+  <!-- ENTRADAS -->
+  <section class="wrap sec" id="entradas">
+    <h2 class="h2">Entradas</h2>
+    <div class="tix">
+      <article class="tix__c">
+        <p class="tix__p">6 €</p>
+        <h3>Sesión suelta</h3>
+        <p>Cualquier pase, cualquier sala. En taquilla desde una hora antes.</p>
+      </article>
+      <article class="tix__c tix__c--hot">
+        <p class="tix__p">45 €</p>
+        <h3>Abono completo</h3>
+        <p>Los ocho días, todas las secciones, acceso prioritario a la carpa.</p>
+      </article>
+      <article class="tix__c">
+        <p class="tix__p">28 €</p>
+        <h3>Abono fin de semana</h3>
+        <p>Viernes, sábado y domingo. Incluye las tres sesiones golfas.</p>
+      </article>
+      <article class="tix__c">
+        <p class="tix__p">0 €</p>
+        <h3>Cortos y encuentros</h3>
+        <p>Entrada libre hasta completar aforo. No se puede reservar.</p>
+      </article>
+    </div>
+
+    <form class="form" id="form" novalidate>
+      <label class="sr-only" for="mail">Tu correo</label>
+      <input type="email" id="mail" placeholder="Tu correo para el recordatorio" required>
+      <button type="submit" class="btn">Avísame de la venta</button>
+      <p class="form__msg" id="msg" role="status"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p class="foot__b">9 — 16 OCTUBRE</p>
+    <div class="foot__cols">
+      <p>Oficina del festival<br>Plaza del Olmo 2<br>900 00 00 00</p>
+      <p>Prensa y acreditaciones<br>prensa@festival.example</p>
+      <p>© 2026 — Ejemplo de demostración<br>Festival y programación ficticios</p>
+    </div>
+    <p class="foot__note">
+      Ejercicio de estilo sobre los carteles y títulos de crédito de Saul Bass:
+      formas recortadas, paleta corta y una sola idea por composición.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
