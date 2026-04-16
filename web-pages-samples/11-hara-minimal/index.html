@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHIRO — objetos para la casa</title>
+<meta name="description" content="Objetos de uso diario sin marca visible. Materiales sin teñir, formas sin adornar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hd">
+  <a href="#" class="hd__mark">SHIRO<span>白</span></a>
+  <nav class="hd__nav" id="menu">
+    <a href="#idea">Idea</a>
+    <a href="#objetos">Objetos</a>
+    <a href="#materiales">Materiales</a>
+    <a href="#tiendas">Tiendas</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- HERO: casi todo vacío, a propósito -->
+  <section class="empty">
+    <div class="empty__mark" aria-hidden="true"></div>
+    <h1 class="empty__t">Nada<br>de más.</h1>
+    <p class="empty__s">Objetos de uso diario, sin marca visible.</p>
+    <span class="scroll" aria-hidden="true"></span>
+  </section>
+
+  <!-- IDEA -->
+  <section class="quiet" id="idea">
+    <p class="q-num">01</p>
+    <div class="q-body">
+      <p class="q-lead">
+        Un objeto bien hecho no pide atención. Está donde tiene que estar,
+        hace lo que tiene que hacer y desaparece.
+      </p>
+      <p>
+        No teñimos lo que no hace falta teñir. No imprimimos el nombre en la
+        parte de fuera. No fabricamos catorce variantes de la misma taza para
+        que elijas. Hacemos una, la mejor que sabemos, y la mantenemos en
+        catálogo mientras siga siendo la mejor que sabemos.
+      </p>
+      <p>
+        El vacío no es falta de algo. Es el espacio donde cabe lo que tú traigas.
+      </p>
+    </div>
+  </section>
+
+  <!-- OBJETOS -->
+  <section class="quiet quiet--wide" id="objetos">
+    <p class="q-num">02</p>
+    <div class="q-body">
+      <h2 class="q-t">Objetos</h2>
+      <p class="q-sub">Catorce referencias en total. Estas son seis.</p>
+    </div>
+
+    <div class="shelf" id="shelf">
+      <article class="obj" tabindex="0">
+        <div class="obj__fig" data-shape="cup" aria-hidden="true"><span></span></div>
+        <h3>Taza sin asa</h3>
+        <p class="obj__m">Porcelana sin esmaltar por fuera · 220 ml</p>
+        <p class="obj__p">14 €</p>
+      </article>
+
+      <article class="obj" tabindex="0">
+        <div class="obj__fig" data-shape="bowl" aria-hidden="true"><span></span></div>
+        <h3>Cuenco hondo</h3>
+        <p class="obj__m">Gres blanco roto · 16 cm</p>
+        <p class="obj__p">19 €</p>
+      </article>
+
+      <article class="obj" tabindex="0">
+        <div class="obj__fig" data-shape="bottle" aria-hidden="true"><span></span></div>
+        <h3>Botella de mesa</h3>
+        <p class="obj__m">Vidrio soplado · 750 ml · tapón de corcho</p>
+        <p class="obj__p">24 €</p>
+      </article>
+
+      <article class="obj" tabindex="0">
+        <div class="obj__fig" data-shape="tray" aria-hidden="true"><span></span></div>
+        <h3>Bandeja lisa</h3>
+        <p class="obj__m">Contrachapado de abedul aceitado · 32 × 22 cm</p>
+        <p class="obj__p">28 €</p>
+      </article>
+
+      <article class="obj" tabindex="0">
+        <div class="obj__fig" data-shape="cloth" aria-hidden="true"><span></span></div>
+        <h3>Paño de cocina</h3>
+        <p class="obj__m">Lino lavado sin blanquear · 50 × 70 cm</p>
+        <p class="obj__p">11 €</p>
+      </article>
+
+      <article class="obj" tabindex="0">
+        <div class="obj__fig" data-shape="box" aria-hidden="true"><span></span></div>
+        <h3>Caja apilable</h3>
+        <p class="obj__m">Cartón prensado gris · tres alturas</p>
+        <p class="obj__p">9 €</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MATERIALES -->
+  <section class="quiet" id="materiales">
+    <p class="q-num">03</p>
+    <div class="q-body">
+      <h2 class="q-t">Materiales</h2>
+      <dl class="mats">
+        <div>
+          <dt>Porcelana</dt>
+          <dd>Cocida a 1.280 °C en Arita. Sin esmalte exterior, para que se note la mano que la hizo.</dd>
+        </div>
+        <div>
+          <dt>Lino</dt>
+          <dd>Cultivado en Normandía, hilado y tejido sin blanquear. El color que ves es el del tallo.</dd>
+        </div>
+        <div>
+          <dt>Abedul</dt>
+          <dd>Contrachapado de doce capas, aceitado con lino puro. Se puede lijar y volver a aceitar en casa.</dd>
+        </div>
+        <div>
+          <dt>Cartón</dt>
+          <dd>Prensado con papel recuperado, sin tintes ni recubrimientos. Se recicla entero.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- LÍNEA -->
+  <section class="line-sec" aria-hidden="true">
+    <span class="line" id="line"></span>
+  </section>
+
+  <!-- TIENDAS -->
+  <section class="quiet" id="tiendas">
+    <p class="q-num">04</p>
+    <div class="q-body">
+      <h2 class="q-t">Dónde verlo</h2>
+      <p class="q-sub">
+        Preferimos que lo toques antes de comprarlo. Tenemos tres tiendas
+        y ninguna tiene escaparate.
+      </p>
+
+      <ul class="stores">
+        <li><b>Madrid</b><span>Calle del Pez 12 · 11:00 – 20:00</span></li>
+        <li><b>Barcelona</b><span>Carrer de Ferlandina 5 · 11:00 – 20:00</span></li>
+        <li><b>Bilbao</b><span>Barrenkale 9 · 11:00 – 19:00</span></li>
+      </ul>
+
+      <form class="sub" id="form" novalidate>
+        <label class="sr-only" for="mail">Tu correo</label>
+        <input type="email" id="mail" placeholder="Correo, si quieres que te avisemos" required>
+        <button type="submit">Enviar</button>
+      </form>
+      <p class="sub__msg" id="msg" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="ft__row">
+    <span class="ft__mark">SHIRO<i>白</i></span>
+    <nav class="ft__nav">
+      <a href="#objetos">Objetos</a><a href="#tiendas">Tiendas</a>
+      <a href="#">Envíos</a><a href="#">Cuidados</a><a href="#">Contacto</a>
+    </nav>
+  </div>
+  <p class="ft__legal">
+    © 2026 — Ejemplo de demostración. Ejercicio de estilo sobre la idea de
+    <i>emptiness</i> de Kenya Hara y el diseño sin marca. Marca y productos ficticios.
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
