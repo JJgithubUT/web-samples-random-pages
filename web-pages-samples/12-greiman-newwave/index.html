@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HÍBRIDA 2026 — congreso de diseño</title>
+<meta name="description" content="Dos días sobre lo que pasa cuando lo analógico y lo digital dejan de ser cosas distintas. 14 y 15 de mayo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scan" aria-hidden="true"></div>
+
+<header class="hd">
+  <a href="#" class="hd__m">HÍBRIDA<span>_26</span></a>
+  <nav class="hd__n" id="menu">
+    <a href="#tema">Tema</a>
+    <a href="#ponentes">Ponentes</a>
+    <a href="#programa">Programa</a>
+    <a href="#inscripcion">Inscripción</a>
+  </nav>
+  <span class="hd__c" id="coords">x:000 y:000</span>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- HERO EN CAPAS -->
+  <section class="stage" id="stage">
+    <div class="layer layer--grid" data-depth="0.4" aria-hidden="true"></div>
+    <div class="layer layer--blob1" data-depth="1.8" aria-hidden="true"></div>
+    <div class="layer layer--blob2" data-depth="-1.2" aria-hidden="true"></div>
+    <div class="layer layer--halftone" data-depth="2.6" aria-hidden="true"></div>
+    <div class="layer layer--bars" data-depth="-2.2" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i>
+    </div>
+
+    <div class="stage__c">
+      <p class="tick" data-depth="0.8">14 + 15 MAYO 2026 / NAVE 8 / 480 PLAZAS</p>
+      <h1 data-depth="1.2">
+        <span class="l1">HÍ</span><span class="l2">BRI</span><span class="l3">DA</span>
+      </h1>
+      <p class="stage__s" data-depth="0.6">
+        Dos días sobre lo que pasa cuando lo analógico y lo digital
+        dejan de ser cosas distintas.
+      </p>
+      <div class="stage__b" data-depth="0.4">
+        <a href="#inscripcion" class="btn">Inscribirme — 180 €</a>
+        <a href="#programa" class="btn btn--g">Ver el programa</a>
+      </div>
+    </div>
+
+    <p class="stage__note" aria-hidden="true">MUEVE EL RATÓN →</p>
+  </section>
+
+  <!-- TEMA -->
+  <section class="sec" id="tema">
+    <div class="sec__h">
+      <span class="idx">/01</span>
+      <h2>El tema de este año</h2>
+    </div>
+    <div class="two">
+      <p class="big">
+        Llevamos cuarenta años diciendo que la herramienta no importa.
+        Este año vamos a discutir exactamente lo contrario.
+      </p>
+      <div class="col-txt">
+        <p>
+          El congreso se organiza alrededor de una pregunta incómoda: ¿qué le
+          pasa a una idea cuando cambia de soporte? Un cartel que nace en pantalla
+          y acaba serigrafiado no es el mismo cartel. Una tipografía dibujada a mano
+          y luego vectorizada pierde y gana cosas concretas, medibles.
+        </p>
+        <p>
+          Nueve ponencias, cuatro talleres y una mesa redonda que probablemente
+          se nos vaya de las manos. No habrá presentaciones de producto ni casos
+          de éxito. Habrá gente enseñando lo que no le salió.
+        </p>
+      </div>
+    </div>
+
+    <ul class="chips">
+      <li>tipografía</li><li>impresión</li><li>código</li><li>collage</li>
+      <li>fotografía</li><li>identidad</li><li>error</li><li>archivo</li>
+    </ul>
+  </section>
+
+  <!-- PONENTES -->
+  <section class="sec sec--dark" id="ponentes">
+    <div class="sec__h">
+      <span class="idx">/02</span>
+      <h2>Quién viene</h2>
+    </div>
+
+    <div class="speakers">
+      <article class="sp">
+        <div class="sp__av" data-av="1" aria-hidden="true"></div>
+        <h3>Marta Elizalde</h3>
+        <p class="sp__r">Diseñadora tipográfica · Bilbao</p>
+        <p class="sp__t">«Dibujar una letra que ya existe»</p>
+      </article>
+      <article class="sp">
+        <div class="sp__av" data-av="2" aria-hidden="true"></div>
+        <h3>Kwame Osei</h3>
+        <p class="sp__r">Director de arte · Londres</p>
+        <p class="sp__t">«El archivo como material vivo»</p>
+      </article>
+      <article class="sp">
+        <div class="sp__av" data-av="3" aria-hidden="true"></div>
+        <h3>Nuria Calvet</h3>
+        <p class="sp__r">Impresora y editora · Valencia</p>
+        <p class="sp__t">«Doce errores de registro que valieron la pena»</p>
+      </article>
+      <article class="sp">
+        <div class="sp__av" data-av="4" aria-hidden="true"></div>
+        <h3>Tomás Iriarte</h3>
+        <p class="sp__r">Diseñador de interacción · Santiago</p>
+        <p class="sp__t">«Interfaces que envejecen bien»</p>
+      </article>
+      <article class="sp">
+        <div class="sp__av" data-av="5" aria-hidden="true"></div>
+        <h3>Rin Nakamura</h3>
+        <p class="sp__r">Artista gráfica · Osaka</p>
+        <p class="sp__t">«Collage con lo que hay en la mesa»</p>
+      </article>
+      <article class="sp">
+        <div class="sp__av" data-av="6" aria-hidden="true"></div>
+        <h3>Alba Ferrán</h3>
+        <p class="sp__r">Investigadora · Barcelona</p>
+        <p class="sp__t">«Medir lo que se pierde al digitalizar»</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section class="sec" id="programa">
+    <div class="sec__h">
+      <span class="idx">/03</span>
+      <h2>Programa</h2>
+    </div>
+
+    <div class="dtabs" role="tablist" aria-label="Días del congreso">
+      <button class="dtab is-on" role="tab" aria-selected="true" data-d="d1">JUE 14</button>
+      <button class="dtab" role="tab" aria-selected="false" data-d="d2">VIE 15</button>
+    </div>
+
+    <div class="agenda is-on" data-d="d1">
+      <div class="ln"><span class="ln__h">09:30</span><span class="ln__t">Acreditaciones y café malo</span><span class="ln__k k-x">—</span></div>
+      <div class="ln"><span class="ln__h">10:15</span><span class="ln__t">Marta Elizalde — «Dibujar una letra que ya existe»</span><span class="ln__k k-a">Ponencia</span></div>
+      <div class="ln"><span class="ln__h">11:30</span><span class="ln__t">Nuria Calvet — «Doce errores de registro que valieron la pena»</span><span class="ln__k k-a">Ponencia</span></div>
+      <div class="ln"><span class="ln__h">12:45</span><span class="ln__t">Taller: serigrafía a dos tintas (30 plazas)</span><span class="ln__k k-b">Taller</span></div>
+      <div class="ln"><span class="ln__h">16:00</span><span class="ln__t">Kwame Osei — «El archivo como material vivo»</span><span class="ln__k k-a">Ponencia</span></div>
+      <div class="ln"><span class="ln__h">17:30</span><span class="ln__t">Mesa redonda: ¿la herramienta importa?</span><span class="ln__k k-c">Mesa</span></div>
+      <div class="ln"><span class="ln__h">19:00</span><span class="ln__t">Vermú en la nave y feria de editoriales pequeñas</span><span class="ln__k k-x">Abierto</span></div>
+    </div>
+
+    <div class="agenda" data-d="d2">
+      <div class="ln"><span class="ln__h">10:00</span><span class="ln__t">Rin Nakamura — «Collage con lo que hay en la mesa»</span><span class="ln__k k-a">Ponencia</span></div>
+      <div class="ln"><span class="ln__h">11:15</span><span class="ln__t">Taller: composición con material encontrado (24 plazas)</span><span class="ln__k k-b">Taller</span></div>
+      <div class="ln"><span class="ln__h">13:00</span><span class="ln__t">Alba Ferrán — «Medir lo que se pierde al digitalizar»</span><span class="ln__k k-a">Ponencia</span></div>
+      <div class="ln"><span class="ln__h">16:00</span><span class="ln__t">Tomás Iriarte — «Interfaces que envejecen bien»</span><span class="ln__k k-a">Ponencia</span></div>
+      <div class="ln"><span class="ln__h">17:15</span><span class="ln__t">Taller: retícula rota (20 plazas)</span><span class="ln__k k-b">Taller</span></div>
+      <div class="ln"><span class="ln__h">18:45</span><span class="ln__t">Cierre y sorteo de la colección de carteles</span><span class="ln__k k-c">Cierre</span></div>
+    </div>
+  </section>
+
+  <!-- INSCRIPCIÓN -->
+  <section class="sec sec--dark" id="inscripcion">
+    <div class="sec__h">
+      <span class="idx">/04</span>
+      <h2>Inscripción</h2>
+    </div>
+
+    <div class="prices">
+      <article class="pr">
+        <p class="pr__n">180 €</p>
+        <h3>General</h3>
+        <p>Los dos días, talleres sujetos a plaza, comida incluida.</p>
+      </article>
+      <article class="pr pr--hot">
+        <p class="pr__n">95 €</p>
+        <h3>Estudiante</h3>
+        <p>Con matrícula del curso en vigor. Cuarenta plazas.</p>
+      </article>
+      <article class="pr">
+        <p class="pr__n">140 €</p>
+        <h3>Un solo día</h3>
+        <p>Eliges jueves o viernes al inscribirte. Sin talleres.</p>
+      </article>
+    </div>
+
+    <form class="reg" id="form" novalidate>
+      <div class="reg__row">
+        <label class="f"><span>Nombre</span><input type="text" id="nom" placeholder="Nombre y apellido" required></label>
+        <label class="f"><span>Correo</span><input type="email" id="mail" placeholder="tu@correo.com" required></label>
+      </div>
+      <label class="f">
+        <span>Modalidad</span>
+        <select id="mod">
+          <option>General — 180 €</option>
+          <option>Estudiante — 95 €</option>
+          <option>Un solo día — 140 €</option>
+        </select>
+      </label>
+      <button type="submit" class="btn btn--full">Reservar plaza</button>
+      <p class="reg__msg" id="msg" role="status"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="ft__big" aria-hidden="true">HÍBRIDA_26</div>
+  <div class="ft__r">
+    <p>Nave 8 · Polígono del Sur<br>hola@hibrida.example</p>
+    <p>14 + 15 mayo 2026<br>480 plazas</p>
+    <p>© 2026 — Ejemplo de demostración<br>Congreso y ponentes ficticios</p>
+  </div>
+  <p class="ft__note">
+    Ejercicio de estilo sobre la New Wave californiana y el trabajo digital
+    temprano de April Greiman: capas superpuestas, tramas, coordenadas visibles
+    y color fuera de norma.
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
