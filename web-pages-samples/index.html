@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejemplos de landing pages — HTML, CSS y JS</title>
+<meta name="description" content="Doce landing pages de ejemplo hechas solo con HTML, CSS y JavaScript. Una carpeta por página.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0f13;
+    --card:#171922;
+    --card-2:#1c1f2b;
+    --line:#ffffff17;
+    --line-2:#ffffff2e;
+    --txt:#f0f2f6;
+    --dim:#9aa1b4;
+    --faint:#6b7286;
+    --acc:#8b7bff;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--txt);
+    font-family:"Inter",system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1060px; margin-inline:auto; padding:0 24px; }
+
+  header{ padding:clamp(56px,9vw,110px) 0 clamp(28px,4vw,44px); }
+  .tag{
+    display:inline-block;
+    padding:5px 13px;
+    border:1px solid var(--line-2);
+    border-radius:999px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.74rem;
+    color:var(--dim);
+  }
+  h1{
+    margin:22px 0 0;
+    font-size:clamp(2.1rem,5.5vw,3.4rem);
+    line-height:1.08;
+    letter-spacing:-.03em;
+  }
+  .sub{ margin-top:18px; max-width:62ch; color:var(--dim); }
+  .sub code{
+    padding:2px 6px;
+    border-radius:5px;
+    background:#ffffff12;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.86em;
+  }
+
+  h2.group{
+    margin:clamp(30px,5vw,52px) 0 16px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--faint);
+  }
+
+  .list{ display:grid; gap:12px; }
+
+  .item{
+    display:grid;
+    grid-template-columns:52px 1fr auto;
+    align-items:center;
+    gap:20px;
+    padding:20px 24px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:var(--card);
+    transition:transform .25s cubic-bezier(.2,.7,.3,1), border-color .25s, background .25s;
+  }
+  .item:hover{
+    transform:translateY(-3px);
+    border-color:var(--line-2);
+    background:var(--card-2);
+  }
+  .num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.8rem;
+    color:var(--faint);
+  }
+  .item h3{
+    margin:0;
+    font-size:1.1rem;
+    font-weight:600;
+    letter-spacing:-.02em;
+  }
+  .item p{ margin:5px 0 0; font-size:.9rem; color:var(--dim); }
+  .ref{
+    display:inline-block;
+    margin-top:9px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.72rem;
+    color:var(--acc);
+  }
+  .meta{ display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .meta span{
+    padding:3px 9px;
+    border-radius:999px;
+    background:#ffffff0f;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.67rem;
+    color:var(--faint);
+  }
+  .go{
+    display:grid;
+    place-items:center;
+    width:38px; height:38px;
+    border:1px solid var(--line-2);
+    border-radius:50%;
+    color:var(--acc);
+    transition:background .25s, color .25s, transform .25s;
+  }
+  .item:hover .go{ background:var(--acc); color:#0e0f13; transform:rotate(45deg); }
+
+  .swatch{
+    width:40px; height:40px;
+    border-radius:11px;
+    border:1px solid var(--line);
+  }
+  .s01{ background:linear-gradient(135deg,#7c5cff,#22d3ee); }
+  .s02{ background:linear-gradient(135deg,#f7f1e8,#a5461f); }
+  .s03{ background:linear-gradient(135deg,#d3fd50,#0b0e14); }
+  .s04{ background:linear-gradient(135deg,#ece9e2,#ff4a1c); }
+  .s05{ background:linear-gradient(135deg,#e9e7e2 55%,#d62410 55%); }
+  .s06{ background:linear-gradient(135deg,#ffffff 40%,#d8232a 40%,#d8232a 70%,#1f5fbf 70%); }
+  .s07{ background:linear-gradient(135deg,#f2f1ee,#dcdad4 60%,#e8541b 60%); }
+  .s08{ background:linear-gradient(135deg,#ff3b00 33%,#ffd400 33%,#ffd400 66%,#0047ff 66%); }
+  .s09{ background:linear-gradient(135deg,#d9d4c7 60%,#ff2f00 60%); }
+  .s10{ background:linear-gradient(135deg,#f0ead6 30%,#e0501f 30%,#e0501f 65%,#2d6a6e 65%); }
+  .s11{ background:linear-gradient(135deg,#fbfbf9,#e8e6e0); }
+  .s12{ background:linear-gradient(135deg,#7b5cff,#ff2d9b 55%,#00e5d0); }
+
+  footer{
+    margin-top:clamp(40px,6vw,70px);
+    padding:24px 0 44px;
+    border-top:1px solid var(--line);
+    font-family:"JetBrains Mono",monospace;
+    font-size:.74rem;
+    line-height:1.9;
+    color:var(--faint);
+  }
+
+  @media (max-width:620px){
+    .item{ grid-template-columns:44px 1fr; }
+    .swatch{ display:none; }
+    .go{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="tag">12 ejemplos · HTML + CSS + JS</span>
+    <h1>Landing pages de ejemplo</h1>
+    <p class="sub">
+      Cada carpeta es una página independiente y completa: <code>index.html</code>,
+      <code>styles.css</code> y <code>script.js</code>. Sin frameworks, sin build,
+      sin dependencias. Ábrelas con doble clic.
+    </p>
+  </header>
+
+  <main>
+
+    <h2 class="group">Sectores habituales</h2>
+    <div class="list">
+      <a class="item" href="01-saas-nebula/index.html">
+        <span class="swatch s01" aria-hidden="true"></span>
+        <div>
+          <span class="num">01</span>
+          <h3>Nebula — SaaS de analítica</h3>
+          <p>Oscura, con degradados. Mock de dashboard animado, contadores y FAQ.</p>
+          <div class="meta"><span>dark</span><span>contadores</span><span>toggle precios</span><span>acordeón</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="02-cafe-tostaduria/index.html">
+        <span class="swatch s02" aria-hidden="true"></span>
+        <div>
+          <span class="num">02</span>
+          <h3>Rueda Norte — Tostaduría de café</h3>
+          <p>Editorial cálida en tonos papel. Taza dibujada en CSS y slider de testimonios.</p>
+          <div class="meta"><span>editorial</span><span>slider</span><span>pestañas</span><span>arte en CSS</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="03-app-fitness/index.html">
+        <span class="swatch s03" aria-hidden="true"></span>
+        <div>
+          <span class="num">03</span>
+          <h3>PULSO — App de fitness</h3>
+          <p>Tipografía gruesa y acento lima. Móvil con cuatro pantallas navegables.</p>
+          <div class="meta"><span>bold</span><span>mockup móvil</span><span>filtros</span><span>calculadora</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="04-estudio-creativo/index.html">
+        <span class="swatch s04" aria-hidden="true"></span>
+        <div>
+          <span class="num">04</span>
+          <h3>Taller Oeste — Estudio creativo</h3>
+          <p>Brutalismo editorial en papel y negro. Cursor propio y formulario validado.</p>
+          <div class="meta"><span>brutalista</span><span>cursor custom</span><span>marquee</span><span>formulario</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <h2 class="group">Ejercicios de estilo · escuelas y diseñadores</h2>
+    <div class="list">
+      <a class="item" href="05-swiss-brockmann/index.html">
+        <span class="swatch s05" aria-hidden="true"></span>
+        <div>
+          <span class="num">05</span>
+          <h3>Ciclo Sinfónico — Temporada de conciertos</h3>
+          <p>Retícula de 12 columnas que puedes ver con un botón, círculos concéntricos, rojo y negro.</p>
+          <span class="ref">→ escuela suiza · Josef Müller-Brockmann</span>
+          <div class="meta"><span>grid visible</span><span>filtros</span><span>helvética</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="06-vignelli-transporte/index.html">
+        <span class="swatch s06" aria-hidden="true"></span>
+        <div>
+          <span class="num">06</span>
+          <h3>LÍNEA — Metro de la ciudad</h3>
+          <p>Filetes gruesos como estructura y diagrama de red en SVG a 45°, con líneas aislables.</p>
+          <span class="ref">→ Massimo Vignelli · Unimark</span>
+          <div class="meta"><span>SVG</span><span>mapa interactivo</span><span>calculadora</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="07-rams-producto/index.html">
+        <span class="swatch s07" aria-hidden="true"></span>
+        <div>
+          <span class="num">07</span>
+          <h3>T-7 — Altavoz de sobremesa</h3>
+          <p>Producto dibujado en CSS con dial de volumen que se arrastra, gira con rueda y responde al teclado.</p>
+          <span class="ref">→ Dieter Rams · Braun</span>
+          <div class="meta"><span>dial arrastrable</span><span>acabados</span><span>fichas técnicas</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="08-scher-teatro/index.html">
+        <span class="swatch s08" aria-hidden="true"></span>
+        <div>
+          <span class="num">08</span>
+          <h3>Teatro Público — Temporada 26</h3>
+          <p>La tipografía ocupa todo el plano. Cinco paletas intercambiables desde la barra.</p>
+          <span class="ref">→ Paula Scher</span>
+          <div class="meta"><span>type as image</span><span>paletas</span><span>color plano</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="09-carson-revista/index.html">
+        <span class="swatch s09" aria-hidden="true"></span>
+        <div>
+          <span class="num">09</span>
+          <h3>RUIDO — Revista impresa</h3>
+          <p>Retícula rota y portada que puedes desmontar arrastrando cada pieza con el ratón o el dedo.</p>
+          <span class="ref">→ David Carson · Ray Gun</span>
+          <div class="meta"><span>drag & drop</span><span>grid roto</span><span>grano</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="10-bass-cine/index.html">
+        <span class="swatch s10" aria-hidden="true"></span>
+        <div>
+          <span class="num">10</span>
+          <h3>Festival de Cine de Otoño</h3>
+          <p>Formas recortadas en CSS puro, con un ojo que parpadea y mira. Programa por días.</p>
+          <span class="ref">→ Saul Bass</span>
+          <div class="meta"><span>clip-path</span><span>cinta</span><span>programa</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="11-hara-minimal/index.html">
+        <span class="swatch s11" aria-hidden="true"></span>
+        <div>
+          <span class="num">11</span>
+          <h3>SHIRO — Objetos para la casa</h3>
+          <p>El vacío como material. Siluetas en vez de fotos, tipografía diminuta y apariciones muy lentas.</p>
+          <span class="ref">→ Kenya Hara · diseño sin marca</span>
+          <div class="meta"><span>minimalismo</span><span>siluetas CSS</span><span>fade lento</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="item" href="12-greiman-newwave/index.html">
+        <span class="swatch s12" aria-hidden="true"></span>
+        <div>
+          <span class="num">12</span>
+          <h3>HÍBRIDA 2026 — Congreso de diseño</h3>
+          <p>Capas superpuestas con paralaje al mover el ratón, tramas de puntos y coordenadas a la vista.</p>
+          <span class="ref">→ April Greiman · New Wave californiana</span>
+          <div class="meta"><span>paralaje</span><span>halftone</span><span>pastel + flúor</span></div>
+        </div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    Todas las páginas son responsive, navegables con teclado y respetan prefers-reduced-motion.<br>
+    Los ejercicios de estilo reinterpretan un lenguaje visual reconocible aplicándolo a marcas
+    inventadas; no son obra de los diseñadores citados ni están asociados a ellos.<br>
+    Contenido ficticio, solo para demostración.
+  </footer>
+</div>
+
+</body>
+</html>
