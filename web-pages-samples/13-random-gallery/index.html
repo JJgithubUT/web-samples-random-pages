@@ -1,22 +1,32 @@
-<!DOCTYPE html>
-<html lang="es" data-room="oscura">
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="#" class="brand">
+      <span class="brand__glyph" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span class="brand__txt">ATRIO<em>galería</em></span>
+    </a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATRIO — Galería virtual de arte contemporáneo</title>
-    <meta name="description"
-        content="Colección permanente, exposiciones y salas visitables. Una galería que no cierra nunca.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <nav class="nav__links" id="menu">
+      <a href="#coleccion">Colección</a>
+      <a href="#artista">Artista</a>
+      <a href="#salas">Salas</a>
+      <a href="#exposiciones">Exposiciones</a>
+      <a href="#visita">Visita</a>
+    </nav>
 
-<body>
-    <a class="skip" href="#coleccion">Saltar a la colección</a>
-</body>
-
-</html>
+    <div class="nav__tools">
+      <button class="tool tool--fav" id="favBtn" aria-label="Ver obras guardadas">
+        <span class="tool__ico" aria-hidden="true">♥</span>
+        <span class="tool__n" id="favCount">0</span>
+      </button>
+      <button class="tool tool--room" id="roomBtn" aria-pressed="true">
+        <span class="tool__dot" aria-hidden="true"></span>
+        <span class="tool__lbl">Sala oscura</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
