@@ -1,32 +1,36 @@
-<header class="nav" id="nav">
-  <div class="nav__in">
-    <a href="#" class="brand">
-      <span class="brand__glyph" aria-hidden="true">
-        <i></i><i></i><i></i><i></i>
-      </span>
-      <span class="brand__txt">ATRIO<em>galería</em></span>
-    </a>
+<main>
+  <section class="hero">
+    <div class="hero__in">
+      <div class="hero__copy">
+        <p class="eyebrow">Galería virtual · fundada en 2019 · sin sede física</p>
+        <h1 class="hero__t">
+          <span class="ln"><span>El museo</span></span>
+          <span class="ln"><span>no <em>cierra</em></span></span>
+        </h1>
+        <p class="hero__l">
+          Ciento cuarenta obras de treinta y un artistas vivos, visitables a cualquier hora y desde cualquier sitio.
+        </p>
+        <div class="hero__btns">
+          <a href="#coleccion" class="btn">Entrar en la colección</a>
+          <a href="#salas" class="btn btn--o">Recorrer las salas</a>
+        </div>
+      </div>
+      <figure class="hero__piece">
+        <div class="frame frame--hero">
+          <div class="frame__art" id="heroArt"></div>
+        </div>
+        <figcaption class="hero__cap">
+          <span id="heroTitle">—</span>
+          <button class="regen" id="regen"><span aria-hidden="true">↻</span> Otra obra</button>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <nav class="nav__links" id="menu">
-      <a href="#coleccion">Colección</a>
-      <a href="#artista">Artista</a>
-      <a href="#salas">Salas</a>
-      <a href="#exposiciones">Exposiciones</a>
-      <a href="#visita">Visita</a>
-    </nav>
-
-    <div class="nav__tools">
-      <button class="tool tool--fav" id="favBtn" aria-label="Ver obras guardadas">
-        <span class="tool__ico" aria-hidden="true">♥</span>
-        <span class="tool__n" id="favCount">0</span>
-      </button>
-      <button class="tool tool--room" id="roomBtn" aria-pressed="true">
-        <span class="tool__dot" aria-hidden="true"></span>
-        <span class="tool__lbl">Sala oscura</span>
-      </button>
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
-        <span></span><span></span>
-      </button>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__t">
+      <span>EN CURSO — «Materia dócil», Sala 2</span><i>◆</i>
+      <span>HASTA EL 30 DE NOVIEMBRE</span><i>◆</i>
     </div>
   </div>
-</header>
+</main>
