@@ -1,36 +1,31 @@
-<main>
-  <section class="hero">
-    <div class="hero__in">
-      <div class="hero__copy">
-        <p class="eyebrow">Galería virtual · fundada en 2019 · sin sede física</p>
-        <h1 class="hero__t">
-          <span class="ln"><span>El museo</span></span>
-          <span class="ln"><span>no <em>cierra</em></span></span>
-        </h1>
-        <p class="hero__l">
-          Ciento cuarenta obras de treinta y un artistas vivos, visitables a cualquier hora y desde cualquier sitio.
-        </p>
-        <div class="hero__btns">
-          <a href="#coleccion" class="btn">Entrar en la colección</a>
-          <a href="#salas" class="btn btn--o">Recorrer las salas</a>
-        </div>
-      </div>
-      <figure class="hero__piece">
-        <div class="frame frame--hero">
-          <div class="frame__art" id="heroArt"></div>
-        </div>
-        <figcaption class="hero__cap">
-          <span id="heroTitle">—</span>
-          <button class="regen" id="regen"><span aria-hidden="true">↻</span> Otra obra</button>
-        </figcaption>
-      </figure>
+<section class="sec" id="coleccion">
+  <div class="sec__head">
+    <div>
+      <p class="idx">01 — Colección</p>
+      <h2 class="sec__t">Todo lo que cuelga<br>ahora mismo</h2>
     </div>
-  </section>
+    <p class="sec__d">El fondo completo, sin orden jerárquico.</p>
+  </div>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__t">
-      <span>EN CURSO — «Materia dócil», Sala 2</span><i>◆</i>
-      <span>HASTA EL 30 DE NOVIEMBRE</span><i>◆</i>
+  <div class="controls">
+    <div class="filters" id="filters" role="group" aria-label="Filtrar por técnica">
+      <button class="chip is-on" data-f="todas">Todas</button>
+      <button class="chip" data-f="pintura">Pintura</button>
+      <button class="chip" data-f="grafica">Obra gráfica</button>
+      <button class="chip" data-f="fotografia">Fotografía</button>
+      <button class="chip" data-f="digital">Digital</button>
+      <button class="chip chip--fav" data-f="guardadas">♥ Guardadas</button>
+    </div>
+
+    <div class="density" role="group" aria-label="Densidad de la cuadrícula">
+      <span class="density__l">Columnas</span>
+      <button class="dbtn" data-c="2">2</button>
+      <button class="dbtn is-on" data-c="3">3</button>
+      <button class="dbtn" data-c="4">4</button>
     </div>
   </div>
-</main>
+
+  <p class="count" id="count" role="status"></p>
+  <div class="masonry" id="masonry"></div>
+  <p class="empty" id="empty" hidden>Todavía no has guardado ninguna obra.</p>
+</section>
