@@ -1,31 +1,27 @@
-<section class="sec" id="coleccion">
-  <div class="sec__head">
-    <div>
-      <p class="idx">01 — Colección</p>
-      <h2 class="sec__t">Todo lo que cuelga<br>ahora mismo</h2>
-    </div>
-    <p class="sec__d">El fondo completo, sin orden jerárquico.</p>
-  </div>
-
-  <div class="controls">
-    <div class="filters" id="filters" role="group" aria-label="Filtrar por técnica">
-      <button class="chip is-on" data-f="todas">Todas</button>
-      <button class="chip" data-f="pintura">Pintura</button>
-      <button class="chip" data-f="grafica">Obra gráfica</button>
-      <button class="chip" data-f="fotografia">Fotografía</button>
-      <button class="chip" data-f="digital">Digital</button>
-      <button class="chip chip--fav" data-f="guardadas">♥ Guardadas</button>
-    </div>
-
-    <div class="density" role="group" aria-label="Densidad de la cuadrícula">
-      <span class="density__l">Columnas</span>
-      <button class="dbtn" data-c="2">2</button>
-      <button class="dbtn is-on" data-c="3">3</button>
-      <button class="dbtn" data-c="4">4</button>
+<section class="sec sec--visit" id="visita">
+  <div class="visit">
+    <div class="visit__l">
+      <p class="idx">05 — Visita</p>
+      <h2 class="sec__t">Te avisamos cuando cambie el montaje</h2>
+      <form class="visit__form" id="form" novalidate>
+        <input type="email" id="mail" placeholder="tu@correo.com" required>
+        <button type="submit">Suscribirme</button>
+      </form>
     </div>
   </div>
-
-  <p class="count" id="count" role="status"></p>
-  <div class="masonry" id="masonry"></div>
-  <p class="empty" id="empty" hidden>Todavía no has guardado ninguna obra.</p>
 </section>
+
+<footer class="foot">
+  <div class="foot__big" aria-hidden="true">ATRIO</div>
+  <div class="foot__row">
+    <p>© 2026 ATRIO galería — Ejemplo de demostración.</p>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" hidden>
+  <div class="viewer__bg" data-close></div>
+  <button class="viewer__x" id="vClose">✕</button>
+  <script src="script.js"></script>
+</div>
+</body>
+</html>
