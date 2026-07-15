@@ -1,27 +1,434 @@
-<section class="sec sec--visit" id="visita">
-  <div class="visit">
-    <div class="visit__l">
-      <p class="idx">05 — Visita</p>
-      <h2 class="sec__t">Te avisamos cuando cambie el montaje</h2>
-      <form class="visit__form" id="form" novalidate>
-        <input type="email" id="mail" placeholder="tu@correo.com" required>
-        <button type="submit">Suscribirme</button>
-      </form>
+<!DOCTYPE html>
+<html lang="es" data-room="oscura">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATRIO — Galería virtual de arte contemporáneo</title>
+<meta name="description" content="Colección permanente, exposiciones y salas visitables. Una galería que no cierra nunca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#coleccion">Saltar a la colección</a>
+
+<!-- ============ CABECERA ============ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="#" class="brand">
+      <span class="brand__glyph" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span class="brand__txt">ATRIO<em>galería</em></span>
+    </a>
+
+    <nav class="nav__links" id="menu">
+      <a href="#coleccion">Colección</a>
+      <a href="#artista">Artista</a>
+      <a href="#salas">Salas</a>
+      <a href="#exposiciones">Exposiciones</a>
+      <a href="#visita">Visita</a>
+    </nav>
+
+    <div class="nav__tools">
+      <button class="tool tool--fav" id="favBtn" aria-label="Ver obras guardadas">
+        <span class="tool__ico" aria-hidden="true">♥</span>
+        <span class="tool__n" id="favCount">0</span>
+      </button>
+      <button class="tool tool--room" id="roomBtn" aria-pressed="true">
+        <span class="tool__dot" aria-hidden="true"></span>
+        <span class="tool__lbl">Sala oscura</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
     </div>
   </div>
-</section>
+</header>
 
+<main>
+
+  <!-- ============ 01 · PÓRTICO ============ -->
+  <section class="hero">
+    <div class="hero__in">
+      <div class="hero__copy">
+        <p class="eyebrow">Galería virtual · fundada en 2019 · sin sede física</p>
+
+        <h1 class="hero__t">
+          <span class="ln"><span>El museo</span></span>
+          <span class="ln"><span>no <em>cierra</em></span></span>
+        </h1>
+
+        <p class="hero__l">
+          Ciento cuarenta obras de treinta y un artistas vivos, visitables a
+          cualquier hora y desde cualquier sitio. Sin cola, sin taquilla y sin
+          guardias que te digan que no te acerques tanto.
+        </p>
+
+        <div class="hero__btns">
+          <a href="#coleccion" class="btn">Entrar en la colección</a>
+          <a href="#salas" class="btn btn--o">Recorrer las salas</a>
+        </div>
+
+        <dl class="hero__facts">
+          <div><dt>140</dt><dd>obras en catálogo</dd></div>
+          <div><dt>31</dt><dd>artistas representados</dd></div>
+          <div><dt>4</dt><dd>salas visitables</dd></div>
+          <div><dt>24/7</dt><dd>horario de apertura</dd></div>
+        </dl>
+      </div>
+
+      <figure class="hero__piece">
+        <div class="frame frame--hero">
+          <div class="frame__art" id="heroArt"></div>
+        </div>
+        <figcaption class="hero__cap">
+          <span id="heroTitle">—</span>
+          <button class="regen" id="regen">
+            <span aria-hidden="true">↻</span> Otra obra
+          </button>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 02 · CINTA ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__t">
+      <span>EN CURSO — «Materia dócil», Sala 2</span><i>◆</i>
+      <span>HASTA EL 30 DE NOVIEMBRE</span><i>◆</i>
+      <span>NUEVA ADQUISICIÓN — Ilaria Benes, «Umbral III»</span><i>◆</i>
+      <span>PRÓXIMAMENTE — «Papel mojado», enero</span><i>◆</i>
+      <span>EN CURSO — «Materia dócil», Sala 2</span><i>◆</i>
+      <span>HASTA EL 30 DE NOVIEMBRE</span><i>◆</i>
+      <span>NUEVA ADQUISICIÓN — Ilaria Benes, «Umbral III»</span><i>◆</i>
+      <span>PRÓXIMAMENTE — «Papel mojado», enero</span><i>◆</i>
+    </div>
+  </div>
+
+  <!-- ============ 03 · COLECCIÓN (MOSAICO) ============ -->
+  <section class="sec" id="coleccion">
+    <div class="sec__head">
+      <div>
+        <p class="idx">01 — Colección</p>
+        <h2 class="sec__t">Todo lo que cuelga<br>ahora mismo</h2>
+      </div>
+      <p class="sec__d">
+        El fondo completo, sin orden jerárquico. Pincha en cualquier pieza para
+        verla a tamaño de sala.
+      </p>
+    </div>
+
+    <div class="controls">
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por técnica">
+        <button class="chip is-on" data-f="todas">Todas</button>
+        <button class="chip" data-f="pintura">Pintura</button>
+        <button class="chip" data-f="grafica">Obra gráfica</button>
+        <button class="chip" data-f="fotografia">Fotografía</button>
+        <button class="chip" data-f="digital">Digital</button>
+        <button class="chip chip--fav" data-f="guardadas">♥ Guardadas</button>
+      </div>
+
+      <div class="density" role="group" aria-label="Densidad de la cuadrícula">
+        <span class="density__l">Columnas</span>
+        <button class="dbtn" data-c="2">2</button>
+        <button class="dbtn is-on" data-c="3">3</button>
+        <button class="dbtn" data-c="4">4</button>
+      </div>
+    </div>
+
+    <p class="count" id="count" role="status"></p>
+
+    <div class="masonry" id="masonry"></div>
+
+    <p class="empty" id="empty" hidden>Todavía no has guardado ninguna obra. Pulsa el corazón de cualquier pieza.</p>
+
+    <div class="more">
+      <button class="btn btn--o" id="moreBtn">Cargar más obras</button>
+    </div>
+  </section>
+
+  <!-- ============ 04 · ARTISTA DESTACADO ============ -->
+  <section class="sec sec--artist" id="artista">
+    <div class="sec__head">
+      <div>
+        <p class="idx">02 — Artista del mes</p>
+        <h2 class="sec__t">Ilaria Benes</h2>
+      </div>
+      <p class="sec__d">Trieste, 1984. Vive y trabaja en Oporto.</p>
+    </div>
+
+    <div class="artist">
+      <div class="artist__portrait">
+        <div class="frame frame--portrait">
+          <div class="frame__art" id="portraitArt"></div>
+        </div>
+        <p class="artist__plate">
+          <b>Ilaria Benes</b>
+          <span>Fotografía de estudio, 2026</span>
+        </p>
+      </div>
+
+      <div class="artist__bio">
+        <p class="artist__lead">
+          «Pinto capas hasta que la primera deja de verse. Lo que queda debajo
+          sigue estando ahí, sosteniendo el color de arriba. Eso es lo único
+          que me interesa de la pintura.»
+        </p>
+        <p>
+          Formada en Venecia y en la Gerrit Rietveld de Ámsterdam, Benes trabaja
+          desde 2014 con veladuras de pigmento sobre lino crudo sin imprimar.
+          Su serie <i>Umbral</i>, iniciada durante un invierno en el norte de
+          Portugal, ocupa desde 2023 la práctica totalidad de su producción.
+        </p>
+        <p>
+          Ha expuesto individualmente en la Fundação Serralves, en el Museion de
+          Bolzano y en esta galería en dos ocasiones. Su obra forma parte de siete
+          colecciones públicas.
+        </p>
+
+        <dl class="artist__cv">
+          <div><dt>2026</dt><dd>«Umbral», Sala 1 · ATRIO</dd></div>
+          <div><dt>2025</dt><dd>Bienal de São Paulo · sección invitada</dd></div>
+          <div><dt>2024</dt><dd>Premio Nacional de Pintura Joven</dd></div>
+          <div><dt>2022</dt><dd>Residencia Serralves, Oporto</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="artist__works" id="artistWorks"></div>
+  </section>
+
+  <!-- ============ 05 · SALAS VIRTUALES ============ -->
+  <section class="sec sec--rooms" id="salas">
+    <div class="sec__head">
+      <div>
+        <p class="idx">03 — Salas</p>
+        <h2 class="sec__t">Recorre el montaje</h2>
+      </div>
+      <p class="sec__d">
+        Cuatro salas montadas a escala real. Mueve el ratón para mirar alrededor.
+      </p>
+    </div>
+
+    <div class="roomtabs" id="roomTabs" role="tablist" aria-label="Salas de la galería">
+      <button class="rtab is-on" role="tab" aria-selected="true" data-r="0">
+        <b>Sala 1</b><span>Umbral</span>
+      </button>
+      <button class="rtab" role="tab" aria-selected="false" data-r="1">
+        <b>Sala 2</b><span>Materia dócil</span>
+      </button>
+      <button class="rtab" role="tab" aria-selected="false" data-r="2">
+        <b>Sala 3</b><span>Papel y tinta</span>
+      </button>
+      <button class="rtab" role="tab" aria-selected="false" data-r="3">
+        <b>Sala 4</b><span>Fondo permanente</span>
+      </button>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="scene" id="scene">
+        <div class="wall wall--back">
+          <div class="hang" id="hangBack"></div>
+        </div>
+        <div class="wall wall--left"></div>
+        <div class="wall wall--right"></div>
+        <div class="wall wall--floor"></div>
+        <div class="wall wall--ceil"></div>
+        <div class="bench" aria-hidden="true"></div>
+      </div>
+      <p class="stage__hint" aria-hidden="true">mueve el ratón para mirar alrededor</p>
+    </div>
+
+    <p class="roominfo" id="roomInfo"></p>
+  </section>
+
+  <!-- ============ 06 · MANIFIESTO ============ -->
+  <section class="manifesto">
+    <blockquote>
+      Una galería es una sala vacía a la que alguien decide llamar
+      <em>importante</em>. Nosotros nos saltamos la sala.
+    </blockquote>
+    <cite>— Nota fundacional, 2019</cite>
+  </section>
+
+  <!-- ============ 07 · EXPOSICIONES ============ -->
+  <section class="sec" id="exposiciones">
+    <div class="sec__head">
+      <div>
+        <p class="idx">04 — Programa</p>
+        <h2 class="sec__t">Exposiciones</h2>
+      </div>
+      <p class="sec__d">Tres al año, siempre con catálogo descargable.</p>
+    </div>
+
+    <div class="etabs" role="tablist" aria-label="Estado de las exposiciones">
+      <button class="etab is-on" role="tab" aria-selected="true" data-e="curso">En curso</button>
+      <button class="etab" role="tab" aria-selected="false" data-e="proximas">Próximas</button>
+      <button class="etab" role="tab" aria-selected="false" data-e="pasadas">Pasadas</button>
+    </div>
+
+    <div class="expos is-on" data-e="curso">
+      <article class="expo">
+        <span class="expo__d"><b>15 SEP</b><i>30 NOV</i></span>
+        <div class="expo__b">
+          <h3>Materia dócil</h3>
+          <p>Once artistas trabajando con lo que se deja doblar: papel, tela, cera, plomo fino. Comisariada por Andrea Sasso.</p>
+        </div>
+        <span class="expo__r">Sala 2</span>
+        <span class="expo__s s-on">Abierta</span>
+      </article>
+      <article class="expo">
+        <span class="expo__d"><b>02 OCT</b><i>18 ENE</i></span>
+        <div class="expo__b">
+          <h3>Umbral — Ilaria Benes</h3>
+          <p>Primera retrospectiva de la serie completa. Veintidós lienzos y catorce estudios sobre papel nunca expuestos.</p>
+        </div>
+        <span class="expo__r">Sala 1</span>
+        <span class="expo__s s-on">Abierta</span>
+      </article>
+    </div>
+
+    <div class="expos" data-e="proximas">
+      <article class="expo">
+        <span class="expo__d"><b>22 ENE</b><i>05 ABR</i></span>
+        <div class="expo__b">
+          <h3>Papel mojado</h3>
+          <p>Obra gráfica sobre soportes que no aguantan. Litografía, monotipo y una prensa del año 1911 que sigue funcionando.</p>
+        </div>
+        <span class="expo__r">Sala 3</span>
+        <span class="expo__s s-next">En preparación</span>
+      </article>
+      <article class="expo">
+        <span class="expo__d"><b>28 ABR</b><i>19 JUL</i></span>
+        <div class="expo__b">
+          <h3>Los que miran</h3>
+          <p>Retrato contemporáneo sin rostro. Con obra prestada por cuatro colecciones privadas.</p>
+        </div>
+        <span class="expo__r">Sala 1</span>
+        <span class="expo__s s-next">En preparación</span>
+      </article>
+    </div>
+
+    <div class="expos" data-e="pasadas">
+      <article class="expo">
+        <span class="expo__d"><b>10 FEB</b><i>04 MAY</i></span>
+        <div class="expo__b">
+          <h3>Ruido de fondo</h3>
+          <p>Abstracción y error digital. 18.400 visitas registradas, la más vista hasta la fecha.</p>
+        </div>
+        <span class="expo__r">Sala 4</span>
+        <span class="expo__s s-off">Cerrada</span>
+      </article>
+      <article class="expo">
+        <span class="expo__d"><b>18 MAY</b><i>31 AGO</i></span>
+        <div class="expo__b">
+          <h3>Cuatro maneras de tapar una ventana</h3>
+          <p>Instalación y pintura mural. Catálogo agotado en papel, disponible en PDF.</p>
+        </div>
+        <span class="expo__r">Sala 2</span>
+        <span class="expo__s s-off">Cerrada</span>
+      </article>
+      <article class="expo">
+        <span class="expo__d"><b>04 NOV</b><i>26 ENE</i></span>
+        <div class="expo__b">
+          <h3>Primera piedra</h3>
+          <p>Exposición inaugural de la galería. Siete artistas, ninguna venta y una fiesta razonable.</p>
+        </div>
+        <span class="expo__r">Sala 1</span>
+        <span class="expo__s s-off">Cerrada</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 08 · VISITA ============ -->
+  <section class="sec sec--visit" id="visita">
+    <div class="visit">
+      <div class="visit__l">
+        <p class="idx">05 — Visita</p>
+        <h2 class="sec__t">Te avisamos<br>cuando cambie<br>el montaje</h2>
+        <p class="visit__d">
+          Una carta cada dos meses con lo que entra, lo que sale y una obra
+          comentada por quien la hizo. Nada más.
+        </p>
+
+        <form class="visit__form" id="form" novalidate>
+          <label class="sr-only" for="mail">Tu correo</label>
+          <input type="email" id="mail" placeholder="tu@correo.com" required>
+          <button type="submit">Suscribirme</button>
+          <p class="visit__msg" id="msg" role="status"></p>
+        </form>
+      </div>
+
+      <dl class="visit__data">
+        <div><dt>Acceso</dt><dd>Libre y sin registro</dd></div>
+        <div><dt>Horario</dt><dd>Permanente</dd></div>
+        <div><dt>Consultas</dt><dd>hola@atrio.example</dd></div>
+        <div><dt>Ventas</dt><dd>coleccion@atrio.example</dd></div>
+        <div><dt>Prensa</dt><dd>Dosier y notas bajo petición</dd></div>
+        <div><dt>Sede</dt><dd>No tenemos. A propósito.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PIE ============ -->
 <footer class="foot">
   <div class="foot__big" aria-hidden="true">ATRIO</div>
   <div class="foot__row">
-    <p>© 2026 ATRIO galería — Ejemplo de demostración.</p>
+    <p>© 2026 ATRIO galería — Ejemplo de demostración.<br>Artistas, obras y precios ficticios.</p>
+    <nav class="foot__nav">
+      <a href="#coleccion">Colección</a><a href="#exposiciones">Exposiciones</a>
+      <a href="#">Catálogos</a><a href="#">Condiciones</a><a href="#">Privacidad</a>
+    </nav>
+    <p class="foot__note">
+      Ejercicio de estilo sobre la tradición gráfica de museo: la interacción del
+      color de Josef Albers, el rigor lúdico de Bruno Munari, la contención
+      clásica de Peter Saville y la densidad editorial de Irma Boom.
+      Todas las obras están generadas por código en el navegador.
+    </p>
   </div>
 </footer>
 
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" hidden>
+<!-- ============ VISOR ============ -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vTitle" hidden>
   <div class="viewer__bg" data-close></div>
-  <button class="viewer__x" id="vClose">✕</button>
-  <script src="script.js"></script>
+
+  <button class="viewer__x" id="vClose" aria-label="Cerrar visor">✕</button>
+  <button class="viewer__nav viewer__nav--prev" id="vPrev" aria-label="Obra anterior">‹</button>
+  <button class="viewer__nav viewer__nav--next" id="vNext" aria-label="Obra siguiente">›</button>
+
+  <div class="viewer__in">
+    <div class="viewer__art">
+      <div class="frame frame--big">
+        <div class="frame__art" id="vArt"></div>
+      </div>
+    </div>
+
+    <aside class="viewer__info">
+      <p class="viewer__artist" id="vArtist"></p>
+      <h2 class="viewer__title" id="vTitle"></h2>
+      <p class="viewer__year" id="vYear"></p>
+
+      <dl class="viewer__specs" id="vSpecs"></dl>
+
+      <div class="viewer__acts">
+        <button class="btn btn--o" id="vFav">
+          <span class="heart" aria-hidden="true">♥</span> <span id="vFavTxt">Guardar</span>
+        </button>
+        <button class="btn" id="vAsk">Solicitar información</button>
+      </div>
+
+      <p class="viewer__note" id="vNote"></p>
+    </aside>
+  </div>
+
+  <p class="viewer__hint" aria-hidden="true">← → para navegar · esc para salir</p>
 </div>
+
+<script src="script.js"></script>
 </body>
 </html>
