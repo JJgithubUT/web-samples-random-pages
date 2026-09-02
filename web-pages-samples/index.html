@@ -4,23 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ejemplos de landing pages — HTML, CSS y JS</title>
-<meta name="description" content="Doce landing pages de ejemplo hechas solo con HTML, CSS y JavaScript. Una carpeta por página.">
+<meta name="description" content="Quince páginas de ejemplo. Una carpeta por página, sin build.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0e0f13;
-    --card:#171922;
-    --card-2:#1c1f2b;
+    --bg:#0b0c10;
+    --card:#14161e;
+    --card-2:#1a1d27;
     --line:#ffffff17;
-    --line-2:#ffffff2e;
+    --line-2:#ffffff30;
     --txt:#f0f2f6;
     --dim:#9aa1b4;
     --faint:#6b7286;
     --acc:#8b7bff;
+    --ease:cubic-bezier(.2,.7,.3,1);
   }
   *,*::before,*::after{ box-sizing:border-box; }
+
   body{
     margin:0;
     background:var(--bg);
@@ -30,9 +32,10 @@
     -webkit-font-smoothing:antialiased;
   }
   a{ color:inherit; text-decoration:none; }
-  .wrap{ max-width:1060px; margin-inline:auto; padding:0 24px; }
+  .wrap{ max-width:1220px; margin-inline:auto; padding:0 24px; }
 
-  header{ padding:clamp(56px,9vw,110px) 0 clamp(28px,4vw,44px); }
+  /* ---------- Cabecera ---------- */
+  header{ padding:clamp(52px,8vw,100px) 0 clamp(26px,4vw,40px); }
   .tag{
     display:inline-block;
     padding:5px 13px;
@@ -58,8 +61,11 @@
   }
 
   h2.group{
-    margin:clamp(30px,5vw,52px) 0 16px;
-    padding-bottom:10px;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin:clamp(34px,5vw,58px) 0 20px;
+    padding-bottom:12px;
     border-bottom:1px solid var(--line);
     font-size:.78rem;
     font-weight:600;
@@ -67,85 +73,301 @@
     text-transform:uppercase;
     color:var(--faint);
   }
+  h2.group span{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:var(--acc);
+    text-transform:none;
+  }
 
-  .list{ display:grid; gap:12px; }
-
-  .item{
+  /* ---------- Rejilla de tarjetas ---------- */
+  .grid{
     display:grid;
-    grid-template-columns:52px 1fr auto;
-    align-items:center;
-    gap:20px;
-    padding:20px 24px;
+    grid-template-columns:repeat(auto-fill,minmax(272px,1fr));
+    gap:18px;
+  }
+
+  .card{
+    display:flex;
+    flex-direction:column;
     border:1px solid var(--line);
     border-radius:16px;
     background:var(--card);
-    transition:transform .25s cubic-bezier(.2,.7,.3,1), border-color .25s, background .25s;
+    overflow:hidden;
+    transition:transform .3s var(--ease), border-color .3s, background .3s;
   }
-  .item:hover{
-    transform:translateY(-3px);
+  .card:hover{
+    transform:translateY(-4px);
     border-color:var(--line-2);
     background:var(--card-2);
   }
+
+  /* Miniatura: cada una evoca la paleta y el gesto de su página */
+  .thumb{
+    position:relative;
+    aspect-ratio:16/10;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .thumb i{
+    position:absolute;
+    inset:0;
+    display:block;
+    transition:transform .55s var(--ease);
+  }
+  .card:hover .thumb i{ transform:scale(1.06); }
+
   .num{
+    position:absolute;
+    left:12px; top:12px;
+    z-index:2;
+    padding:3px 9px;
+    border-radius:999px;
+    background:#00000073;
+    backdrop-filter:blur(4px);
     font-family:"JetBrains Mono",monospace;
-    font-size:.8rem;
-    color:var(--faint);
+    font-size:.68rem;
+    color:#fff;
+    letter-spacing:.06em;
   }
-  .item h3{
+
+  .body{ display:flex; flex-direction:column; flex:1; padding:18px 20px 20px; }
+  .card h3{
     margin:0;
-    font-size:1.1rem;
+    font-size:1.02rem;
     font-weight:600;
-    letter-spacing:-.02em;
+    letter-spacing:-.015em;
   }
-  .item p{ margin:5px 0 0; font-size:.9rem; color:var(--dim); }
+  .card p{ margin:7px 0 0; font-size:.88rem; color:var(--dim); }
   .ref{
     display:inline-block;
-    margin-top:9px;
+    margin-top:10px;
     font-family:"JetBrains Mono",monospace;
-    font-size:.72rem;
+    font-size:.7rem;
     color:var(--acc);
   }
-  .meta{ display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+  }
   .meta span{
     padding:3px 9px;
     border-radius:999px;
     background:#ffffff0f;
     font-family:"JetBrains Mono",monospace;
-    font-size:.67rem;
+    font-size:.66rem;
     color:var(--faint);
   }
-  .go{
+
+  /* ---------- Tarjeta destacada ---------- */
+  .feature{
     display:grid;
-    place-items:center;
-    width:38px; height:38px;
+    grid-template-columns:1.15fr 1fr;
+    gap:0;
     border:1px solid var(--line-2);
+    border-radius:20px;
+    background:linear-gradient(150deg,#1b1725,var(--card) 62%);
+    overflow:hidden;
+    transition:transform .35s var(--ease), border-color .35s;
+  }
+  .feature:hover{ transform:translateY(-4px); border-color:#8b7bff70; }
+  .feature .thumb{ aspect-ratio:auto; min-height:300px; border-bottom:0; border-right:1px solid var(--line); }
+  .feature .body{ padding:clamp(24px,3vw,40px); justify-content:center; }
+  .feature .flag{
+    display:inline-block;
+    align-self:flex-start;
+    margin-bottom:14px;
+    padding:4px 11px;
+    border-radius:999px;
+    background:var(--acc);
+    color:#0b0c10;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.66rem;
+    font-weight:500;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .feature h3{ font-size:clamp(1.4rem,2.6vw,1.9rem); letter-spacing:-.025em; }
+  .feature p{ font-size:.95rem; max-width:46ch; }
+  .feature .go{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    align-self:flex-start;
+    margin-top:20px;
+    padding:11px 22px;
+    border-radius:999px;
+    background:var(--txt);
+    color:#0b0c10;
+    font-size:.88rem;
+    font-weight:600;
+    transition:background .25s, gap .25s var(--ease);
+  }
+  .feature:hover .go{ background:var(--acc); gap:14px; }
+
+  /* ============================================================
+     Miniaturas — una composición por página
+     ============================================================ */
+  .t01{ background:
+      radial-gradient(circle at 26% 22%, #7c5cff85, transparent 58%),
+      radial-gradient(circle at 82% 76%, #22d3ee5c, transparent 60%),
+      linear-gradient(180deg,#0d1020,#07080f); }
+  .t01::after{
+    content:""; position:absolute; left:16%; right:16%; bottom:20%; height:34%;
+    background:
+      linear-gradient(90deg,#7c5cffcc 0 9%,transparent 9% 15%,#7c5cffcc 15% 24%,transparent 24% 30%,
+                      #22d3eecc 30% 39%,transparent 39% 45%,#7c5cffcc 45% 54%,transparent 54% 60%,
+                      #22d3eecc 60% 69%,transparent 69% 75%,#7c5cffcc 75% 84%,transparent 84%);
+    mask-image:linear-gradient(0deg,#000 45%,transparent);
+    -webkit-mask-image:linear-gradient(0deg,#000 45%,transparent);
+  }
+
+  .t02{ background:linear-gradient(170deg,#f7f1e8,#efe5d8); }
+  .t02::after{
+    content:""; position:absolute; left:50%; top:50%;
+    width:44%; aspect-ratio:1; transform:translate(-50%,-50%);
     border-radius:50%;
-    color:var(--acc);
-    transition:background .25s, color .25s, transform .25s;
+    background:radial-gradient(circle at 38% 32%,#8a4a24,#3b1d0d 78%);
+    box-shadow:0 0 0 10px #fffaf3, 0 0 0 12px #23180f2e;
   }
-  .item:hover .go{ background:var(--acc); color:#0e0f13; transform:rotate(45deg); }
 
-  .swatch{
-    width:40px; height:40px;
-    border-radius:11px;
-    border:1px solid var(--line);
+  .t03{ background:linear-gradient(160deg,#161b28,#0b0e14); }
+  .t03::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(108deg,transparent 26%,#d3fd50 26% 52%,transparent 52%),
+               radial-gradient(circle at 78% 26%,#ff5c3947,transparent 56%);
   }
-  .s01{ background:linear-gradient(135deg,#7c5cff,#22d3ee); }
-  .s02{ background:linear-gradient(135deg,#f7f1e8,#a5461f); }
-  .s03{ background:linear-gradient(135deg,#d3fd50,#0b0e14); }
-  .s04{ background:linear-gradient(135deg,#ece9e2,#ff4a1c); }
-  .s05{ background:linear-gradient(135deg,#e9e7e2 55%,#d62410 55%); }
-  .s06{ background:linear-gradient(135deg,#ffffff 40%,#d8232a 40%,#d8232a 70%,#1f5fbf 70%); }
-  .s07{ background:linear-gradient(135deg,#f2f1ee,#dcdad4 60%,#e8541b 60%); }
-  .s08{ background:linear-gradient(135deg,#ff3b00 33%,#ffd400 33%,#ffd400 66%,#0047ff 66%); }
-  .s09{ background:linear-gradient(135deg,#d9d4c7 60%,#ff2f00 60%); }
-  .s10{ background:linear-gradient(135deg,#f0ead6 30%,#e0501f 30%,#e0501f 65%,#2d6a6e 65%); }
-  .s11{ background:linear-gradient(135deg,#fbfbf9,#e8e6e0); }
-  .s12{ background:linear-gradient(135deg,#7b5cff,#ff2d9b 55%,#00e5d0); }
 
+  .t04{ background:#ece9e2; }
+  .t04::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(0deg,transparent 24%,#121212 24% 34%,transparent 34%),
+               radial-gradient(circle at 76% 30%,#ff4a1c 0 13%,transparent 13%),
+               repeating-linear-gradient(90deg,#1212120f 0 1px,transparent 1px 34px);
+  }
+
+  .t05{ background:#e9e7e2; }
+  .t05::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 66% 50%,
+      transparent 0 6%, #d62410 6% 9%, transparent 9% 17%, #111110 17% 19%,
+      transparent 19% 28%, #d62410 28% 30%, transparent 30% 40%, #111110 40% 41.5%,
+      transparent 41.5% 52%, #d6241059 52% 53.5%, transparent 53.5%);
+  }
+
+  .t06{ background:#fff; }
+  .t06::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(135deg,transparent 22%,#d8232a 22% 29%,transparent 29%),
+               linear-gradient(135deg,transparent 38%,#1f5fbf 38% 45%,transparent 45%),
+               linear-gradient(135deg,transparent 54%,#0f8a4a 54% 61%,transparent 61%),
+               linear-gradient(0deg,transparent 12%,#000 12% 17%,transparent 17%);
+  }
+
+  /* El aparato: rejilla perforada y un dial naranja */
+  .t07{ background:#f2f1ee; }
+  .t07::after{
+    content:""; position:absolute; inset:16% 13%;
+    border:1px solid #2b2b2930;
+    background:radial-gradient(circle at 83% 73%,#e8541b 0 8%,transparent 8%),
+               radial-gradient(circle,#2b2b2947 1.2px,transparent 1.5px) 0 0/8px 8px,
+               linear-gradient(180deg,#e0ddd6,#cfcbc2);
+  }
+
+  .t08{ background:#0a0a0a; }
+  .t08::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(0deg,
+      #0047ff 0 21%, #ff5ea8 21% 40%, #0a0a0a 40% 54%, #ffd400 54% 77%, #ff3b00 77%);
+  }
+
+  .t09{ background:#d9d4c7; }
+  .t09::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(96deg,transparent 40%,#ff2f00 40% 46%,transparent 46%),
+               linear-gradient(0deg,transparent 30%,#14120f 30% 52%,transparent 52%),
+               repeating-linear-gradient(0deg,#14120f0d 0 1px,transparent 1px 3px);
+  }
+
+  .t10{ background:#f0ead6; }
+  .t10::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(ellipse 30% 22% at 50% 50%,#23201c 0 99%,transparent),
+               radial-gradient(circle at 50% 50%,#e0501f 0 9%,transparent 9%),
+               linear-gradient(0deg,transparent 78%,#f2b134 78% 88%,transparent 88%),
+               linear-gradient(90deg,transparent 84%,#2d6a6e 84%);
+  }
+
+  .t11{ background:linear-gradient(180deg,#fbfbf9,#f3f2ee); }
+  .t11::after{
+    content:""; position:absolute; left:50%; top:46%;
+    width:30%; aspect-ratio:1; transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:#eae8e3;
+  }
+
+  .t12{ background:#f0edf7; }
+  .t12::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 24% 30%,#7b5cffa6,transparent 52%),
+               radial-gradient(circle at 78% 72%,#ff2d9b8f,transparent 50%),
+               radial-gradient(circle at 62% 34%,#00e5d073,transparent 44%),
+               linear-gradient(#1b183012 1px,transparent 1px) 0 0/22px 22px,
+               linear-gradient(90deg,#1b183012 1px,transparent 1px) 0 0/22px 22px;
+  }
+
+  /* Globo de puntos sobre foto oscura */
+  .t15{ background:linear-gradient(155deg,#14202f,#05060a 70%); }
+  .t15::before{
+    content:""; position:absolute; left:60%; top:50%;
+    width:58%; aspect-ratio:1; transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(circle,#d7e2ea 1px,transparent 1.3px) 0 0/7px 7px;
+    box-shadow:inset 0 0 34px 8px #79a8c82e, 0 0 26px #79a8c824;
+    border:1px solid #79a8c840;
+  }
+  .t15::after{
+    content:""; position:absolute; left:10%; bottom:22%;
+    width:26%; height:3px;
+    background:var(--acc);
+    box-shadow:0 10px 0 -1px #ffffff2e, 0 20px 0 -1px #ffffff1a;
+  }
+
+  /* Cielo con sol y dos crestas recortadas, como en la portada */
+  .t14{
+    background:
+      radial-gradient(circle at 76% 27%,#ffc48f 0 5%,#ff9d5c 8%,#ff7a4500 13%),
+      linear-gradient(180deg,#0a1224 0%,#17273f 54%,#24395c 100%);
+  }
+  .t14::before{
+    content:""; position:absolute; left:-4%; right:-4%; bottom:20%; height:54%;
+    background:#22395e;
+    clip-path:polygon(0 100%,14% 40%,30% 78%,46% 24%,64% 66%,80% 32%,100% 72%,100% 100%);
+  }
+  .t14::after{
+    content:""; position:absolute; left:-4%; right:-4%; bottom:0; height:46%;
+    background:#0c1526;
+    clip-path:polygon(0 100%,10% 54%,26% 88%,42% 42%,58% 80%,74% 38%,90% 74%,100% 50%,100% 100%);
+  }
+
+  .t13{ background:#0c0b0e; display:grid; place-items:center; }
+  .t13::after{
+    content:""; position:absolute; left:50%; top:44%;
+    width:34%; aspect-ratio:1; transform:translate(-50%,-50%);
+    background:#c2472c;
+    box-shadow:0 0 0 10px #e7ddcb, 0 0 0 22px #1f2536, 0 0 0 34px #e0a33c;
+  }
+  .feature .t13::after{ width:26%; }
+
+  /* ---------- Pie ---------- */
   footer{
-    margin-top:clamp(40px,6vw,70px);
-    padding:24px 0 44px;
+    margin-top:clamp(44px,6vw,76px);
+    padding:24px 0 48px;
     border-top:1px solid var(--line);
     font-family:"JetBrains Mono",monospace;
     font-size:.74rem;
@@ -153,10 +375,13 @@
     color:var(--faint);
   }
 
-  @media (max-width:620px){
-    .item{ grid-template-columns:44px 1fr; }
-    .swatch{ display:none; }
-    .go{ display:none; }
+  @media (max-width:760px){
+    .feature{ grid-template-columns:1fr; }
+    .feature .thumb{ min-height:200px; border-right:0; border-bottom:1px solid var(--line); }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ transition-duration:.01ms !important; }
   }
 </style>
 </head>
@@ -164,7 +389,7 @@
 
 <div class="wrap">
   <header>
-    <span class="tag">12 ejemplos · HTML + CSS + JS</span>
+    <span class="tag">15 ejemplos · HTML, CSS, JS y React</span>
     <h1>Landing pages de ejemplo</h1>
     <p class="sub">
       Cada carpeta es una página independiente y completa: <code>index.html</code>,
@@ -175,150 +400,186 @@
 
   <main>
 
-    <h2 class="group">Sectores habituales</h2>
-    <div class="list">
-      <a class="item" href="01-saas-nebula/index.html">
-        <span class="swatch s01" aria-hidden="true"></span>
-        <div>
-          <span class="num">01</span>
-          <h3>Nebula — SaaS de analítica</h3>
-          <p>Oscura, con degradados. Mock de dashboard animado, contadores y FAQ.</p>
-          <div class="meta"><span>dark</span><span>contadores</span><span>toggle precios</span><span>acordeón</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+    <h2 class="group">Destacada</h2>
+    <a class="feature" href="13-galeria-virtual/index.html">
+      <span class="thumb"><i class="t13"></i><span class="num">13</span></span>
+      <span class="body">
+        <span class="flag">Joya de la corona</span>
+        <h3>ATRIO — Galería virtual de arte</h3>
+        <p>
+          Ocho módulos: mosaico tipo Pinterest, visor a pantalla completa con teclado,
+          favoritos que persisten, artista destacado, sala en 3D recorrible, exposiciones
+          y dos modos de sala. Las 22 obras están <b>generadas por código</b> con
+          semilla estable — ni una sola imagen externa.
+        </p>
+        <span class="ref">→ Albers · Munari · Saville · Irma Boom</span>
+        <span class="meta">
+          <span>arte generativo</span><span>masonry</span><span>lightbox</span>
+          <span>sala 3D</span><span>localStorage</span>
+        </span>
+        <span class="go">Entrar en la galería <b aria-hidden="true">→</b></span>
+      </span>
+    </a>
+
+    <h2 class="group">Interfaz de producto <span>datos antes que prosa</span></h2>
+    <div class="grid">
+      <a class="card" href="15-meridiano-app/index.html">
+        <span class="thumb"><i class="t15"></i><span class="num">15</span></span>
+        <span class="body">
+          <h3>MERIDIANO — Expediciones</h3>
+          <p>
+            Aplicación web sin scroll: todo vive en 100dvh. Globo de 2.600 puntos
+            en three.js con arcos entre destinos, marcadores HTML proyectados desde
+            3D y tres vistas que se cruzan sin recargar. Fotografía libre de Unsplash.
+          </p>
+          <span class="ref">→ React 18 + three.js · Instrument Serif + Inter Tight</span>
+          <span class="meta">
+            <span>three.js</span><span>React</span><span>sin scroll</span><span>teclado</span>
+          </span>
+        </span>
       </a>
 
-      <a class="item" href="02-cafe-tostaduria/index.html">
-        <span class="swatch s02" aria-hidden="true"></span>
-        <div>
-          <span class="num">02</span>
-          <h3>Rueda Norte — Tostaduría de café</h3>
-          <p>Editorial cálida en tonos papel. Taza dibujada en CSS y slider de testimonios.</p>
-          <div class="meta"><span>editorial</span><span>slider</span><span>pestañas</span><span>arte en CSS</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="item" href="03-app-fitness/index.html">
-        <span class="swatch s03" aria-hidden="true"></span>
-        <div>
-          <span class="num">03</span>
-          <h3>PULSO — App de fitness</h3>
-          <p>Tipografía gruesa y acento lima. Móvil con cuatro pantallas navegables.</p>
-          <div class="meta"><span>bold</span><span>mockup móvil</span><span>filtros</span><span>calculadora</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="item" href="04-estudio-creativo/index.html">
-        <span class="swatch s04" aria-hidden="true"></span>
-        <div>
-          <span class="num">04</span>
-          <h3>Taller Oeste — Estudio creativo</h3>
-          <p>Brutalismo editorial en papel y negro. Cursor propio y formulario validado.</p>
-          <div class="meta"><span>brutalista</span><span>cursor custom</span><span>marquee</span><span>formulario</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+      <a class="card" href="14-estacion-esqui/index.html">
+        <span class="thumb"><i class="t14"></i><span class="num">14</span></span>
+        <span class="body">
+          <h3>VALDÔRE — Estación de esquí</h3>
+          <p>
+            Tablero de montaña con búsqueda y filtros, perfil de cotas en SVG,
+            previsión a 5 días, cámaras y configurador de forfait que calcula el
+            ahorro en vivo. Conversor °C/°F que reescribe la página entera.
+          </p>
+          <span class="ref">→ Bricolage Grotesque + Instrument Sans + JetBrains Mono</span>
+          <span class="meta">
+            <span>UI densa</span><span>unidades</span><span>calculadora</span><span>nevada CSS</span>
+          </span>
+        </span>
       </a>
     </div>
 
-    <h2 class="group">Ejercicios de estilo · escuelas y diseñadores</h2>
-    <div class="list">
-      <a class="item" href="05-swiss-brockmann/index.html">
-        <span class="swatch s05" aria-hidden="true"></span>
-        <div>
-          <span class="num">05</span>
-          <h3>Ciclo Sinfónico — Temporada de conciertos</h3>
-          <p>Retícula de 12 columnas que puedes ver con un botón, círculos concéntricos, rojo y negro.</p>
-          <span class="ref">→ escuela suiza · Josef Müller-Brockmann</span>
-          <div class="meta"><span>grid visible</span><span>filtros</span><span>helvética</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+    <h2 class="group">Ejercicios de estilo <span>escuelas y diseñadores</span></h2>
+    <div class="grid">
+
+      <a class="card" href="05-swiss-brockmann/index.html">
+        <span class="thumb"><i class="t05"></i><span class="num">05</span></span>
+        <span class="body">
+          <h3>Ciclo Sinfónico</h3>
+          <p>Retícula de 12 columnas que puedes superponer con un botón y círculos concéntricos animados.</p>
+          <span class="ref">→ Müller-Brockmann · escuela suiza</span>
+          <span class="meta"><span>grid visible</span><span>filtros</span></span>
+        </span>
       </a>
 
-      <a class="item" href="06-vignelli-transporte/index.html">
-        <span class="swatch s06" aria-hidden="true"></span>
-        <div>
-          <span class="num">06</span>
-          <h3>LÍNEA — Metro de la ciudad</h3>
-          <p>Filetes gruesos como estructura y diagrama de red en SVG a 45°, con líneas aislables.</p>
+      <a class="card" href="06-vignelli-transporte/index.html">
+        <span class="thumb"><i class="t06"></i><span class="num">06</span></span>
+        <span class="body">
+          <h3>LÍNEA — Metro</h3>
+          <p>Filetes gruesos como estructura y diagrama SVG a 45° con líneas que se aíslan al pulsarlas.</p>
           <span class="ref">→ Massimo Vignelli · Unimark</span>
-          <div class="meta"><span>SVG</span><span>mapa interactivo</span><span>calculadora</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+          <span class="meta"><span>SVG</span><span>mapa interactivo</span></span>
+        </span>
       </a>
 
-      <a class="item" href="07-rams-producto/index.html">
-        <span class="swatch s07" aria-hidden="true"></span>
-        <div>
-          <span class="num">07</span>
-          <h3>T-7 — Altavoz de sobremesa</h3>
-          <p>Producto dibujado en CSS con dial de volumen que se arrastra, gira con rueda y responde al teclado.</p>
+      <a class="card" href="07-rams-producto/index.html">
+        <span class="thumb"><i class="t07"></i><span class="num">07</span></span>
+        <span class="body">
+          <h3>T-7 — Altavoz</h3>
+          <p>Producto dibujado en CSS con dial que se arrastra, gira con la rueda y responde al teclado.</p>
           <span class="ref">→ Dieter Rams · Braun</span>
-          <div class="meta"><span>dial arrastrable</span><span>acabados</span><span>fichas técnicas</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+          <span class="meta"><span>dial arrastrable</span><span>acabados</span></span>
+        </span>
       </a>
 
-      <a class="item" href="08-scher-teatro/index.html">
-        <span class="swatch s08" aria-hidden="true"></span>
-        <div>
-          <span class="num">08</span>
-          <h3>Teatro Público — Temporada 26</h3>
-          <p>La tipografía ocupa todo el plano. Cinco paletas intercambiables desde la barra.</p>
+      <a class="card" href="08-scher-teatro/index.html">
+        <span class="thumb"><i class="t08"></i><span class="num">08</span></span>
+        <span class="body">
+          <h3>Teatro Público</h3>
+          <p>La tipografía ocupa el plano entero, sin márgenes. Cinco paletas intercambiables en vivo.</p>
           <span class="ref">→ Paula Scher</span>
-          <div class="meta"><span>type as image</span><span>paletas</span><span>color plano</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+          <span class="meta"><span>type as image</span><span>paletas</span></span>
+        </span>
       </a>
 
-      <a class="item" href="09-carson-revista/index.html">
-        <span class="swatch s09" aria-hidden="true"></span>
-        <div>
-          <span class="num">09</span>
-          <h3>RUIDO — Revista impresa</h3>
-          <p>Retícula rota y portada que puedes desmontar arrastrando cada pieza con el ratón o el dedo.</p>
+      <a class="card" href="09-carson-revista/index.html">
+        <span class="thumb"><i class="t09"></i><span class="num">09</span></span>
+        <span class="body">
+          <h3>RUIDO — Revista</h3>
+          <p>Retícula rota y portada que desmontas arrastrando cada pieza con el ratón o el dedo.</p>
           <span class="ref">→ David Carson · Ray Gun</span>
-          <div class="meta"><span>drag & drop</span><span>grid roto</span><span>grano</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+          <span class="meta"><span>drag &amp; drop</span><span>grid roto</span></span>
+        </span>
       </a>
 
-      <a class="item" href="10-bass-cine/index.html">
-        <span class="swatch s10" aria-hidden="true"></span>
-        <div>
-          <span class="num">10</span>
-          <h3>Festival de Cine de Otoño</h3>
+      <a class="card" href="10-bass-cine/index.html">
+        <span class="thumb"><i class="t10"></i><span class="num">10</span></span>
+        <span class="body">
+          <h3>Festival de Cine</h3>
           <p>Formas recortadas en CSS puro, con un ojo que parpadea y mira. Programa por días.</p>
           <span class="ref">→ Saul Bass</span>
-          <div class="meta"><span>clip-path</span><span>cinta</span><span>programa</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+          <span class="meta"><span>clip-path</span><span>programa</span></span>
+        </span>
       </a>
 
-      <a class="item" href="11-hara-minimal/index.html">
-        <span class="swatch s11" aria-hidden="true"></span>
-        <div>
-          <span class="num">11</span>
-          <h3>SHIRO — Objetos para la casa</h3>
-          <p>El vacío como material. Siluetas en vez de fotos, tipografía diminuta y apariciones muy lentas.</p>
+      <a class="card" href="11-hara-minimal/index.html">
+        <span class="thumb"><i class="t11"></i><span class="num">11</span></span>
+        <span class="body">
+          <h3>SHIRO — Objetos</h3>
+          <p>El vacío como material. Siluetas en vez de fotos y apariciones muy lentas.</p>
           <span class="ref">→ Kenya Hara · diseño sin marca</span>
-          <div class="meta"><span>minimalismo</span><span>siluetas CSS</span><span>fade lento</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+          <span class="meta"><span>minimalismo</span><span>siluetas CSS</span></span>
+        </span>
       </a>
 
-      <a class="item" href="12-greiman-newwave/index.html">
-        <span class="swatch s12" aria-hidden="true"></span>
-        <div>
-          <span class="num">12</span>
-          <h3>HÍBRIDA 2026 — Congreso de diseño</h3>
-          <p>Capas superpuestas con paralaje al mover el ratón, tramas de puntos y coordenadas a la vista.</p>
-          <span class="ref">→ April Greiman · New Wave californiana</span>
-          <div class="meta"><span>paralaje</span><span>halftone</span><span>pastel + flúor</span></div>
-        </div>
-        <span class="go" aria-hidden="true">↗</span>
+      <a class="card" href="12-greiman-newwave/index.html">
+        <span class="thumb"><i class="t12"></i><span class="num">12</span></span>
+        <span class="body">
+          <h3>HÍBRIDA 2026</h3>
+          <p>Capas con paralaje al mover el ratón, tramas de puntos y coordenadas a la vista.</p>
+          <span class="ref">→ April Greiman · New Wave</span>
+          <span class="meta"><span>paralaje</span><span>halftone</span></span>
+        </span>
       </a>
+
+    </div>
+
+    <h2 class="group">Sectores habituales <span>SaaS, hostelería, app, servicios</span></h2>
+    <div class="grid">
+
+      <a class="card" href="01-saas-nebula/index.html">
+        <span class="thumb"><i class="t01"></i><span class="num">01</span></span>
+        <span class="body">
+          <h3>Nebula — SaaS de analítica</h3>
+          <p>Oscura y con degradados. Mock de dashboard animado, contadores y acordeón de FAQ.</p>
+          <span class="meta"><span>dark</span><span>contadores</span><span>toggle precios</span></span>
+        </span>
+      </a>
+
+      <a class="card" href="02-cafe-tostaduria/index.html">
+        <span class="thumb"><i class="t02"></i><span class="num">02</span></span>
+        <span class="body">
+          <h3>Rueda Norte — Tostaduría</h3>
+          <p>Editorial cálida en tonos papel. Taza dibujada en CSS y slider de testimonios con swipe.</p>
+          <span class="meta"><span>editorial</span><span>slider</span><span>arte en CSS</span></span>
+        </span>
+      </a>
+
+      <a class="card" href="03-app-fitness/index.html">
+        <span class="thumb"><i class="t03"></i><span class="num">03</span></span>
+        <span class="body">
+          <h3>PULSO — App de fitness</h3>
+          <p>Tipografía gruesa y acento lima. Móvil con cuatro pantallas navegables y calculadora.</p>
+          <span class="meta"><span>bold</span><span>mockup móvil</span><span>filtros</span></span>
+        </span>
+      </a>
+
+      <a class="card" href="04-estudio-creativo/index.html">
+        <span class="thumb"><i class="t04"></i><span class="num">04</span></span>
+        <span class="body">
+          <h3>Taller Oeste — Estudio</h3>
+          <p>Brutalismo editorial en papel y negro. Cursor propio y formulario con validación por campo.</p>
+          <span class="meta"><span>brutalista</span><span>cursor custom</span><span>marquee</span></span>
+        </span>
+      </a>
+
     </div>
   </main>
 

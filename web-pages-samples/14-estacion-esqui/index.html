@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VALDÔRE — Estación de esquí · 2.480 m</title>
+<meta name="description" content="Parte de nieve, estado de remontes y pistas, cámaras y forfait.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#estado">Ir al estado de la montaña</a>
+
+<!-- ══════════ BARRA ══════════ -->
+<header class="bar" id="bar">
+  <div class="bar__in">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 28 24" aria-hidden="true"><path d="M14 2 L26 22 H2 Z" fill="currentColor"/><path d="M14 2 L18.2 9 L14 12 L9.8 9 Z" fill="#0a1120"/></svg>
+      <span>VALDÔRE</span>
+    </a>
+
+    <nav class="bar__nav" id="menu">
+      <a href="#estado">Montaña</a>
+      <a href="#perfil">Cotas</a>
+      <a href="#parte">Parte</a>
+      <a href="#camaras">Cámaras</a>
+      <a href="#forfait">Forfait</a>
+    </nav>
+
+    <div class="bar__end">
+      <span class="live" id="live">
+        <i class="live__dot" aria-hidden="true"></i>
+        <b>Abierta</b>
+        <em data-temp="-6"></em>
+      </span>
+
+      <div class="units" role="group" aria-label="Sistema de unidades">
+        <button class="unit is-on" data-u="m" aria-pressed="true">°C</button>
+        <button class="unit" data-u="i" aria-pressed="false">°F</button>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══════════ 01 · PORTADA ══════════ -->
+  <section class="hero">
+    <div class="range" aria-hidden="true">
+      <span class="r r--4"></span>
+      <span class="r r--3"></span>
+      <span class="r r--2"></span>
+      <span class="r r--1"></span>
+      <span class="sun"></span>
+    </div>
+    <div class="snowfall" id="snowfall" aria-hidden="true"></div>
+
+    <div class="hero__in">
+      <p class="kick">Pirineo · cota 1.640 – <span data-m="2480"></span></p>
+      <h1>VALDÔRE</h1>
+
+      <!-- Panel de condiciones -->
+      <div class="panel" role="group" aria-label="Condiciones actuales">
+        <div class="panel__g">
+          <div class="stat stat--hi">
+            <span class="stat__k">Nieve polvo</span>
+            <span class="stat__v" data-cm="185"></span>
+            <span class="stat__s">cota alta</span>
+          </div>
+          <div class="stat">
+            <span class="stat__k">Nieve nueva 24 h</span>
+            <span class="stat__v" data-cm="22"></span>
+            <span class="stat__s">últimas 24 h</span>
+          </div>
+          <div class="stat">
+            <span class="stat__k">Temperatura</span>
+            <span class="stat__v" data-temp="-6"></span>
+            <span class="stat__s">a 2.100 m</span>
+          </div>
+          <div class="stat">
+            <span class="stat__k">Viento</span>
+            <span class="stat__v" data-kmh="18"></span>
+            <span class="stat__s">NO · racha 34</span>
+          </div>
+          <div class="stat">
+            <span class="stat__k">Visibilidad</span>
+            <span class="stat__v stat__v--txt">Buena</span>
+            <span class="stat__s">sin nubes bajas</span>
+          </div>
+        </div>
+
+        <div class="panel__bar">
+          <span class="pill pill--ok"><i></i> <b id="pillLifts">—</b> remontes</span>
+          <span class="pill pill--ok"><i></i> <b id="pillSlopes">—</b> pistas</span>
+          <span class="pill"><i class="pill__i">◷</i> 09:00 – 16:30</span>
+          <span class="pill pill--warn"><i class="pill__i">✳</i> Riesgo de aludes 2/5</span>
+          <a href="#forfait" class="pill pill--cta">Forfait desde 52 € <b aria-hidden="true">→</b></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 02 · ESTADO DE LA MONTAÑA ══════════ -->
+  <section class="sec" id="estado">
+    <header class="sec__h">
+      <h2>Estado de la montaña</h2>
+      <p class="upd">Actualizado <span id="updTime">—</span></p>
+    </header>
+
+    <div class="board">
+      <div class="board__ctrl">
+        <div class="seg" role="tablist" aria-label="Tipo de instalación">
+          <button class="seg__b is-on" role="tab" aria-selected="true" data-v="lifts">Remontes <b id="nLifts">0</b></button>
+          <button class="seg__b" role="tab" aria-selected="false" data-v="slopes">Pistas <b id="nSlopes">0</b></button>
+        </div>
+
+        <label class="search">
+          <span class="sr-only">Buscar remonte o pista</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13.5 13.5 L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="search" id="q" placeholder="Buscar…" autocomplete="off">
+        </label>
+
+        <div class="chips" id="sectors" role="group" aria-label="Filtrar por sector"></div>
+      </div>
+
+      <p class="board__count" id="boardCount" role="status"></p>
+
+      <div class="rows" id="rows"></div>
+
+      <p class="board__empty" id="boardEmpty" hidden>Nada coincide con esa búsqueda.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 03 · PERFIL DE COTAS ══════════ -->
+  <section class="sec sec--alt" id="perfil">
+    <header class="sec__h">
+      <h2>Cotas</h2>
+      <p class="upd">Pasa por los puntos</p>
+    </header>
+
+    <div class="profile">
+      <svg class="prof" viewBox="0 0 1000 380" role="img" aria-label="Perfil de altitudes de la estación">
+        <defs>
+          <linearGradient id="gsnow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"  stop-color="#6cc4f5" stop-opacity=".38"/>
+            <stop offset="100%" stop-color="#6cc4f5" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <g class="prof__grid">
+          <line x1="0" y1="40"  x2="1000" y2="40"/>
+          <line x1="0" y1="125" x2="1000" y2="125"/>
+          <line x1="0" y1="210" x2="1000" y2="210"/>
+          <line x1="0" y1="295" x2="1000" y2="295"/>
+        </g>
+        <g class="prof__lbl">
+          <text x="6" y="34">2.480</text>
+          <text x="6" y="119">2.200</text>
+          <text x="6" y="204">1.920</text>
+          <text x="6" y="289">1.640</text>
+        </g>
+
+        <path class="prof__area" d="M0,330 L90,300 L180,318 L270,240 L360,262 L450,170 L540,196 L620,120 L700,146 L780,64 L860,96 L940,42 L1000,58 L1000,380 L0,380 Z" fill="url(#gsnow)"/>
+        <path class="prof__line" d="M0,330 L90,300 L180,318 L270,240 L360,262 L450,170 L540,196 L620,120 L700,146 L780,64 L860,96 L940,42 L1000,58"/>
+
+        <g id="profPts"></g>
+      </svg>
+
+      <div class="prof__tip" id="profTip" hidden>
+        <b id="tipName"></b>
+        <span id="tipAlt"></span>
+      </div>
+
+      <dl class="profile__facts">
+        <div><dt>Desnivel</dt><dd><span data-m="840"></span></dd></div>
+        <div><dt>Km esquiables</dt><dd>62<i>km</i></dd></div>
+        <div><dt>Pista más larga</dt><dd>7,4<i>km</i></dd></div>
+        <div><dt>Cañones</dt><dd>340<i>ud</i></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══════════ 04 · PARTE ══════════ -->
+  <section class="sec" id="parte">
+    <header class="sec__h">
+      <h2>Próximos 5 días</h2>
+      <p class="upd">Modelo AROME · 06:00</p>
+    </header>
+
+    <div class="fc" id="fc"></div>
+  </section>
+
+  <!-- ══════════ 05 · CÁMARAS ══════════ -->
+  <section class="sec sec--alt" id="camaras">
+    <header class="sec__h">
+      <h2>Cámaras</h2>
+      <p class="upd">Imagen cada 10 min</p>
+    </header>
+
+    <div class="cams">
+      <figure class="cam cam--big">
+        <div class="shot shot--dawn" aria-hidden="true">
+          <span class="sky"></span><span class="sun2"></span>
+          <span class="pk pk--a"></span><span class="pk pk--b"></span><span class="pk pk--c"></span>
+          <span class="field"></span>
+        </div>
+        <figcaption>
+          <b>Cima Valdôre</b>
+          <span data-m="2480"></span>
+          <i class="cam__t">08:10</i>
+        </figcaption>
+      </figure>
+
+      <figure class="cam">
+        <div class="shot shot--blue" aria-hidden="true">
+          <span class="sky"></span><span class="pk pk--a"></span><span class="pk pk--c"></span><span class="field"></span>
+        </div>
+        <figcaption><b>Collado Norte</b><span data-m="2180"></span><i class="cam__t">08:10</i></figcaption>
+      </figure>
+
+      <figure class="cam">
+        <div class="shot shot--flat" aria-hidden="true">
+          <span class="sky"></span><span class="pk pk--b"></span><span class="field"></span><span class="lift"></span>
+        </div>
+        <figcaption><b>Telecabina base</b><span data-m="1640"></span><i class="cam__t">08:10</i></figcaption>
+      </figure>
+
+      <figure class="cam">
+        <div class="shot shot--night" aria-hidden="true">
+          <span class="sky"></span><span class="pk pk--a"></span><span class="pk pk--b"></span><span class="field"></span>
+        </div>
+        <figcaption><b>Circo del Lago</b><span data-m="2320"></span><i class="cam__t">08:10</i></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════ 06 · FORFAIT ══════════ -->
+  <section class="sec" id="forfait">
+    <header class="sec__h">
+      <h2>Forfait</h2>
+      <p class="upd">Precio en tiempo real</p>
+    </header>
+
+    <div class="buy">
+      <form class="cfg" id="cfg" novalidate>
+        <fieldset class="fld">
+          <legend>Días</legend>
+          <div class="days" id="days" role="group" aria-label="Número de días"></div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>Esquiadores</legend>
+          <div class="steppers">
+            <div class="step">
+              <span class="step__l">Adulto<i>18 – 64</i></span>
+              <div class="step__c">
+                <button type="button" class="step__b" data-k="ad" data-d="-1" aria-label="Quitar un adulto">−</button>
+                <output class="step__n" id="nAd" aria-live="polite">2</output>
+                <button type="button" class="step__b" data-k="ad" data-d="1" aria-label="Añadir un adulto">+</button>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__l">Infantil<i>6 – 17</i></span>
+              <div class="step__c">
+                <button type="button" class="step__b" data-k="ni" data-d="-1" aria-label="Quitar un infantil">−</button>
+                <output class="step__n" id="nNi" aria-live="polite">0</output>
+                <button type="button" class="step__b" data-k="ni" data-d="1" aria-label="Añadir un infantil">+</button>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step__l">Sénior<i>65+</i></span>
+              <div class="step__c">
+                <button type="button" class="step__b" data-k="se" data-d="-1" aria-label="Quitar un sénior">−</button>
+                <output class="step__n" id="nSe" aria-live="polite">0</output>
+                <button type="button" class="step__b" data-k="se" data-d="1" aria-label="Añadir un sénior">+</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>Extras</legend>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" id="xSeg"><span>Seguro · 4 €<i>por persona y día</i></span></label>
+            <label class="opt"><input type="checkbox" id="xAlq"><span>Alquiler · 26 €<i>esquís, botas y bastones</i></span></label>
+            <label class="opt"><input type="checkbox" id="xCla"><span>Clase colectiva · 38 €<i>2 h por la mañana</i></span></label>
+          </div>
+        </fieldset>
+      </form>
+
+      <aside class="tot" aria-label="Resumen del pedido">
+        <p class="tot__k">Total</p>
+        <p class="tot__v"><span id="total">0</span><i>€</i></p>
+        <p class="tot__sub" id="perDay"></p>
+
+        <ul class="tot__lines" id="lines"></ul>
+
+        <p class="tot__save" id="save" hidden></p>
+
+        <button class="cta" id="cta">Comprar forfait</button>
+        <p class="tot__note" id="note">Cancelación gratuita hasta 48 h antes.</p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ PIE ══════════ -->
+<footer class="foot">
+  <div class="foot__in">
+    <a href="#" class="logo logo--f">
+      <svg viewBox="0 0 28 24" aria-hidden="true"><path d="M14 2 L26 22 H2 Z" fill="currentColor"/><path d="M14 2 L18.2 9 L14 12 L9.8 9 Z" fill="#0a1120"/></svg>
+      <span>VALDÔRE</span>
+    </a>
+    <nav class="foot__nav">
+      <a href="#estado">Montaña</a><a href="#parte">Parte</a><a href="#forfait">Forfait</a>
+      <a href="#">Accesos</a><a href="#">Escuela</a><a href="#">Contacto</a>
+    </nav>
+    <p class="foot__c">© 2026 — Ejemplo de demostración. Estación, datos y precios ficticios.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
