@@ -1,17 +1,17 @@
 /* ============================================================
-   MERIDIANO — globo (three.js, sin dependencia de React)
-   Nube de puntos en distribución de Fibonacci + anillos de
-   latitud + arcos entre destinos. Los marcadores NO se dibujan
-   en la escena: se proyectan a 2D y los pinta React como botones
-   HTML, que así son enfocables, etiquetables y accesibles.
+   MERIDIANO — Globo 3D Táctico (Three.js - Módulo independiente)
+   - Paleta: Continentes Azul Azurita / Conexiones Amarillo Dorado
+   - Glow posterior difuminado integrado hacia el exterior
+   - Muestreo preciso de continentes mediante mapa equirrectangular
+   - Proyección 2D para marcadores HTML/React
    ============================================================ */
 (function () {
   'use strict';
 
-  var R = 1;                 // radio del globo en unidades de escena
+  var R = 1;
   var TAU = Math.PI * 2;
 
-  /** Lat/lon (grados) → vector cartesiano sobre la esfera. */
+  /** Lat/lon (grados) → Vector 3D sobre la esfera */
   function latLonToVec3(lat, lon, radius) {
     var phi = (90 - lat) * Math.PI / 180;
     var theta = (lon + 180) * Math.PI / 180;
@@ -22,31 +22,51 @@
     );
   }
 
-  /** Textura de punto: un disco con bordes suaves, generado al vuelo. */
-  function dotTexture() {
+  /** Textura para los puntos de la tierra: disco azul sólido de alta nitidez */
+  function createDotTexture() {
     var s = 64;
     var c = document.createElement('canvas');
     c.width = c.height = s;
     var g = c.getContext('2d');
-    var grd = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
-    grd.addColorStop(0, 'rgba(255,255,255,1)');
-    grd.addColorStop(0.45, 'rgba(255,255,255,0.85)');
-    grd.addColorStop(1, 'rgba(255,255,255,0)');
-    g.fillStyle = grd;
-    g.fillRect(0, 0, s, s);
+    g.beginPath();
+    g.arc(s / 2, s / 2, s * 0.42, 0, TAU);
+    g.fillStyle = '#ffffff';
+    g.fill();
     var t = new THREE.CanvasTexture(c);
     t.needsUpdate = true;
     return t;
   }
 
+  /** Carga y muestrea el mapa equirrectangular para filtrar puntos de continentes */
+  function loadLandMask(callback) {
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.src = 'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_specular_2048.jpg';
+
+    img.onload = function () {
+      var canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      var imgData = ctx.getImageData(0, 0, img.width, img.height);
+      callback(imgData, img.width, img.height);
+    };
+
+    img.onerror = function () {
+      // Fallback básico si la textura tarda o falla
+      callback(null, 0, 0);
+    };
+  }
+
   function Globe(container, opts) {
     opts = opts || {};
     this.el = container;
-    this.points = opts.points || [];      // [{lat, lon}]
+    this.points = opts.points || [];
     this.reduced = !!opts.reducedMotion;
 
-    this.spin = 0;                         // rotación acumulada en Y
-    this.tiltY = 0;                        // inclinación en X
+    this.spin = 0;
+    this.tiltY = 0;
     this.targetSpin = 0;
     this.targetTilt = -0.12;
     this.autoSpin = true;
@@ -55,11 +75,16 @@
     this.disposed = false;
 
     this._initScene();
-    this._buildGlobe();
-    this._buildArcs();
-    this._bind();
-    this.resize();
-    this._loop();
+
+    var self = this;
+    loadLandMask(function (imgData, w, h) {
+      if (self.disposed) return;
+      self._buildGlobe(imgData, w, h);
+      self._buildArcs();
+      self._bind();
+      self.resize();
+      self._loop();
+    });
   }
 
   Globe.prototype._initScene = function () {
@@ -73,7 +98,7 @@
 
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
-      alpha: true,
+      alpha: true, // Fondo transparente para acoplarse a tu página web
       powerPreference: 'high-performance'
     });
     this.renderer.setClearColor(0x000000, 0);
@@ -82,48 +107,70 @@
     this.renderer.domElement.setAttribute('aria-hidden', 'true');
     this.el.appendChild(this.renderer.domElement);
 
-    /* root desplaza el conjunto dentro del lienzo; world gira.
-       Separarlos deja que el halo acompañe al globo sin girar. */
     this.root = new THREE.Group();
     this.world = new THREE.Group();
     this.root.add(this.world);
     this.scene.add(this.root);
   };
 
-  Globe.prototype._buildGlobe = function () {
-    /* --- Nube de puntos: espiral de Fibonacci ---------------
-       Reparte N puntos sobre la esfera de forma casi uniforme,
-       sin la acumulación en los polos de una malla lat/lon. */
-    var N = 2600;
-    var pos = new Float32Array(N * 3);
+  Globe.prototype._buildGlobe = function (imgData, imgW, imgH) {
+    /* --- Nube de puntos azulada sobre continentes ------------------- */
+    var N = 14000;
+    var pos = [];
     var golden = Math.PI * (3 - Math.sqrt(5));
 
     for (var i = 0; i < N; i++) {
       var y = 1 - (i / (N - 1)) * 2;
       var r = Math.sqrt(Math.max(0, 1 - y * y));
       var th = golden * i;
-      pos[i * 3] = Math.cos(th) * r * R;
-      pos[i * 3 + 1] = y * R;
-      pos[i * 3 + 2] = Math.sin(th) * r * R;
+
+      var lat = Math.asin(y) * (180 / Math.PI);
+      var lon = (th % TAU) * (180 / Math.PI) - 180;
+
+      var isLand = false;
+      if (imgData) {
+        var u = (lon + 180) / 360;
+        var v = (90 - lat) / 180;
+        var px = Math.floor(u * imgW);
+        var py = Math.floor(v * imgH);
+        var idx = (py * imgW + px) * 4;
+        isLand = imgData.data[idx] > 30; // Umbral para tierra firme
+      } else {
+        isLand = true;
+      }
+
+      if (isLand) {
+        pos.push(
+          Math.cos(th) * r * R,
+          y * R,
+          Math.sin(th) * r * R
+        );
+      }
     }
 
-    var g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
 
-    this.dotTex = dotTexture();
-    this.dots = new THREE.Points(g, new THREE.PointsMaterial({
-      size: 0.025,
+    this.dotTex = createDotTexture();
+    this.dots = new THREE.Points(geo, new THREE.PointsMaterial({
+      size: 0.022,
       map: this.dotTex,
-      color: new THREE.Color(0xd7e2ea),
-      transparent: true,
-      opacity: 0.8,
-      depthWrite: false,
-      sizeAttenuation: true,
-      blending: THREE.AdditiveBlending
+      color: new THREE.Color(0x38bdf8), // Azul vibrante (Cian / Electric Blue)
+      transparent: false,
+      depthWrite: true,
+      sizeAttenuation: true
     }));
     this.world.add(this.dots);
 
-    /* --- Anillos de latitud, muy tenues ------------------- */
+    /* --- Núcleo Esférico Azul Oscuro (Da densidad visual sólida) ---- */
+    var coreGeo = new THREE.SphereGeometry(R * 0.995, 48, 48);
+    var coreMat = new THREE.MeshBasicMaterial({
+      color: 0x031024,
+      transparent: false
+    });
+    this.world.add(new THREE.Mesh(coreGeo, coreMat));
+
+    /* --- Retícula de latitud (Grid azul tenues) ---------------------- */
     this.rings = new THREE.Group();
     var lats = [-60, -30, 0, 30, 60];
     for (var k = 0; k < lats.length; k++) {
@@ -141,22 +188,20 @@
       var rg = new THREE.BufferGeometry();
       rg.setAttribute('position', new THREE.BufferAttribute(rp, 3));
       this.rings.add(new THREE.Line(rg, new THREE.LineBasicMaterial({
-        color: 0x8fa6b8,
+        color: 0x1d4ed8,
         transparent: true,
-        opacity: lat === 0 ? 0.28 : 0.12
+        opacity: lat === 0 ? 0.4 : 0.18
       })));
     }
     this.world.add(this.rings);
 
-    /* --- Halo: una esfera un poco mayor, vista por dentro,
-           con el color cayendo hacia el borde. Da atmósfera sin
-           postprocesado. ------------------------------------ */
+    /* --- Difuminado posterior (Halo radiante azul desde dentro) --- */
     var haloMat = new THREE.ShaderMaterial({
       transparent: true,
       side: THREE.BackSide,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
-      uniforms: { uColor: { value: new THREE.Color(0x79a8c8) } },
+      uniforms: { uColor: { value: new THREE.Color(0x0284c7) } },
       vertexShader: [
         'varying vec3 vN;',
         'void main(){',
@@ -168,49 +213,57 @@
         'uniform vec3 uColor;',
         'varying vec3 vN;',
         'void main(){',
-        '  float i = pow(0.62 - dot(vN, vec3(0.0,0.0,1.0)), 2.6);',
-        '  gl_FragColor = vec4(uColor, clamp(i,0.0,1.0) * 0.38);',
+        '  float intensity = pow(0.65 - dot(vN, vec3(0.0,0.0,1.0)), 2.8);',
+        '  gl_FragColor = vec4(uColor, clamp(intensity, 0.0, 1.0) * 0.85);',
         '}'
       ].join('\n')
     });
-    this.halo = new THREE.Mesh(new THREE.SphereGeometry(R * 1.19, 48, 48), haloMat);
+    this.halo = new THREE.Mesh(new THREE.SphereGeometry(R * 1.25, 48, 48), haloMat);
     this.root.add(this.halo);
   };
 
   Globe.prototype._buildArcs = function () {
-    /* Un arco entre cada destino y el siguiente: la ruta del
-       catálogo dibujada sobre la esfera. */
+    /* --- Rutas / Interconexiones entre puntos (Amarillo Dorado) ---- */
     this.arcs = new THREE.Group();
     var self = this;
 
     this.points.forEach(function (p, i) {
       var q = self.points[(i + 1) % self.points.length];
-      var a = latLonToVec3(p.lat, p.lon, R);
-      var b = latLonToVec3(q.lat, q.lon, R);
+      var a = latLonToVec3(p.lat, p.lon, R * 1.002);
+      var b = latLonToVec3(q.lat, q.lon, R * 1.002);
 
-      // Altura del arco proporcional a la distancia angular
-      var lift = 1 + a.distanceTo(b) * 0.38;
+      // Elevación de los arcos
+      var lift = 1 + a.distanceTo(b) * 0.32;
       var mid = a.clone().add(b).multiplyScalar(0.5).normalize().multiplyScalar(R * lift);
 
       var curve = new THREE.QuadraticBezierCurve3(a, mid, b);
       var pts = curve.getPoints(64);
       var geo = new THREE.BufferGeometry().setFromPoints(pts);
 
+      // Línea de arco en color Amarillo vibrante
       var line = new THREE.Line(geo, new THREE.LineBasicMaterial({
-        color: 0xd8a556,
+        color: 0xffd700, // Amarillo brillante (Gold)
+        linewidth: 2,
         transparent: true,
-        opacity: 0.16,
-        blending: THREE.AdditiveBlending,
+        opacity: 0.85,
         depthWrite: false
       }));
       line.userData.from = i;
       self.arcs.add(line);
+
+      // Puntos clave de conexión en el origen/destino (Nodos amarillos)
+      [a, b].forEach(function (nodeVec) {
+        var nodeGeo = new THREE.SphereGeometry(0.02, 16, 16);
+        var nodeMat = new THREE.MeshBasicMaterial({ color: 0xffea00 });
+        var nodeMesh = new THREE.Mesh(nodeGeo, nodeMat);
+        nodeMesh.position.copy(nodeVec);
+        self.arcs.add(nodeMesh);
+      });
     });
 
     this.world.add(this.arcs);
   };
 
-  /* --- Interacción: arrastrar para girar -------------------- */
   Globe.prototype._bind = function () {
     var self = this;
     var last = null;
@@ -226,7 +279,6 @@
       if (!self.dragging || !last) return;
       self.targetSpin += (e.clientX - last.x) * 0.006;
       self.targetTilt += (e.clientY - last.y) * 0.004;
-      // Sin dar la vuelta por los polos
       self.targetTilt = Math.max(-0.85, Math.min(0.85, self.targetTilt));
       last = { x: e.clientX, y: e.clientY };
     };
@@ -234,7 +286,6 @@
       self.dragging = false;
       last = null;
       self.el.classList.remove('is-dragging');
-      // Vuelve a girar solo tras un respiro
       clearTimeout(self._idle);
       self._idle = setTimeout(function () { self.autoSpin = true; }, 2600);
     };
@@ -246,17 +297,13 @@
     this.el.addEventListener('pointerleave', this._onUp);
   };
 
-  /** Gira el globo para poner un destino de frente a la cámara. */
   Globe.prototype.focus = function (index) {
     var p = this.points[index];
     if (!p) return;
     this.autoSpin = false;
     clearTimeout(this._idle);
 
-    // Longitud → giro en Y. El +90° alinea con el sistema de latLonToVec3.
     var want = -(p.lon + 90) * Math.PI / 180;
-
-    // Elegimos la vuelta equivalente más cercana para no cruzar el globo entero
     var cur = this.targetSpin;
     var diff = want - cur;
     diff = ((diff + Math.PI) % TAU + TAU) % TAU - Math.PI;
@@ -268,7 +315,6 @@
     this._idle = setTimeout(function () { self.autoSpin = true; }, 5200);
   };
 
-  /** Posiciones 2D de los marcadores, en píxeles del contenedor. */
   Globe.prototype.project = function () {
     var out = [];
     var w = this.el.clientWidth;
@@ -280,9 +326,7 @@
       var p = this.points[i];
       v.copy(latLonToVec3(p.lat, p.lon, R)).applyMatrix4(this.world.matrixWorld);
 
-      // Cara oculta: el punto mira al lado contrario de la cámara
       var facing = v.clone().normalize().dot(camDir);
-
       var s = v.clone().project(this.camera);
       out.push({
         x: (s.x * 0.5 + 0.5) * w,
@@ -301,20 +345,14 @@
 
     this.camera.aspect = aspect;
 
-    /* Distancia calculada, no fija: el globo (halo incluido) debe
-       caber SIEMPRE dentro del lienzo. Antes estaba a 3.35 fijo y
-       en columnas altas se salía por arriba y por la derecha. */
-    var rVisible = R * 1.19;
+    var rVisible = R * 1.25;
     var fovV = this.camera.fov * Math.PI / 180;
-    var distV = rVisible / Math.tan(fovV / 2);                 // límite vertical
+    var distV = rVisible / Math.tan(fovV / 2);
     var fovH = 2 * Math.atan(Math.tan(fovV / 2) * aspect);
-    var distH = rVisible / Math.tan(fovH / 2);                 // límite horizontal
+    var distH = rVisible / Math.tan(fovH / 2);
 
-    // Margen: deja aire alrededor en vez de tocar los bordes
     var margin = w < 720 ? 1.12 : 1.34;
     this.camera.position.z = Math.max(distV, distH) * margin;
-
-    // Un poco a la derecha en escritorio, centrado en móvil
     this.root.position.x = w < 720 ? 0 : rVisible * 0.14;
 
     this.camera.updateProjectionMatrix();
@@ -331,7 +369,6 @@
 
       if (self.autoSpin && !self.reduced) self.targetSpin += 0.0013;
 
-      // Interpolación: el globo llega al objetivo con inercia
       self.spin += (self.targetSpin - self.spin) * 0.055;
       self.tiltY += (self.targetTilt - self.tiltY) * 0.055;
 
